@@ -1,0 +1,1011 @@
+/* ============================================================================
+   FULLPOWEREXHAUST — Design System
+   ----------------------------------------------------------------------------
+   Intégration PrestaShop 9 / Hummingbird (Bootstrap 5.3.3)
+
+   Le design Figma est un thème sombre minimaliste « pièces d'échappement
+   performance d'occasion ». Ce fichier est chargé APRÈS theme.css afin de
+   surcharger proprement Bootstrap via :
+     1. les variables CSS `--bs-*` (surcharge globale, propre, sans !important)
+     2. des règles ciblées sur les composants Hummingbird (header, miniature
+        produit, footer, facettes, formulaire de contact, etc.)
+
+   Tokens :
+     background  #0d0d0d   foreground  #f0f0f0   card  #141414
+     primary     #c8152a   hover       #a0101f   muted #1f1f1f
+     muted-fg    #888888   border      rgba(255,255,255,0.09)
+     radius      0.375rem
+     Fonts       Outfit (texte) · Barlow Condensed (titres / marque)
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. Variables de design + surcharge des variables Bootstrap
+   --------------------------------------------------------------------------- */
+:root {
+  /* Couleurs de marque */
+  --fpe-bg:            #0d0d0d;
+  --fpe-fg:            #f0f0f0;
+  --fpe-card:          #141414;
+  --fpe-muted:         #1f1f1f;
+  --fpe-muted-fg:      #888888;
+  --fpe-border:        rgba(255, 255, 255, 0.09);
+  --fpe-border-strong: rgba(255, 255, 255, 0.16);
+  --fpe-primary:       #c8152a;
+  --fpe-primary-hover: #a0101f;
+  --fpe-primary-soft:  rgba(200, 21, 42, 0.12);
+  --fpe-success:       #198754;
+  --fpe-danger:        #dc3545;
+
+  /* Rayons */
+  --fpe-radius:    0.375rem;
+  --fpe-radius-sm: 0.25rem;
+  --fpe-radius-lg: 0.5rem;
+
+  /* Typographie */
+  --fpe-font-sans:    'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fpe-font-display: 'Barlow Condensed', 'Outfit', system-ui, sans-serif;
+
+  /* ========================================================================
+     SURCHARGE DES VARIABLES BOOTSTRAP 5.3
+     ======================================================================== */
+  --bs-body-bg:              var(--fpe-bg);
+  --bs-body-bg-rgb:          13, 13, 13;
+  --bs-body-color:           var(--fpe-fg);
+  --bs-body-color-rgb:       240, 240, 240;
+  --bs-body-font-family:     var(--fpe-font-sans);
+  --bs-body-font-size:       1rem;
+  --bs-body-font-weight:     400;
+  --bs-body-line-height:     1.5;
+  --bs-body-text-align:      left;
+
+  --bs-emphasis-color:       var(--fpe-fg);
+  --bs-secondary-color:      var(--fpe-muted-fg);
+  --bs-tertiary-color:       rgba(136, 136, 136, 0.7);
+
+  /* Primaire (rouge marque) */
+  --bs-primary:              var(--fpe-primary);
+  --bs-primary-rgb:          200, 21, 42;
+  --bs-primary-bg-subtle:    #2a080c;
+  --bs-primary-border-subtle:#57101c;
+  --bs-primary-text-emphasis:#f08a96;
+  --bs-link-color:           var(--fpe-primary);
+  --bs-link-color-rgb:       200, 21, 42;
+  --bs-link-hover-color:     var(--fpe-primary-hover);
+  --bs-link-hover-color-rgb: 160, 16, 31;
+
+  /* Secondaire */
+  --bs-secondary:            #1a1a1a;
+  --bs-secondary-rgb:        26, 26, 26;
+  --bs-dark:                 #0a0a0a;
+  --bs-dark-rgb:             10, 10, 10;
+
+  /* Bordures & rayons */
+  --bs-border-color:             var(--fpe-border);
+  --bs-border-color-translucent: var(--fpe-border);
+  --bs-border-width:             1px;
+  --bs-border-radius:            var(--fpe-radius);
+  --bs-border-radius-sm:         var(--fpe-radius-sm);
+  --bs-border-radius-lg:         var(--fpe-radius-lg);
+  --bs-border-radius-xl:         1rem;
+
+  /* Cartes */
+  --bs-card-bg:            var(--fpe-card);
+  --bs-card-color:         var(--fpe-fg);
+  --bs-card-border-color:  var(--fpe-border);
+  --bs-card-border-radius: var(--fpe-radius);
+  --bs-card-spacer-y:      1rem;
+  --bs-card-spacer-x:      1rem;
+
+  /* Arrière-plans secondaires (évite les sections blanches Bootstrap) */
+  --bs-secondary-bg:           var(--fpe-card);
+  --bs-secondary-bg-rgb:       20, 20, 20;
+  --bs-tertiary-bg:            var(--fpe-muted);
+  --bs-tertiary-bg-rgb:        31, 31, 31;
+  --bs-light:                  #1a1a1a;
+  --bs-light-rgb:              26, 26, 26;
+  --bs-light-bg-subtle:        #1f1f1f;
+  --bs-dark-bg-subtle:         #141414;
+
+  /* Formulaires */
+  --bs-form-control-bg:        #1a1a1a;
+  --bs-form-control-color:     var(--fpe-fg);
+  --bs-form-control-border-color: var(--fpe-border);
+  --bs-form-control-focus-border-color: var(--fpe-primary);
+  --bs-form-control-focus-box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+  --bs-form-select-bg:         #1a1a1a;
+  --bs-form-select-color:      var(--fpe-fg);
+  --bs-form-select-border-color: var(--fpe-border);
+  --bs-form-check-input-bg:    #1a1a1a;
+  --bs-form-check-input-border: var(--fpe-border);
+  --bs-input-placeholder-color: rgba(136, 136, 136, 0.55);
+  --bs-input-focus-border-color: var(--fpe-primary);
+  --bs-input-focus-box-shadow:   0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+
+  /* Boutons */
+  --bs-btn-bg:                  var(--fpe-primary);
+  --bs-btn-border-color:        var(--fpe-primary);
+  --bs-btn-color:               #ffffff;
+  --bs-btn-hover-bg:            var(--fpe-primary-hover);
+  --bs-btn-hover-border-color:  var(--fpe-primary-hover);
+  --bs-btn-active-bg:           var(--fpe-primary-hover);
+  --bs-btn-active-border-color: var(--fpe-primary-hover);
+  --bs-btn-border-radius:       var(--fpe-radius);
+  --bs-btn-font-size:           0.875rem;
+
+  /* Listes déroulantes / modales / offcanvas */
+  --bs-dropdown-bg:           var(--fpe-card);
+  --bs-dropdown-color:        var(--fpe-fg);
+  --bs-dropdown-border-color: var(--fpe-border);
+  --bs-dropdown-link-color:   var(--fpe-muted-fg);
+  --bs-dropdown-link-hover-bg: var(--fpe-muted);
+  --bs-dropdown-link-hover-color: var(--fpe-fg);
+  --bs-dropdown-link-active-bg: var(--fpe-primary);
+  --bs-modal-bg:              var(--fpe-card);
+  --bs-modal-content-bg:      var(--fpe-card);
+  --bs-modal-header-border-color: var(--fpe-border);
+  --bs-modal-footer-border-color: var(--fpe-border);
+  --bs-offcanvas-bg:          var(--fpe-card);
+  --bs-offcanvas-color:       var(--fpe-fg);
+
+  /* Pagination / fil d'Ariane */
+  --bs-pagination-bg:           var(--fpe-card);
+  --bs-pagination-color:        var(--fpe-fg);
+  --bs-pagination-border-color: var(--fpe-border);
+  --bs-pagination-hover-bg:     var(--fpe-muted);
+  --bs-pagination-hover-color:  var(--fpe-fg);
+  --bs-pagination-active-bg:    var(--fpe-primary);
+  --bs-pagination-active-border-color: var(--fpe-primary);
+  --bs-pagination-disabled-bg:  var(--fpe-card);
+  --bs-breadcrumb-divider-color: var(--fpe-muted-fg);
+  --bs-breadcrumb-item-active-color: var(--fpe-muted-fg);
+
+  /* Alertes */
+  --bs-alert-bg:         var(--fpe-card);
+  --bs-alert-color:      var(--fpe-fg);
+  --bs-alert-border-color: var(--fpe-border);
+  --bs-alert-link-color: var(--fpe-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   2. Base & typographie
+   --------------------------------------------------------------------------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--fpe-bg);
+  color: var(--fpe-fg);
+  font-family: var(--fpe-font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Titres en police d'affichage (Barlow Condensed) — fidèle au design Figma */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.fpe-display {
+  font-family: var(--fpe-font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fpe-fg);
+}
+
+h1 { font-size: 2.5rem; line-height: 1.1; }
+h2 { font-size: 2rem;   line-height: 1.15; }
+h3 { font-size: 1.5rem; line-height: 1.2; }
+h4 { font-size: 1.25rem; line-height: 1.25; }
+h5 { font-size: 1.05rem; line-height: 1.3; }
+h6 { font-size: 0.95rem; line-height: 1.4; }
+
+a {
+  color: var(--fpe-primary);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+a:hover { color: var(--fpe-primary-hover); }
+
+::selection { background: var(--fpe-primary); color: #fff; }
+
+/* Barre de défilement discrète */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--fpe-bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+/* ---------------------------------------------------------------------------
+   3. Conteneur de page
+   --------------------------------------------------------------------------- */
+#wrapper,
+body .wrapper { background-color: var(--fpe-bg); }
+
+.columns-container.container,
+#center-column.page { background-color: transparent; }
+
+.page-header { margin-bottom: 2rem; }
+
+/* ---------------------------------------------------------------------------
+   4. HEADER — fixe, logo texte, nav Figma, icônes à droite
+   --------------------------------------------------------------------------- */
+body { padding-top: 4rem; } /* compenser le header fixe */
+
+/* Masquer les sélecteurs langue/devise (boutique francophone mono-devise) */
+.fpe-header #_desktop_ps_languageselector,
+.fpe-header #_desktop_ps_currencyselector,
+.fpe-header .ps-languageselector,
+.fpe-header .ps-currencyselector {
+  display: none !important;
+}
+
+/* Header fixe */
+.fpe-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: var(--fpe-bg);
+  border-bottom: 1px solid var(--fpe-border);
+}
+
+/* Conteneur interne : logo (gauche) · nav (centre) · groupe droite (droite) */
+.fpe-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fpe-logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Logo texte */
+.fpe-logo {
+  font-family: var(--fpe-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+}
+.fpe-logo:hover { color: var(--fpe-primary); }
+.fpe-logo .accent { color: var(--fpe-primary); }
+
+/* Navigation Figma : Accueil / Catalogue / Contact */
+.fpe-nav {
+  display: none;
+  align-items: center;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .fpe-nav { display: flex; }
+}
+
+/* Groupe de droite : burger mobile + recherche + compte + panier + inscription */
+.fpe-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Masquer : menu desktop PrestaShop + barre de recherche + icône recherche mobile */
+.fpe-header .ps-mainmenu__desktop,
+.fpe-header #_desktop_ps_searchbar,
+.fpe-header .ps-searchbar--mobile {
+  display: none !important;
+}
+.fpe-header .ps-mainmenu--desktop {
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+/* Burger mobile uniquement sous 768px */
+@media (min-width: 768px) {
+  .fpe-header .ps-mainmenu__mobile-toggle { display: none !important; }
+}
+
+/* Bouton Inscription */
+.fpe-register-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--fpe-primary);
+  color: #fff;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--fpe-radius);
+  white-space: nowrap;
+  transition: background-color 0.18s ease;
+}
+.fpe-register-btn:hover {
+  background: var(--fpe-primary-hover);
+  color: #fff;
+}
+
+/* Icônes d'action (recherche, compte, panier) */
+.fpe-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.header-block__action-btn {
+  color: var(--fpe-muted-fg);
+  transition: color 0.18s ease;
+}
+.header-block__action-btn:hover { color: var(--fpe-fg); }
+.header-block__icon { font-size: 1.35rem; }
+.header-block__title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  white-space: nowrap;
+}
+.header-block__badge {
+  background: var(--fpe-primary);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  min-width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-radius: 0;
+}
+.ps-searchbar__form {
+  background: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+}
+.ps-searchbar__input {
+  background: transparent;
+  border: 0;
+  color: var(--fpe-fg);
+}
+.ps-searchbar__input::placeholder { color: rgba(136, 136, 136, 0.55); }
+.ps-searchbar__input:focus { box-shadow: none; }
+.ps-searchbar__magnifier { color: var(--fpe-muted-fg); }
+
+/* ---------------------------------------------------------------------------
+   5. Boutons
+   --------------------------------------------------------------------------- */
+.btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--fpe-radius);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.btn-primary {
+  --bs-btn-bg: var(--fpe-primary);
+  --bs-btn-border-color: var(--fpe-primary);
+  --bs-btn-hover-bg: var(--fpe-primary-hover);
+  --bs-btn-hover-border-color: var(--fpe-primary-hover);
+  --bs-btn-active-bg: var(--fpe-primary-hover);
+  --bs-btn-active-border-color: var(--fpe-primary-hover);
+  --bs-btn-disabled-bg: var(--fpe-primary);
+  --bs-btn-disabled-border-color: var(--fpe-primary);
+  background-color: var(--fpe-primary);
+  border-color: var(--fpe-primary);
+  color: #fff;
+}
+.btn-primary:hover,
+.btn-primary:focus { background-color: var(--fpe-primary-hover); border-color: var(--fpe-primary-hover); }
+
+.btn-outline-primary {
+  --bs-btn-color: var(--fpe-primary);
+  --bs-btn-border-color: var(--fpe-primary);
+  --bs-btn-hover-bg: var(--fpe-primary);
+  --bs-btn-hover-border-color: var(--fpe-primary);
+  --bs-btn-active-bg: var(--fpe-primary);
+  --bs-btn-active-border-color: var(--fpe-primary);
+  color: var(--fpe-primary);
+  border-color: var(--fpe-primary);
+  background: transparent;
+}
+.btn-outline-primary:hover { color: #fff; background: var(--fpe-primary); border-color: var(--fpe-primary); }
+
+.btn-link { color: var(--fpe-primary); text-transform: none; letter-spacing: 0; }
+
+/* ---------------------------------------------------------------------------
+   6. Formulaires (inputs, selects, labels)
+   --------------------------------------------------------------------------- */
+.form-control,
+.form-select {
+  background-color: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+  color: var(--fpe-fg);
+  font-size: 0.9375rem;
+}
+.form-control::placeholder { color: rgba(136, 136, 136, 0.55); }
+.form-control:focus,
+.form-select:focus {
+  background-color: #1a1a1a;
+  border-color: var(--fpe-primary);
+  box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+  color: var(--fpe-fg);
+}
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+}
+.form-check-input { accent-color: var(--fpe-primary); }
+.form-check-input:checked { background-color: var(--fpe-primary); border-color: var(--fpe-primary); }
+
+/* ---------------------------------------------------------------------------
+   7. Cartes produit (miniature) — fidèle au design Figma
+   --------------------------------------------------------------------------- */
+.product-miniature {
+  background-color: var(--fpe-card);
+  border: 1px solid var(--fpe-border);
+  height: 100%;
+  transition: border-color 0.2s ease;
+}
+.product-miniature:hover { border-color: var(--fpe-border-strong); }
+
+.product-miniature__inner { display: flex; flex-direction: column; height: 100%; }
+
+.product-miniature__top { position: relative; }
+
+/* Image au format 4/3, zoom au survol */
+.product-miniature .thumbnail-container,
+.product-miniature .thumbnail {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--fpe-muted);
+}
+.product-miniature .thumbnail img,
+.product-miniature .thumbnail-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-miniature:hover .thumbnail img,
+.product-miniature:hover .thumbnail-container img { transform: scale(1.05); }
+
+.product-miniature__bottom { display: flex; flex-direction: column; flex: 1; padding: 1.25rem; gap: 0.75rem; }
+
+.product-miniature__brand {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-primary);
+  margin-bottom: 0.2rem;
+}
+.product-miniature__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--fpe-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.product-miniature__title:hover { color: var(--fpe-primary); }
+
+.product-miniature__infos { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.product-miniature__price {
+  font-family: var(--fpe-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--fpe-fg);
+}
+.product-miniature__regular-price {
+  color: var(--fpe-muted-fg);
+  text-decoration: line-through;
+  font-size: 0.875rem;
+}
+
+.product-miniature__actions { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--fpe-border); }
+.product-miniature__form { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+
+.product-miniature__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--fpe-primary);
+  border: 1px solid var(--fpe-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--fpe-radius);
+  transition: background-color 0.18s ease;
+}
+.product-miniature__add:hover { background: var(--fpe-primary-hover); border-color: var(--fpe-primary-hover); color: #fff; }
+
+/* Étiquettes produit (badges : promo, neuf, etc.) */
+.product-flags li { list-style: none; }
+.product-flag {
+  background: var(--fpe-primary);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   8. Page d'accueil — hero, bande réassurance, sections, CTA
+   --------------------------------------------------------------------------- */
+.page-content--home { padding: 0; }
+
+/* Hero plein écran */
+.fpe-hero {
+  position: relative;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--fpe-bg);
+}
+.fpe-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.fpe-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    rgba(13,13,13,0.94) 0%,
+    rgba(13,13,13,0.78) 40%,
+    rgba(13,13,13,0.22) 70%,
+    transparent 100%);
+  z-index: 1;
+}
+.fpe-hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 8rem;
+  background: linear-gradient(to top, #0d0d0d, transparent);
+  z-index: 1;
+}
+.fpe-hero__content { position: relative; z-index: 2; width: 100%; }
+.fpe-hero__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fpe-primary);
+  margin-bottom: 1.25rem;
+}
+.fpe-hero__title {
+  font-family: var(--fpe-font-display);
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.fpe-hero__title .accent { color: var(--fpe-primary); }
+.fpe-hero__rule {
+  width: 2.5rem;
+  height: 2px;
+  background: var(--fpe-primary);
+  margin-bottom: 2rem;
+}
+.fpe-hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.fpe-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  border-radius: var(--fpe-radius);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+.fpe-btn-ghost:hover { border-color: #fff; color: #fff; }
+
+/* Bande réassurance (Performance / Sonorité / Qualité / Expertise) */
+.fpe-features {
+  border-top: 1px solid var(--fpe-border);
+  border-bottom: 1px solid var(--fpe-border);
+  background: var(--fpe-card);
+}
+.fpe-features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2.5rem 0;
+}
+@media (min-width: 768px) { .fpe-features__grid { grid-template-columns: repeat(4, 1fr); } }
+.fpe-feature__icon { color: var(--fpe-primary); margin-bottom: 0.5rem; }
+.fpe-feature__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.fpe-feature__desc { font-size: 0.75rem; color: var(--fpe-muted-fg); margin: 0; }
+
+/* Sections de produits de la page d'accueil */
+.module-products .section-title,
+.ps-featuredproducts .section-title,
+.ps-newproducts .section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.ps-featuredproducts,
+.ps-newproducts { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* CTA « Vous ne trouvez pas votre marque ? » */
+.fpe-cta {
+  border-top: 1px solid var(--fpe-border);
+  background: var(--fpe-card);
+  padding: 4rem 0;
+}
+.fpe-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .fpe-cta__inner { flex-direction: row; align-items: center; }
+}
+.fpe-cta__title {
+  font-family: var(--fpe-font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.fpe-cta__text { color: var(--fpe-muted-fg); font-size: 0.875rem; margin: 0.5rem 0 0; }
+.fpe-cta .btn { flex-shrink: 0; }
+
+/* Le hero remplace le slider d'accueil si ce dernier est actif */
+.page-content--home .ps-imageslider { display: none; }
+
+/* ---------------------------------------------------------------------------
+   9. Fil d'Ariane & pagination
+   --------------------------------------------------------------------------- */
+.breadcrumb__wrapper { background: transparent; border-bottom: 1px solid var(--fpe-border); }
+.breadcrumb { margin: 0; padding: 1rem 0; }
+.breadcrumb a { color: var(--fpe-muted-fg); font-size: 0.8125rem; }
+.breadcrumb a:hover { color: var(--fpe-primary); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--fpe-muted-fg); }
+.breadcrumb-item.active { color: var(--fpe-fg); }
+
+.pagination { gap: 0.25rem; }
+.page-link {
+  background: var(--fpe-card);
+  border-color: var(--fpe-border);
+  color: var(--fpe-fg);
+}
+.page-link:hover { background: var(--fpe-muted); color: var(--fpe-fg); }
+.page-item.active .page-link { background: var(--fpe-primary); border-color: var(--fpe-primary); color: #fff; }
+
+/* ---------------------------------------------------------------------------
+   10. Facettes / filtres catalogue
+   --------------------------------------------------------------------------- */
+#search_filters { background: transparent; }
+.facet { border-top: 1px solid var(--fpe-border); padding: 0.75rem 0; }
+.facet .facet-title,
+.facet-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.facet .facet-label { font-size: 0.75rem; color: var(--fpe-muted-fg); }
+.facet .facet-label:hover { color: var(--fpe-fg); }
+.custom-checkbox input[type="checkbox"]:checked + span { color: var(--fpe-primary); }
+.faceted-slider .ui-slider .ui-slider-range { background: var(--fpe-primary); }
+.faceted-slider .ui-slider .ui-slider-handle { border-color: var(--fpe-primary); }
+.active_filters { font-size: 0.8125rem; }
+.filter-block {
+  background: var(--fpe-primary-soft);
+  border: 1px solid rgba(200, 21, 42, 0.3);
+  color: var(--fpe-primary);
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0;
+}
+.filter-block .material-icons { font-size: 0.875rem; }
+
+/* Tri + compteur */
+.products-selection .total-products { color: var(--fpe-muted-fg); font-size: 0.875rem; }
+.products-selection .total-products p { color: var(--fpe-fg); font-weight: 600; }
+.sort-by-row .select-title,
+.sort-by-row label { color: var(--fpe-muted-fg); font-size: 0.75rem; }
+
+/* ---------------------------------------------------------------------------
+   11. Footer
+   --------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--fpe-border);
+  background: var(--fpe-card);
+  color: var(--fpe-fg);
+}
+.footer__main { padding: 2.5rem 0 2rem; }
+.footer__main .container { max-width: 1320px; }
+
+.footer-block__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.footer-block__list a,
+.ps-linklist a,
+.footer a {
+  color: var(--fpe-muted-fg);
+  font-size: 0.8125rem;
+  transition: color 0.18s ease;
+}
+.footer-block__list a:hover,
+.ps-linklist a:hover,
+.footer a:hover { color: var(--fpe-primary); }
+
+/* Marque + baseline en tête de footer */
+.fpe-footer-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--fpe-border);
+}
+@media (min-width: 768px) {
+  .fpe-footer-head { flex-direction: row; align-items: center; }
+}
+.fpe-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--fpe-muted-fg);
+  text-align: left;
+}
+@media (min-width: 768px) { .fpe-footer-contact { text-align: right; } }
+.fpe-footer-brand {
+  font-family: var(--fpe-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.fpe-footer-brand .accent { color: var(--fpe-primary); }
+.fpe-footer-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  margin-top: 0.25rem;
+}
+
+.copyright {
+  border-top: 1px solid var(--fpe-border);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  color: var(--fpe-muted-fg);
+  font-size: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.copyright a { color: var(--fpe-muted-fg); }
+.copyright a:hover { color: var(--fpe-primary); }
+.copyright__prestashop { opacity: 0.55; }
+.copyright__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.copyright__legal a { transition: color 0.18s ease; }
+.copyright__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------------------------
+   12. Alerts, badges, dropdowns, offcanvas, toasts
+   --------------------------------------------------------------------------- */
+.alert { border-radius: var(--fpe-radius); }
+.alert-danger {
+  --bs-alert-bg: #2a080c;
+  --bs-alert-color: #f5c2c7;
+  --bs-alert-border-color: #57101c;
+}
+.alert-success {
+  --bs-alert-bg: #0b2418;
+  --bs-alert-color: #a7e6c4;
+  --bs-alert-border-color: #1c5a3b;
+}
+.alert-warning {
+  --bs-alert-bg: #2a2105;
+  --bs-alert-color: #f2d98c;
+  --bs-alert-border-color: #66530f;
+}
+.alert-info {
+  --bs-alert-bg: #06202b;
+  --bs-alert-color: #a3d9ec;
+  --bs-alert-border-color: #145061;
+}
+
+.dropdown-menu {
+  background: var(--fpe-card);
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+}
+.dropdown-item { color: var(--fpe-muted-fg); font-size: 0.875rem; }
+.dropdown-item:hover { background: var(--fpe-muted); color: var(--fpe-fg); }
+.dropdown-divider { border-color: var(--fpe-border); }
+
+.offcanvas { background: var(--fpe-card); color: var(--fpe-fg); }
+.offcanvas .menu__link { color: var(--fpe-fg); }
+.offcanvas .menu__link:hover { color: var(--fpe-primary); }
+.offcanvas-header { border-bottom: 1px solid var(--fpe-border); }
+
+.toast { background: var(--fpe-card); border: 1px solid var(--fpe-border); }
+
+/* ---------------------------------------------------------------------------
+   13. Page contact — carte d'infos + formulaire
+   --------------------------------------------------------------------------- */
+.contact-form .form-fields { padding: 0; }
+.contact-rich { color: var(--fpe-muted-fg); }
+.contact-rich h4 { color: var(--fpe-fg); }
+
+/* ---------------------------------------------------------------------------
+   13bis. Pages CMS / légales (modèle Figma)
+   --------------------------------------------------------------------------- */
+.page-header--cms {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1rem 0;
+}
+.page-header--cms .page-header__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-primary);
+  margin-bottom: 0.35rem;
+}
+.page-header--cms .page-title-section {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+  margin-bottom: 2.5rem;
+}
+.page-content--cms {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+  color: var(--fpe-muted-fg);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.page-content--cms h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fpe-fg);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.page-content--cms h3 { font-size: 1.05rem; color: var(--fpe-fg); margin-top: 1.5rem; }
+.page-content--cms p { margin-bottom: 1rem; }
+.page-content--cms ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.page-content--cms li { margin-bottom: 0.5rem; }
+.page-content--cms strong { color: var(--fpe-fg); }
+
+/* ---------------------------------------------------------------------------
+   14. Réassurance (module) — alignement avec la bande features
+   --------------------------------------------------------------------------- */
+.blockreassurance--light {
+  background: var(--fpe-card);
+  border-top: 1px solid var(--fpe-border);
+  border-bottom: 1px solid var(--fpe-border);
+}
+.blockreassurance--horizontal .reassurance { justify-content: flex-start; gap: 0.75rem; }
+.reassurance__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+.reassurance__desc { color: var(--fpe-muted-fg); font-size: 0.75rem; }
+
+/* ---------------------------------------------------------------------------
+   15. Harmonisation noire (composants encore clairs)
+   --------------------------------------------------------------------------- */
+/* Tooltip du slider de prix (facettes) */
+.noui-tooltip {
+  background: var(--fpe-card);
+  color: var(--fpe-fg);
+  border: 1px solid var(--fpe-border);
+}
+
+/* Pastilles du carousel */
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Tables, accordéons et listes : forcer le fond sombre */
+.table { --bs-table-bg: transparent; --bs-table-color: var(--fpe-fg); --bs-table-border-color: var(--fpe-border); }
+.table-striped > tbody > tr:nth-of-type(odd) > * { --bs-table-accent-bg: rgba(255, 255, 255, 0.03); }
+.accordion { --bs-accordion-bg: var(--fpe-card); --bs-accordion-color: var(--fpe-fg); --bs-accordion-border-color: var(--fpe-border); }
+.list-group { --bs-list-group-bg: var(--fpe-card); --bs-list-group-color: var(--fpe-fg); --bs-list-group-border-color: var(--fpe-border); }
+.input-group-text { background-color: var(--fpe-muted); color: var(--fpe-fg); border-color: var(--fpe-border); }
+
+/* ---------------------------------------------------------------------------
+   16. Correctifs responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  body { padding-top: 3.75rem; }
+  .fpe-hero { min-height: calc(100vh - 3.75rem); }
+  .fpe-logo { font-size: 1.2rem; letter-spacing: 0.1em; }
+  .product-miniature__price { font-size: 1.5rem; }
+}
+
+/* Respect des préférences de réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

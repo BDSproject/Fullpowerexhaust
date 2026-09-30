@@ -1,0 +1,48 @@
+/* ============================================================================
+   FULLPOWEREXHAUST — Tailwind CSS 4 (intégration du template Figma)
+   ----------------------------------------------------------------------------
+   - Importe uniquement theme + utilities (PAS le preflight) pour cohabiter
+     avec Bootstrap 5.3 de PrestaShop Hummingbird.
+   - Mappe les tokens du design (theme.css du Figma) → utilitaires Tailwind.
+   - Scanne les templates Smarty du thème pour générer les classes utilisées.
+   ========================================================================== */
+
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "../themes/hummingbird/templates";
+
+@theme {
+  /* ── Couleurs du design system ── */
+  --color-background: #0d0d0d;
+  --color-foreground: #f0f0f0;
+  --color-card: #141414;
+  --color-card-foreground: #f0f0f0;
+  --color-popover: #141414;
+  --color-popover-foreground: #f0f0f0;
+  --color-primary: #c8152a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #f0f0f0;
+  --color-muted: #1f1f1f;
+  --color-muted-foreground: #888888;
+  --color-accent: #c8152a;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #dc3545;
+  --color-destructive-foreground: #ffffff;
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-input-background: #1f1f1f;
+  --color-ring: #c8152a;
+
+  /* ── Rayons ── */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+
+  /* ── Typographie ── */
+  --font-sans: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Barlow Condensed', 'Outfit', system-ui, sans-serif;
+}

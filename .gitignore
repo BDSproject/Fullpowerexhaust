@@ -1,0 +1,26 @@
+# ── Dépendances (réinstallables) ──
+/vendor/
+/node_modules/
+
+# ── Cache, logs, sessions ──
+/var/
+/cache/
+*.log
+/var/logs/
+
+# ── Configuration sensible (identifiants DB, secrets) ──
+/app/config/parameters.php
+/app/config/parameters.yml
+/app/config/parameters.php.prod-bak
+/.env
+/.env.local
+
+# ── Données boutique (images produit uploadées, logo, etc.) ──
+/img/
+/upload/
+/download/
+
+# ── Fichiers macOS / temporaires ──
+.DS_Store
+**/.DS_Store
+Thumbs.db
