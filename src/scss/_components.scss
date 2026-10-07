@@ -1,0 +1,188 @@
+// ============================================================================
+// Composants : alertes, dropdowns, offcanvas, toasts, contact, CMS, réassurance,
+// harmonisation noire.
+// ============================================================================
+
+// Alertes
+.alert { border-radius: var(--fpe-radius); }
+
+.alert-danger {
+  --bs-alert-bg: #2a080c;
+  --bs-alert-color: #f5c2c7;
+  --bs-alert-border-color: #57101c;
+}
+
+.alert-success {
+  --bs-alert-bg: #0b2418;
+  --bs-alert-color: #a7e6c4;
+  --bs-alert-border-color: #1c5a3b;
+}
+
+.alert-warning {
+  --bs-alert-bg: #2a2105;
+  --bs-alert-color: #f2d98c;
+  --bs-alert-border-color: #66530f;
+}
+
+.alert-info {
+  --bs-alert-bg: #06202b;
+  --bs-alert-color: #a3d9ec;
+  --bs-alert-border-color: #145061;
+}
+
+// Dropdowns
+.dropdown-menu {
+  background: var(--fpe-card);
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+}
+
+.dropdown-item {
+  color: var(--fpe-muted-fg);
+  font-size: 0.875rem;
+
+  &:hover { background: var(--fpe-muted); color: var(--fpe-fg); }
+}
+
+.dropdown-divider { border-color: var(--fpe-border); }
+
+// Offcanvas
+.offcanvas {
+  background: var(--fpe-card);
+  color: var(--fpe-fg);
+}
+
+.offcanvas .menu__link {
+  color: var(--fpe-fg);
+
+  &:hover { color: var(--fpe-primary); }
+}
+
+.offcanvas-header { border-bottom: 1px solid var(--fpe-border); }
+
+// Toasts
+.toast { background: var(--fpe-card); border: 1px solid var(--fpe-border); }
+
+// Page contact
+.contact-form .form-fields { padding: 0; }
+.contact-rich { color: var(--fpe-muted-fg); }
+.contact-rich h4 { color: var(--fpe-fg); }
+
+// Pages CMS / légales (modèle Figma)
+.page-header--cms {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1rem 0;
+}
+
+.page-header--cms .page-header__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-primary);
+  margin-bottom: 0.35rem;
+}
+
+.page-header--cms .page-title-section {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+  margin-bottom: 2.5rem;
+}
+
+.page-content--cms {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+  color: var(--fpe-muted-fg);
+  font-size: 0.875rem;
+  line-height: 1.7;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--fpe-fg);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 { font-size: 1.05rem; color: var(--fpe-fg); margin-top: 1.5rem; }
+  p { margin-bottom: 1rem; }
+  ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  li { margin-bottom: 0.5rem; }
+  strong { color: var(--fpe-fg); }
+}
+
+// Réassurance (module)
+.blockreassurance--light {
+  background: var(--fpe-card);
+  border-top: 1px solid var(--fpe-border);
+  border-bottom: 1px solid var(--fpe-border);
+}
+
+.blockreassurance--horizontal .reassurance {
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+.reassurance__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+
+.reassurance__desc { color: var(--fpe-muted-fg); font-size: 0.75rem; }
+
+// Harmonisation noire (composants encore clairs)
+.noui-tooltip {
+  background: var(--fpe-card);
+  color: var(--fpe-fg);
+  border: 1px solid var(--fpe-border);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--fpe-fg);
+  --bs-table-border-color: var(--fpe-border);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-accent-bg: rgba(255, 255, 255, 0.03);
+}
+
+.accordion {
+  --bs-accordion-bg: var(--fpe-card);
+  --bs-accordion-color: var(--fpe-fg);
+  --bs-accordion-border-color: var(--fpe-border);
+}
+
+.list-group {
+  --bs-list-group-bg: var(--fpe-card);
+  --bs-list-group-color: var(--fpe-fg);
+  --bs-list-group-border-color: var(--fpe-border);
+}
+
+.input-group-text {
+  background-color: var(--fpe-muted);
+  color: var(--fpe-fg);
+  border-color: var(--fpe-border);
+}
+
+// ── Boutons du hero (accueil) : texte blanc au survol ────────────────────────
+// (surcharge le conflit Bootstrap `.text-*` + le `a:hover` global)
+.fpe-hero-actions a:hover {
+  color: #fff !important;
+}

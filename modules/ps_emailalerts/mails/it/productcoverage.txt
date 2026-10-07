@@ -1,0 +1,11 @@
+ 
+
+{shop_url}
+
+Salve,
+
+La quantità delle scorte è inferiore alla quantità minima indicata di: {warning_coverage}
+Scorta di riserva attuale: {current_coverage}
+
+[{shop_name}]({shop_url})
+Powered by [PrestaShop](https://www.prestashop-project.org/)

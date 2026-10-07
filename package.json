@@ -2,11 +2,16 @@
   "name": "fullpowerexhaust-theme",
   "private": true,
   "scripts": {
+    "start": "./start-dev.sh",
+    "dev": "./start-dev.sh",
+    "build:scss": "sass src/scss/custom.scss themes/hummingbird/assets/css/custom.css --style=compressed --no-source-map",
+    "watch:scss": "sass --watch src/scss/custom.scss:themes/hummingbird/assets/css/custom.css --style=compressed --no-source-map",
     "build:css": "tailwindcss -i tailwind/input.css -o themes/hummingbird/assets/css/tailwind.css --minify",
     "watch:css": "tailwindcss -i tailwind/input.css -o themes/hummingbird/assets/css/tailwind.css --watch"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "sass": "^1.105.1",
     "tailwindcss": "^4.3.3"
   }
 }

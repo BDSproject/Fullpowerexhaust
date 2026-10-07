@@ -1,0 +1,143 @@
+// ============================================================================
+// Footer — BEM (.site-footer) + .footer PrestaShop
+// ============================================================================
+
+.footer {
+  border-top: 1px solid var(--fpe-border);
+  background: var(--fpe-card);
+  color: var(--fpe-fg);
+}
+
+.footer__main { padding: 2.5rem 0 2rem; }
+
+.footer__main .container { max-width: 1320px; }
+
+.footer-block__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+
+// Les blocs du footer sont en accordéon sur mobile, mais TOUJOURS visibles
+// sur desktop (Bootstrap 5.3 masque `.collapse` avec `visibility: collapse`).
+@media (min-width: 768px) {
+  .footer-block__content.collapse {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+.footer-block__list a,
+.ps-linklist a,
+.footer a {
+  color: var(--fpe-muted-fg);
+  font-size: 0.8125rem;
+  transition: color 0.18s ease;
+
+  &:hover { color: var(--fpe-primary); }
+}
+
+// Marque + baseline en tête de footer (BEM)
+.site-footer__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--fpe-border);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.site-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--fpe-muted-fg);
+  text-align: left;
+
+  @media (min-width: 768px) { text-align: right; }
+}
+
+.site-footer__brand {
+  font-family: var(--fpe-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+
+.site-footer__brand-accent { color: var(--fpe-primary); }
+
+.site-footer__tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  margin-top: 0.25rem;
+}
+
+// Copyright
+.copyright {
+  border-top: 1px solid var(--fpe-border);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  color: var(--fpe-muted-fg);
+  font-size: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  a {
+    color: var(--fpe-muted-fg);
+
+    &:hover { color: var(--fpe-primary); }
+  }
+}
+
+.copyright__prestashop { opacity: 0.55; }
+
+.copyright__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  a { transition: color 0.18s ease; }
+}
+
+.copyright__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// Crédit « Made with ♥ by Beassist » centré
+.site-footer__credit {
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--fpe-muted-fg);
+
+  a {
+    color: var(--fpe-muted-fg);
+    font-weight: 600;
+    transition: color 0.18s ease;
+
+    &:hover { color: var(--fpe-primary); }
+  }
+}
+
+.site-footer__credit-heart { color: var(--fpe-primary); }

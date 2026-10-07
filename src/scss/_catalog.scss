@@ -1,0 +1,237 @@
+// ============================================================================
+// Catalogue : page d'accueil, fil d'Ariane, pagination, facettes
+// ============================================================================
+
+// Page d'accueil — sections produits (hero/bande/CTA en Tailwind dans index.tpl)
+.page-content--home { padding: 0; }
+
+.module-products .section-title,
+.ps-featuredproducts .section-title,
+.ps-newproducts .section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.ps-featuredproducts,
+.ps-newproducts { padding-top: 4rem; padding-bottom: 4rem; }
+
+// Le hero remplace le slider d'accueil si ce dernier est actif
+.page-content--home .ps-imageslider { display: none; }
+
+// Fil d'Ariane
+.breadcrumb__wrapper {
+  background: transparent;
+  border-bottom: 1px solid var(--fpe-border);
+}
+
+.breadcrumb { margin: 0; padding: 1rem 0; }
+
+.breadcrumb a {
+  color: var(--fpe-muted-fg);
+  font-size: 0.8125rem;
+
+  &:hover { color: var(--fpe-primary); }
+}
+
+.breadcrumb-item + .breadcrumb-item::before { color: var(--fpe-muted-fg); }
+.breadcrumb-item.active { color: var(--fpe-fg); }
+
+// Pagination
+.pagination { gap: 0.25rem; }
+
+.page-link {
+  background: var(--fpe-card);
+  border-color: var(--fpe-border);
+  color: var(--fpe-fg);
+
+  &:hover { background: var(--fpe-muted); color: var(--fpe-fg); }
+}
+
+.page-item.active .page-link {
+  background: var(--fpe-primary);
+  border-color: var(--fpe-primary);
+  color: #fff;
+}
+
+// Facettes / filtres
+#search_filters { background: transparent; }
+
+.facet {
+  border-top: 1px solid var(--fpe-border);
+  padding: 0.75rem 0;
+}
+
+.facet .facet-title,
+.facet-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+
+.facet .facet-label {
+  font-size: 0.75rem;
+  color: var(--fpe-muted-fg);
+
+  &:hover { color: var(--fpe-fg); }
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span { color: var(--fpe-primary); }
+
+.faceted-slider .ui-slider .ui-slider-range { background: var(--fpe-primary); }
+.faceted-slider .ui-slider .ui-slider-handle { border-color: var(--fpe-primary); }
+
+.active_filters { font-size: 0.8125rem; }
+
+.filter-block {
+  background: var(--fpe-primary-soft);
+  border: 1px solid rgba(200, 21, 42, 0.3);
+  color: var(--fpe-primary);
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0;
+
+  .material-icons { font-size: 0.875rem; }
+}
+
+// Tri + compteur
+.products-selection .total-products {
+  color: var(--fpe-muted-fg);
+  font-size: 0.875rem;
+
+  p { color: var(--fpe-fg); font-weight: 600; }
+}
+
+.sort-by-row .select-title,
+.sort-by-row label {
+  color: var(--fpe-muted-fg);
+  font-size: 0.75rem;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Catalogue « marques moto » : barre de filtre + liste déroulante
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Les pages catalogue n'ont plus de colonne gauche (filtres déplacés en haut)
+.page-category,
+.page-new-products,
+.page-best-sales,
+.page-prices-drop,
+.page-search,
+.page-manufacturer,
+.page-supplier {
+  #left-column { display: none; }
+
+  #center-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.catalog-filterbar {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--fpe-border);
+  margin-bottom: 1.5rem;
+}
+
+.filter-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-control__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  white-space: nowrap;
+}
+
+.filter-control__select,
+.filter-control__input {
+  background-color: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+  color: var(--fpe-fg);
+  font-size: 0.875rem;
+  padding: 0.55rem 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover { border-color: var(--fpe-border-strong); }
+
+  &:focus {
+    border-color: var(--fpe-primary);
+    box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+    outline: none;
+  }
+}
+
+.filter-control__select {
+  min-width: 180px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+}
+
+.filter-control--brand .filter-control__select { min-width: 220px; }
+
+.filter-control__price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-control__input {
+  width: 90px;
+
+  // masquer les flèches du champ nombre
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.filter-control__sep { color: var(--fpe-muted-fg); }
+
+.filter-control--actions {
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.filter-control__apply {
+  background: var(--fpe-primary);
+  border: 1px solid var(--fpe-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--fpe-radius);
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+
+  &:hover { background: var(--fpe-primary-hover); }
+}
+
+.filter-control__reset {
+  font-size: 0.75rem;
+  color: var(--fpe-muted-fg);
+  white-space: nowrap;
+
+  &:hover { color: var(--fpe-primary); }
+}

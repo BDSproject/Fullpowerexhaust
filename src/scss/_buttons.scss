@@ -1,0 +1,52 @@
+// ============================================================================
+// Boutons
+// ============================================================================
+
+.btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--fpe-radius);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--fpe-primary);
+  --bs-btn-border-color: var(--fpe-primary);
+  --bs-btn-hover-bg: var(--fpe-primary-hover);
+  --bs-btn-hover-border-color: var(--fpe-primary-hover);
+  --bs-btn-active-bg: var(--fpe-primary-hover);
+  --bs-btn-active-border-color: var(--fpe-primary-hover);
+  --bs-btn-disabled-bg: var(--fpe-primary);
+  --bs-btn-disabled-border-color: var(--fpe-primary);
+  background-color: var(--fpe-primary);
+  border-color: var(--fpe-primary);
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: var(--fpe-primary-hover);
+    border-color: var(--fpe-primary-hover);
+  }
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--fpe-primary);
+  --bs-btn-border-color: var(--fpe-primary);
+  --bs-btn-hover-bg: var(--fpe-primary);
+  --bs-btn-hover-border-color: var(--fpe-primary);
+  --bs-btn-active-bg: var(--fpe-primary);
+  --bs-btn-active-border-color: var(--fpe-primary);
+  color: var(--fpe-primary);
+  border-color: var(--fpe-primary);
+  background: transparent;
+
+  &:hover {
+    color: #fff;
+    background: var(--fpe-primary);
+    border-color: var(--fpe-primary);
+  }
+}
+
+.btn-link { color: var(--fpe-primary); text-transform: none; letter-spacing: 0; }

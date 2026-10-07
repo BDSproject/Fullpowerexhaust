@@ -1,0 +1,43 @@
+// ============================================================================
+// Formulaires (inputs, selects, labels)
+// ============================================================================
+
+.form-control,
+.form-select {
+  background-color: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+  color: var(--fpe-fg);
+  font-size: 0.9375rem;
+}
+
+.form-control::placeholder { color: rgba(136, 136, 136, 0.55); }
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #1a1a1a;
+  border-color: var(--fpe-primary);
+  box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+  color: var(--fpe-fg);
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23888888' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+}
+
+.form-check-input {
+  accent-color: var(--fpe-primary);
+
+  &:checked {
+    background-color: var(--fpe-primary);
+    border-color: var(--fpe-primary);
+  }
+}

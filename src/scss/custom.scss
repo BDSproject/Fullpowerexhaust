@@ -1,0 +1,17 @@
+// ============================================================================
+// FULLPOWEREXHAUST — Design System (entrée SCSS)
+// ----------------------------------------------------------------------------
+// Compilé vers themes/hummingbird/assets/css/custom.css et chargé APRÈS
+// theme.css pour surcharger Bootstrap 5.3 proprement.
+// ============================================================================
+
+@use 'variables';
+@use 'base';
+@use 'header';
+@use 'buttons';
+@use 'forms';
+@use 'product-card';
+@use 'catalog';
+@use 'footer';
+@use 'components';
+@use 'responsive';

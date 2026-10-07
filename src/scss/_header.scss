@@ -1,0 +1,248 @@
+// ============================================================================
+// Header — BEM (.site-header) — fidèle au Figma
+// ============================================================================
+
+body { padding-top: 4rem; } // compenser le header fixe
+
+// Masquer uniquement le sélecteur de devise (boutique multi-langues, mono-devise)
+.site-header {
+  #_desktop_ps_currencyselector,
+  .ps-currencyselector {
+    display: none !important;
+  }
+}
+
+// Header fixe
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: var(--fpe-bg);
+  border-bottom: 1px solid var(--fpe-border);
+}
+
+// Conteneur : logo (gauche) · nav (centrée) · actions (droite)
+.site-header__inner {
+  position: relative; // ancre pour centrer la nav en absolu
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+// Le h1 (page d'accueil) ne doit pas créer de ligne de texte haute qui décale
+// le logo vers le bas : on en fait un conteneur flex qui centre le logo.
+.site-header__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+// Logo texte
+.site-header__logo {
+  font-family: var(--fpe-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em; // tracking-widest (Figma)
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover { color: var(--fpe-primary); }
+}
+
+.site-header__logo-accent { color: var(--fpe-primary); }
+
+// Navigation : Accueil / Catalogue / Contact — centrée au milieu de la navbar
+.site-header__nav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.site-header__link {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover { color: var(--fpe-fg); }
+}
+
+.site-header__link--active {
+  color: var(--fpe-primary);
+  border-bottom-color: var(--fpe-primary);
+}
+
+// Actions (droite)
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+// Icône de recherche
+.site-header__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--fpe-muted-fg);
+  transition: color 0.2s ease;
+
+  &:hover { color: var(--fpe-fg); }
+}
+
+// Burger mobile (menu offcanvas) — visible uniquement sous 768px
+.site-header__burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--fpe-muted-fg);
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover { color: var(--fpe-fg); }
+
+  @media (min-width: 768px) { display: none; }
+}
+
+// Menu mobile (offcanvas) : Accueil / Catalogue / Contact
+.site-header__offcanvas-title {
+  font-family: var(--fpe-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fpe-fg);
+}
+
+.site-header__offcanvas-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+// Sélecteur de langue dans le menu mobile
+.site-header__offcanvas-langs {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--fpe-border);
+}
+
+.site-header__offcanvas-langs-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  margin-bottom: 0.75rem;
+}
+
+.site-header__offcanvas-langs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+
+  a {
+    font-size: 0.875rem;
+    color: var(--fpe-fg);
+    transition: color 0.18s ease;
+
+    &:hover { color: var(--fpe-primary); }
+  }
+}
+
+// Barre de recherche retirée du header (uniquement page catalogue)
+.site-header {
+  #_desktop_ps_searchbar,
+  .ps-searchbar--mobile {
+    display: none !important;
+  }
+}
+
+// Compte + panier (modules PrestaShop) — icônes seules, comme le Figma
+.header-block__action-btn {
+  color: var(--fpe-muted-fg);
+  transition: color 0.2s ease;
+
+  &:hover { color: var(--fpe-fg); }
+}
+
+.header-block__icon { font-size: 1.125rem; } // 18px, comme les icônes Figma
+
+// Libellé « Connexion » à côté de l'icône compte uniquement.
+// `display: inline` surcharge le `display: none` du thème Hummingbird de base.
+.header-block__title {
+  display: inline;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fpe-muted-fg);
+  white-space: nowrap;
+}
+
+// Panier : icône seule, sans libellé
+#_desktop_ps_shoppingcart .header-block__title {
+  display: none;
+}
+
+.header-block__badge {
+  background: var(--fpe-primary);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  min-width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  border-radius: 0;
+}
+
+// Barre de recherche (page catalogue)
+.ps-searchbar__form {
+  background: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+}
+
+.ps-searchbar__input {
+  background: transparent;
+  border: 0;
+  color: var(--fpe-fg);
+
+  &::placeholder { color: rgba(136, 136, 136, 0.55); }
+  &:focus { box-shadow: none; }
+}
+
+.ps-searchbar__magnifier { color: var(--fpe-muted-fg); }

@@ -2,8 +2,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * FULLPOWEREXHAUST — header (structure flexbox propre, fidèle au Figma) :
- *   gauche : logo  ·  centre : Accueil/Catalogue/Contact  ·  droite : icônes
+ * FULLPOWEREXHAUST — header fidèle au modèle Figma.
+ * Structure BEM : .site-header · .site-header__inner · .site-header__logo ·
+ * .site-header__nav · .site-header__link · .site-header__actions
  *}
 {$headerBanner = 'header-banner'}
 {$headerNavFullWidth = 'header-nav-full-width'}
@@ -18,64 +19,66 @@
 {/block}
 
 {block name='header_main'}
-  <header class="fpe-header">
-    <div class="fpe-header-inner">
+  <header class="site-header">
+    <div class="site-header__inner">
 
       {* ── Logo (gauche) ── *}
-      <div class="fpe-logo-wrap">
-        {if $page.page_name == 'index'}
-          <h1 class="mb-0">
-            <a class="fpe-logo font-display text-2xl font-bold tracking-widest text-foreground hover:text-primary transition-colors duration-200" href="{$urls.base_url}" aria-label="{$shop.name}">
-              FULL<span class="text-primary">POWER</span>EXHAUST
-            </a>
-          </h1>
-        {else}
-          <a class="fpe-logo font-display text-2xl font-bold tracking-widest text-foreground hover:text-primary transition-colors duration-200" href="{$urls.base_url}" aria-label="{$shop.name}">
-            FULL<span class="text-primary">POWER</span>EXHAUST
+      {if $page.page_name == 'index'}
+        <h1 class="site-header__title">
+          <a class="site-header__logo" href="{$urls.base_url}" aria-label="{$shop.name}">
+            FULL<span class="site-header__logo-accent">POWER</span>EXHAUST
           </a>
-        {/if}
-      </div>
+        </h1>
+      {else}
+        <a class="site-header__logo" href="{$urls.base_url}" aria-label="{$shop.name}">
+          FULL<span class="site-header__logo-accent">POWER</span>EXHAUST
+        </a>
+      {/if}
 
-      {* ── Navigation (centre, desktop) ── *}
-      <nav class="fpe-nav">
+      {* ── Navigation (centre, desktop) : Accueil / Catalogue / Contact ── *}
+      <nav class="site-header__nav" aria-label="{l s='Main navigation' d='Shop.Theme.Global'}">
         <a
+          class="site-header__link{if $page.page_name == 'index'} site-header__link--active{/if}"
           href="{$urls.base_url}"
-          class="text-sm font-medium tracking-widest uppercase transition-colors duration-200 pb-0.5 {if $page.page_name == 'index'}text-primary border-b border-primary{else}text-muted-foreground hover:text-foreground{/if}"
-        >Accueil</a>
+        >{l s='Accueil' d='Shop.Theme.FullPowerExhaust'}</a>
+
         <a
+          class="site-header__link{if in_array($page.page_name, ['category', 'new-products', 'best-sales', 'prices-drop', 'search'])} site-header__link--active{/if}"
           href="{$urls.pages.new_products}"
-          class="text-sm font-medium tracking-widest uppercase transition-colors duration-200 pb-0.5 {if in_array($page.page_name, ['category', 'new-products', 'best-sales', 'prices-drop', 'search'])}text-primary border-b border-primary{else}text-muted-foreground hover:text-foreground{/if}"
-        >Catalogue</a>
+        >{l s='Catalogue' d='Shop.Theme.FullPowerExhaust'}</a>
+
         <a
+          class="site-header__link{if $page.page_name == 'contact'} site-header__link--active{/if}"
           href="{$urls.pages.contact}"
-          class="text-sm font-medium tracking-widest uppercase transition-colors duration-200 pb-0.5 {if $page.page_name == 'contact'}text-primary border-b border-primary{else}text-muted-foreground hover:text-foreground{/if}"
-        >Contact</a>
+        >{l s='Contact' d='Shop.Theme.FullPowerExhaust'}</a>
       </nav>
 
-      {* ── Groupe de droite ── *}
-      <div class="fpe-header-right">
+      {* ── Actions (droite) : menu mobile + recherche + compte + panier ── *}
+      <div class="site-header__actions">
 
-        {* Menu mobile (burger + offcanvas) — masqué sur desktop en CSS *}
-        {hook h='displayTop'}
+        {* Burger mobile (ouvre le menu offcanvas) — visible sur mobile uniquement *}
+        <button
+          class="site-header__burger"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#siteHeaderMobileMenu"
+          aria-controls="siteHeaderMobileMenu"
+          aria-label="{l s='Menu' d='Shop.Theme.Global'}"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
 
-        {* Recherche (icône) *}
+        {* Recherche (loupe) *}
         <a
+          class="site-header__icon"
           href="{$urls.pages.search}"
-          class="fpe-icon-btn text-muted-foreground hover:text-foreground transition-colors duration-200"
-          aria-label="Rechercher"
+          aria-label="{l s='Search' d='Shop.Theme.Catalog'}"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
         </a>
 
-        {* Connexion (compte) + Panier *}
+        {* Compte (connexion) + Panier *}
         {hook h='displayNav2'}
-
-        {* Inscription *}
-        {if !$customer.is_logged}
-          <a class="fpe-register-btn d-none d-lg-inline-flex" href="{$urls.pages.register}">
-            S'inscrire
-          </a>
-        {/if}
 
         {* Placeholders mobile (remplis par le JS responsive du thème) *}
         <div id="_mobile_ps_customersignin" class="d-md-none"></div>
@@ -85,6 +88,37 @@
       </div>
     </div>
   </header>
+
+  {* ── Menu mobile (offcanvas) : Accueil / Catalogue / Contact ── *}
+  <div
+    class="offcanvas offcanvas-start site-header__offcanvas"
+    tabindex="-1"
+    id="siteHeaderMobileMenu"
+    aria-labelledby="siteHeaderMobileMenuLabel"
+  >
+    <div class="offcanvas-header">
+      <span class="site-header__offcanvas-title" id="siteHeaderMobileMenuLabel">{l s='Menu' d='Shop.Theme.Global'}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{l s='Close' d='Shop.Theme.Global'}"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="site-header__offcanvas-nav" aria-label="{l s='Main navigation' d='Shop.Theme.Global'}">
+        <a class="site-header__link{if $page.page_name == 'index'} site-header__link--active{/if}" href="{$urls.base_url}">{l s='Accueil' d='Shop.Theme.FullPowerExhaust'}</a>
+        <a class="site-header__link{if in_array($page.page_name, ['category', 'new-products', 'best-sales', 'prices-drop', 'search'])} site-header__link--active{/if}" href="{$urls.pages.new_products}">{l s='Catalogue' d='Shop.Theme.FullPowerExhaust'}</a>
+        <a class="site-header__link{if $page.page_name == 'contact'} site-header__link--active{/if}" href="{$urls.pages.contact}">{l s='Contact' d='Shop.Theme.FullPowerExhaust'}</a>
+      </nav>
+
+      {* Sélecteur de langue dans le menu mobile *}
+      <div class="site-header__offcanvas-langs">
+        <span class="site-header__offcanvas-langs-title">{l s='Langue' d='Shop.Theme.FullPowerExhaust'}</span>
+        <div class="site-header__offcanvas-langs-list">
+          <a href="{$urls.base_url}en/">🇬🇧 English</a>
+          <a href="{$urls.base_url}">🇫🇷 Français</a>
+          <a href="{$urls.base_url}es/">🇪🇸 Español</a>
+          <a href="{$urls.base_url}it/">🇮🇹 Italiano</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {capture name="nav_full_width"}{hook h='displayNavFullWidth'}{/capture}
   {if !empty($smarty.capture.nav_full_width)}

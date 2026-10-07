@@ -4,6 +4,9 @@
  *}
 {extends file=$layout}
 
+{* Pas de fil d'Ariane sur les pages catalogue *}
+{block name='breadcrumb'}{/block}
+
 {block name='head_microdata_special'}
   {include file='_partials/microdata/product-list-jsonld.tpl' listing=$listing}
 {/block}
@@ -16,6 +19,9 @@
   {/block}
 
   {hook h='displayHeaderCategory'}
+
+  {* ── Barre de filtres optimisée (marque / prix / type / état) ── *}
+  {include file='catalog/_partials/catalog-filterbar.tpl'}
 
   <section id="products">
     {if $listing.products|count}

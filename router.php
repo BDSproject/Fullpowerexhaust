@@ -12,7 +12,34 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = rawurldecode($uri);
 
 // Back office : /admin123/... → admin123/index.php
+// robots.txt + fichiers sitemap : servis directement depuis la racine
+if ($uri === '/robots.txt') {
+    $file = __DIR__ . '/robots.txt';
+    if (is_file($file)) {
+        return false; // le serveur intégré sert le fichier
+    }
+}
+if ($uri === '/sitemap.xml') {
+    $file = __DIR__ . '/1_index_sitemap.xml';
+    if (is_file($file)) {
+        header('Content-Type: application/xml');
+        readfile($file);
+        return true;
+    }
+}
+if (preg_match('#^/[^/]*sitemap\.xml$#i', $uri)) {
+    $file = __DIR__ . $uri;
+    if (is_file($file)) {
+        return false; // le serveur intégré sert le fichier
+    }
+}
+
+// Les fichiers statiques (CSS/JS/images du thème admin) sont servis directement.
 if (preg_match('#^/admin123(/|$)#', $uri)) {
+    $adminFile = __DIR__ . $uri;
+    if ($uri !== '/admin123' && $uri !== '/admin123/' && is_file($adminFile)) {
+        return false; // le serveur intégré sert le fichier statique
+    }
     $_SERVER['SCRIPT_NAME'] = '/admin123/index.php';
     $_SERVER['SCRIPT_FILENAME'] = __DIR__ . '/admin123/index.php';
     require __DIR__ . '/admin123/index.php';

@@ -14,13 +14,13 @@
 {block name='footer_main'}
   <div class="footer footer__main">
     <div class="container">
-      {* FULLPOWEREXHAUST — bloc marque + contact en tête de footer *}
-      <div class="fpe-footer-head">
+      {* FULLPOWEREXHAUST — bloc marque + contact en tête de footer (BEM) *}
+      <div class="site-footer__head">
         <div>
-          <span class="fpe-footer-brand">FULL<span class="accent">POWER</span>EXHAUST</span>
-          <p class="fpe-footer-tagline">L'échappement performance occasion.</p>
+          <span class="site-footer__brand">FULL<span class="site-footer__brand-accent">POWER</span>EXHAUST</span>
+          <p class="site-footer__tagline">{l s='L\'échappement performance occasion.' d='Shop.Theme.FullPowerExhaust'}</p>
         </div>
-        <div class="fpe-footer-contact">
+        <div class="site-footer__contact">
           <a href="mailto:contact@fullpowerexhaust.com">contact@fullpowerexhaust.com</a>
           <span>fullpowerexhaust.com</span>
         </div>

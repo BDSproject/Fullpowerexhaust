@@ -1,0 +1,137 @@
+// ============================================================================
+// FULLPOWEREXHAUST — Design System (variables)
+// Surcharge des variables Bootstrap 5.3 + tokens de marque.
+// ============================================================================
+
+:root {
+  // ── Couleurs de marque ──
+  --fpe-bg:            #0d0d0d;
+  --fpe-fg:            #f0f0f0;
+  --fpe-card:          #141414;
+  --fpe-muted:         #1f1f1f;
+  --fpe-muted-fg:      #888888;
+  --fpe-border:        rgba(255, 255, 255, 0.09);
+  --fpe-border-strong: rgba(255, 255, 255, 0.16);
+  --fpe-primary:       #c8152a;
+  --fpe-primary-hover: #a0101f;
+  --fpe-primary-soft:  rgba(200, 21, 42, 0.12);
+  --fpe-success:       #198754;
+  --fpe-danger:        #dc3545;
+
+  // ── Rayons ──
+  --fpe-radius:    0.375rem;
+  --fpe-radius-sm: 0.25rem;
+  --fpe-radius-lg: 0.5rem;
+
+  // ── Typographie ──
+  --fpe-font-sans:    'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fpe-font-display: 'Barlow Condensed', 'Outfit', system-ui, sans-serif;
+
+  // ── Surcharge des variables Bootstrap 5.3 ──
+  --bs-body-bg:              var(--fpe-bg);
+  --bs-body-bg-rgb:          13, 13, 13;
+  --bs-body-color:           var(--fpe-fg);
+  --bs-body-color-rgb:       240, 240, 240;
+  --bs-body-font-family:     var(--fpe-font-sans);
+  --bs-body-font-size:       1rem;
+  --bs-body-font-weight:     400;
+  --bs-body-line-height:     1.5;
+  --bs-body-text-align:      left;
+
+  --bs-emphasis-color:       var(--fpe-fg);
+  --bs-secondary-color:      var(--fpe-muted-fg);
+  --bs-tertiary-color:       rgba(136, 136, 136, 0.7);
+
+  --bs-primary:              var(--fpe-primary);
+  --bs-primary-rgb:          200, 21, 42;
+  --bs-primary-bg-subtle:    #2a080c;
+  --bs-primary-border-subtle:#57101c;
+  --bs-primary-text-emphasis:#f08a96;
+  --bs-link-color:           var(--fpe-primary);
+  --bs-link-color-rgb:       200, 21, 42;
+  --bs-link-hover-color:     var(--fpe-primary-hover);
+  --bs-link-hover-color-rgb: 160, 16, 31;
+
+  --bs-secondary:            #1a1a1a;
+  --bs-secondary-rgb:        26, 26, 26;
+  --bs-dark:                 #0a0a0a;
+  --bs-dark-rgb:             10, 10, 10;
+
+  --bs-border-color:             var(--fpe-border);
+  --bs-border-color-translucent: var(--fpe-border);
+  --bs-border-width:             1px;
+  --bs-border-radius:            var(--fpe-radius);
+  --bs-border-radius-sm:         var(--fpe-radius-sm);
+  --bs-border-radius-lg:         var(--fpe-radius-lg);
+  --bs-border-radius-xl:         1rem;
+
+  --bs-card-bg:            var(--fpe-card);
+  --bs-card-color:         var(--fpe-fg);
+  --bs-card-border-color:  var(--fpe-border);
+  --bs-card-border-radius: var(--fpe-radius);
+  --bs-card-spacer-y:      1rem;
+  --bs-card-spacer-x:      1rem;
+
+  --bs-secondary-bg:           var(--fpe-card);
+  --bs-secondary-bg-rgb:       20, 20, 20;
+  --bs-tertiary-bg:            var(--fpe-muted);
+  --bs-tertiary-bg-rgb:        31, 31, 31;
+  --bs-light:                  #1a1a1a;
+  --bs-light-rgb:              26, 26, 26;
+  --bs-light-bg-subtle:        #1f1f1f;
+  --bs-dark-bg-subtle:         #141414;
+
+  --bs-form-control-bg:        #1a1a1a;
+  --bs-form-control-color:     var(--fpe-fg);
+  --bs-form-control-border-color: var(--fpe-border);
+  --bs-form-control-focus-border-color: var(--fpe-primary);
+  --bs-form-control-focus-box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+  --bs-form-select-bg:         #1a1a1a;
+  --bs-form-select-color:      var(--fpe-fg);
+  --bs-form-select-border-color: var(--fpe-border);
+  --bs-form-check-input-bg:    #1a1a1a;
+  --bs-form-check-input-border: var(--fpe-border);
+  --bs-input-placeholder-color: rgba(136, 136, 136, 0.55);
+  --bs-input-focus-border-color: var(--fpe-primary);
+  --bs-input-focus-box-shadow:   0 0 0 0.2rem rgba(200, 21, 42, 0.18);
+
+  --bs-btn-bg:                  var(--fpe-primary);
+  --bs-btn-border-color:        var(--fpe-primary);
+  --bs-btn-color:               #ffffff;
+  --bs-btn-hover-bg:            var(--fpe-primary-hover);
+  --bs-btn-hover-border-color:  var(--fpe-primary-hover);
+  --bs-btn-active-bg:           var(--fpe-primary-hover);
+  --bs-btn-active-border-color: var(--fpe-primary-hover);
+  --bs-btn-border-radius:       var(--fpe-radius);
+  --bs-btn-font-size:           0.875rem;
+
+  --bs-dropdown-bg:           var(--fpe-card);
+  --bs-dropdown-color:        var(--fpe-fg);
+  --bs-dropdown-border-color: var(--fpe-border);
+  --bs-dropdown-link-color:   var(--fpe-muted-fg);
+  --bs-dropdown-link-hover-bg: var(--fpe-muted);
+  --bs-dropdown-link-hover-color: var(--fpe-fg);
+  --bs-dropdown-link-active-bg: var(--fpe-primary);
+  --bs-modal-bg:              var(--fpe-card);
+  --bs-modal-content-bg:      var(--fpe-card);
+  --bs-modal-header-border-color: var(--fpe-border);
+  --bs-modal-footer-border-color: var(--fpe-border);
+  --bs-offcanvas-bg:          var(--fpe-card);
+  --bs-offcanvas-color:       var(--fpe-fg);
+
+  --bs-pagination-bg:           var(--fpe-card);
+  --bs-pagination-color:        var(--fpe-fg);
+  --bs-pagination-border-color: var(--fpe-border);
+  --bs-pagination-hover-bg:     var(--fpe-muted);
+  --bs-pagination-hover-color:  var(--fpe-fg);
+  --bs-pagination-active-bg:    var(--fpe-primary);
+  --bs-pagination-active-border-color: var(--fpe-primary);
+  --bs-pagination-disabled-bg:  var(--fpe-card);
+  --bs-breadcrumb-divider-color: var(--fpe-muted-fg);
+  --bs-breadcrumb-item-active-color: var(--fpe-muted-fg);
+
+  --bs-alert-bg:         var(--fpe-card);
+  --bs-alert-color:      var(--fpe-fg);
+  --bs-alert-border-color: var(--fpe-border);
+  --bs-alert-link-color: var(--fpe-primary);
+}

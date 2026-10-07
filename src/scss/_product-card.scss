@@ -1,0 +1,132 @@
+// ============================================================================
+// Cartes produit (miniature) — fidèle au design Figma
+// ============================================================================
+
+.product-miniature {
+  background-color: var(--fpe-card);
+  border: 1px solid var(--fpe-border);
+  height: 100%;
+  transition: border-color 0.2s ease;
+
+  &:hover { border-color: var(--fpe-border-strong); }
+}
+
+.product-miniature__inner { display: flex; flex-direction: column; height: 100%; }
+
+.product-miniature__top { position: relative; }
+
+// Image au format 4/3, zoom au survol
+.product-miniature {
+  .thumbnail-container,
+  .thumbnail {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--fpe-muted);
+  }
+
+  .thumbnail img,
+  .thumbnail-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover .thumbnail img,
+  &:hover .thumbnail-container img { transform: scale(1.05); }
+}
+
+.product-miniature__bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+  gap: 0.75rem;
+}
+
+.product-miniature__brand {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fpe-primary);
+  margin-bottom: 0.2rem;
+}
+
+.product-miniature__title {
+  font-family: var(--fpe-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--fpe-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+
+  &:hover { color: var(--fpe-primary); }
+}
+
+.product-miniature__infos { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.product-miniature__price {
+  font-family: var(--fpe-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--fpe-fg);
+}
+
+.product-miniature__regular-price {
+  color: var(--fpe-muted-fg);
+  text-decoration: line-through;
+  font-size: 0.875rem;
+}
+
+.product-miniature__actions {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fpe-border);
+}
+
+.product-miniature__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.product-miniature__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--fpe-primary);
+  border: 1px solid var(--fpe-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--fpe-radius);
+  transition: background-color 0.18s ease;
+
+  &:hover {
+    background: var(--fpe-primary-hover);
+    border-color: var(--fpe-primary-hover);
+    color: #fff;
+  }
+}
+
+// Étiquettes produit (badges)
+.product-flags li { list-style: none; }
+
+.product-flag {
+  background: var(--fpe-primary);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0;
+}

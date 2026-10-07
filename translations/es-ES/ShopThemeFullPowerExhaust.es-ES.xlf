@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="themes/hummingbird/templates" source-language="fr" target-language="es" datatype="plaintext">
+    <body>
+      <trans-unit id="74fe31b598483c373e2921603105e05c" approved="yes">
+        <source>Accueil</source>
+        <target state="final">Inicio</target>
+      </trans-unit>
+      <trans-unit id="a8567ec8887eb41c7870b3a624524a46" approved="yes">
+        <source>Catalogue</source>
+        <target state="final">Catálogo</target>
+      </trans-unit>
+      <trans-unit id="bbaff12800505b22a853e8b7f4eb6a22" approved="yes">
+        <source>Contact</source>
+        <target state="final">Contacto</target>
+      </trans-unit>
+      <trans-unit id="3a8a7a8a2dbbd97c1c1519c74198112d" approved="yes">
+        <source>Rechercher</source>
+        <target state="final">Buscar</target>
+      </trans-unit>
+      <trans-unit id="b61541208db7fa7dba42c85224405911" approved="yes">
+        <source>Menu</source>
+        <target state="final">Menú</target>
+      </trans-unit>
+      <trans-unit id="7d206237f9912ea010005db2c20b60ce" approved="yes">
+        <source>Fermer</source>
+        <target state="final">Cerrar</target>
+      </trans-unit>
+      <trans-unit id="b05a0cd90baba4180920f46ebf2ce463" approved="yes">
+        <source>Navigation principale</source>
+        <target state="final">Navegación principal</target>
+      </trans-unit>
+      <trans-unit id="d522bf955c003b9001bceeb4e4c3ef5f" approved="yes">
+        <source>L'échappement performance occasion.</source>
+        <target state="final">Escape de rendimiento de ocasión.</target>
+      </trans-unit>
+      <trans-unit id="53fe50a23c537641392b8fa82b9d158c" approved="yes">
+        <source>CGV</source>
+        <target state="final">Condiciones de venta</target>
+      </trans-unit>
+      <trans-unit id="9a28372a9f6e2592b4c8ba220923e379" approved="yes">
+        <source>CGU</source>
+        <target state="final">Condiciones de uso</target>
+      </trans-unit>
+      <trans-unit id="6ba68484be023d7a6dbb170dce31deb3" approved="yes">
+        <source>Mentions légales</source>
+        <target state="final">Aviso legal</target>
+      </trans-unit>
+      <trans-unit id="357d75b4bf027aa288bf5788f6afdc0d" approved="yes">
+        <source>Politique de confidentialité</source>
+        <target state="final">Política de privacidad</target>
+      </trans-unit>
+      <trans-unit id="949dd107e33f49dd1e05b572e1bd7150" approved="yes">
+        <source>Lignes d'occasion · Toutes marques</source>
+        <target state="final">Líneas de ocasión · Todas las marcas</target>
+      </trans-unit>
+      <trans-unit id="18d36403d4654f1772ed83e546d05420" approved="yes">
+        <source>Sonorité</source>
+        <target state="final">Sonido</target>
+      </trans-unit>
+      <trans-unit id="9446a98ad14416153cc4d45ab8b531bf" approved="yes">
+        <source>Performance</source>
+        <target state="final">Rendimiento</target>
+      </trans-unit>
+      <trans-unit id="bfcf5ac4d0be13e280ec412cb22b6d9f" approved="yes">
+        <source>Occasion</source>
+        <target state="final">Ocasión</target>
+      </trans-unit>
+      <trans-unit id="3137557c7e2d55cba7b8f705cec1b4b2" approved="yes">
+        <source>Voir le catalogue</source>
+        <target state="final">Ver catálogo</target>
+      </trans-unit>
+      <trans-unit id="7b00b78f89338a177066930d3e0cec7c" approved="yes">
+        <source>Boutique eBay</source>
+        <target state="final">Tienda eBay</target>
+      </trans-unit>
+      <trans-unit id="f4fb90a18f0390d83b0c4bbebeb14599" approved="yes">
+        <source>Mon compte</source>
+        <target state="final">Mi cuenta</target>
+      </trans-unit>
+      <trans-unit id="5aebea455e775d400c800261e2e6e9d1" approved="yes">
+        <source>Contrôlée avant mise en vente</source>
+        <target state="final">Revisado antes de la venta</target>
+      </trans-unit>
+      <trans-unit id="378d3ec519ad6d1223d16eb70e025d05" approved="yes">
+        <source>Sonorité unique</source>
+        <target state="final">Sonido único</target>
+      </trans-unit>
+      <trans-unit id="4eacbbe33720d83685d2156689947678" approved="yes">
+        <source>Chaque ligne testée à l'oreille</source>
+        <target state="final">Cada línea probada de oído</target>
+      </trans-unit>
+      <trans-unit id="71a21e1fb7a4f9ca7350c4a05ac2b157" approved="yes">
+        <source>Qualité garantie</source>
+        <target state="final">Calidad garantizada</target>
+      </trans-unit>
+      <trans-unit id="d37d673a1b1fed472c2c0215b28a9c2f" approved="yes">
+        <source>Pièces inspectées et certifiées</source>
+        <target state="final">Piezas inspeccionadas y certificadas</target>
+      </trans-unit>
+      <trans-unit id="57b0eaafb250dd5b862d252a05baac36" approved="yes">
+        <source>Expertise</source>
+        <target state="final">Experiencia</target>
+      </trans-unit>
+      <trans-unit id="eb1d07af1647ae5274ec9d6472300c06" approved="yes">
+        <source>5 ans dans l'aftermarket</source>
+        <target state="final">5 años en el aftermarket</target>
+      </trans-unit>
+      <trans-unit id="0fcaa916b0bca6be0e2841cf9a97dc98" approved="yes">
+        <source>Vous ne trouvez pas votre marque ?</source>
+        <target state="final">¿No encuentras tu marca?</target>
+      </trans-unit>
+      <trans-unit id="28b30c251247f08be39c4c6f6438d170" approved="yes">
+        <source>Parlez-nous de vos projets</source>
+        <target state="final">Háblanos de tus proyectos</target>
+      </trans-unit>
+      <trans-unit id="0a3c6a355c6f019f78aa26936ff16804" approved="yes">
+        <source>Contactez-nous, nous sourçons pour toutes les marques européennes et asiatiques.</source>
+        <target state="final">Contáctanos, buscamos piezas de todas las marcas europeas y asiáticas.</target>
+      </trans-unit>
+      <trans-unit id="c552303ac51493dced6bc2b204818fac" approved="yes">
+        <source>Nous contacter</source>
+        <target state="final">Contáctanos</target>
+      </trans-unit>
+      <trans-unit id="901f8770d4a3a659f53767974b8606d2" approved="yes">
+        <source>Marque de votre moto</source>
+        <target state="final">Marca de tu moto</target>
+      </trans-unit>
+      <trans-unit id="a2aecfccf00e317bfd98c8f51f003dad" approved="yes">
+        <source>Marque de ligne d'échappement</source>
+        <target state="final">Marca del escape</target>
+      </trans-unit>
+      <trans-unit id="b4ab29455e1cfe036f474ae78773bb9a" approved="yes">
+        <source>Type de pièce</source>
+        <target state="final">Tipo de pieza</target>
+      </trans-unit>
+      <trans-unit id="8dd568ade66e49637a700d4b0820ca0b" approved="yes">
+        <source>État</source>
+        <target state="final">Estado</target>
+      </trans-unit>
+      <trans-unit id="bc138131629e312572f811a97f506f44" approved="yes">
+        <source>Prix</source>
+        <target state="final">Precio</target>
+      </trans-unit>
+      <trans-unit id="9a407e28c2d74878abfaad7cd8cbf964" approved="yes">
+        <source>Filtrer</source>
+        <target state="final">Filtrar</target>
+      </trans-unit>
+      <trans-unit id="7e01b0f2ececaaab8f6e1ff4c852d132" approved="yes">
+        <source>Réinitialiser</source>
+        <target state="final">Restablecer</target>
+      </trans-unit>
+      <trans-unit id="c236bde85f3b102d10ae778f4e1f8e5f" approved="yes">
+        <source>Toutes les marques</source>
+        <target state="final">Todas las marcas</target>
+      </trans-unit>
+      <trans-unit id="42da2a07fe9adaae792455fabb2174a6" approved="yes">
+        <source>Tous les types</source>
+        <target state="final">Todos los tipos</target>
+      </trans-unit>
+      <trans-unit id="1665911273566213b3299dc7206af075" approved="yes">
+        <source>Tous les états</source>
+        <target state="final">Todos los estados</target>
+      </trans-unit>
+      <trans-unit id="8bca321148bd6fd519468df4f25bfd9b" approved="yes">
+        <source>Filtrer par marque</source>
+        <target state="final">Filtrar por marca</target>
+      </trans-unit>
+      <trans-unit id="a3e2b2eac8c6e13595eec203542f4def" approved="yes">
+        <source>Marque</source>
+        <target state="final">Marca</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

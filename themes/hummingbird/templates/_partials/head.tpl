@@ -6,6 +6,40 @@
   <meta charset="utf-8">
 {/block}
 
+{* Détection de la langue du navigateur → redirection vers la langue du visiteur *}
+<script>
+(function () {
+  try {
+    if (document.cookie.indexOf('fpe_lang_detected=') !== -1) { return; }
+    document.cookie = 'fpe_lang_detected=1; max-age=31536000; path=/';
+
+    var current = '{$language.iso_code}';
+    var prefixes = { fr: '', en: '/en', es: '/es', it: '/it' };
+
+    var detected = null;
+    var browserLangs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || navigator.userLanguage || 'fr'];
+    for (var i = 0; i < browserLangs.length; i++) {
+      var l = String(browserLangs[i] || '').toLowerCase().split('-')[0];
+      if (typeof prefixes[l] !== 'undefined') { detected = l; break; }
+    }
+    if (!detected || detected === current) { return; }
+
+    var path = window.location.pathname;
+    var curPrefix = prefixes[current] || '';
+    if (curPrefix && path.indexOf(curPrefix + '/') === 0) {
+      path = path.substring(curPrefix.length) || '/';
+    } else if (curPrefix && path === curPrefix) {
+      path = '/';
+    }
+    var newPrefix = prefixes[detected] || '';
+    var target = newPrefix + path;
+    if (target.charAt(0) !== '/') { target = '/' + target; }
+
+    window.location.replace(target + window.location.search);
+  } catch (e) {}
+})();
+</script>
+
 {block name='head_ie_compatibility'}
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 {/block}

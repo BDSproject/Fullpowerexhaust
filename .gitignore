@@ -1,6 +1,6 @@
 # ── Dépendances (réinstallables) ──
 /vendor/
-/node_modules/
+node_modules/
 
 # ── Cache, logs, sessions ──
 /var/
@@ -20,7 +20,13 @@
 /upload/
 /download/
 
+# ── Packs de langue téléchargés (réinstallables) ──
+/translations/*.zip
+
 # ── Fichiers macOS / temporaires ──
 .DS_Store
 **/.DS_Store
 Thumbs.db
+
+# ── Sitemaps générés (reconstruits en production avec le bon domaine) ──
+/1_*_sitemap.xml

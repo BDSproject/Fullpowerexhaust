@@ -1,0 +1,12 @@
+ 
+
+{shop_url}
+
+Salve,
+
+Iscrizione alla newsletter
+
+Grazie per esserti iscritto alla nostra newsletter. Siamo lieti di offrirti il seguente buono: {discount}
+
+[{shop_name}]({shop_url})
+Powered by [PrestaShop](https://www.prestashop-project.org/)

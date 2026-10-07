@@ -1,0 +1,39 @@
+// ============================================================================
+// Correctifs responsive
+// ============================================================================
+
+// Tablette (768px → 991px) : réduire le logo et l'espacement de la nav centrée,
+// et passer le compte en icône seule (libellé « Connexion » masqué) pour éviter
+// tout chevauchement avec les actions de droite.
+@media (max-width: 991.98px) {
+  .site-header__logo { font-size: 1.25rem; }
+  .site-header__nav { gap: 1rem; }
+  #_desktop_ps_customersignin .header-block__title { display: none; }
+}
+
+@media (max-width: 767.98px) {
+  body { padding-top: 3.75rem; }
+  .site-header__logo { font-size: 1.2rem; letter-spacing: 0.1em; }
+  .product-miniature__price { font-size: 1.5rem; }
+
+  // Sélecteur de langue visible et compact sur mobile (drapeaux)
+  #_desktop_ps_languageselector .form-select {
+    padding: 0.4rem 1.75rem 0.4rem 0.5rem;
+    font-size: 0.75rem;
+    background-size: 12px;
+    background-position: right 0.4rem center;
+  }
+
+  // Compte + panier en icône seule sur mobile (pas de libellé « Connexion » / « Panier »)
+  .header-block__title { display: none !important; }
+}
+
+// Respect des préférences de réduction de mouvement
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
