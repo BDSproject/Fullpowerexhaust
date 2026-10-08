@@ -21,7 +21,7 @@
           <p class="site-footer__tagline">{l s='L\'échappement performance occasion.' d='Shop.Theme.FullPowerExhaust'}</p>
         </div>
         <div class="site-footer__contact">
-          <a href="mailto:contact@fullpowerexhaust.com">contact@fullpowerexhaust.com</a>
+          <a href="mailto:contact@power-exhaust.com">contact@power-exhaust.com</a>
           <span>fullpowerexhaust.com</span>
         </div>
       </div>

@@ -35,7 +35,7 @@ $pages = [
 <p>Toute commande passée sur le site implique l'acceptation pleine, entière et sans réserve des présentes CGV. Le Client reconnaît en avoir pris connaissance avant la validation de sa commande. Les CGV applicables sont celles en vigueur à la date de la commande.</p>
 
 <h2>Article 2 — Identité du Vendeur</h2>
-<p>FULLPOWEREXHAUST — vente en ligne de pièces d'échappement d'occasion.<br>Email : contact@fullpowerexhaust.com<br>Site : fullpowerexhaust.com</p>
+<p>FULLPOWEREXHAUST — vente en ligne de pièces d'échappement d'occasion.<br>Email : contact@power-exhaust.com<br>Site : fullpowerexhaust.com</p>
 <p>Les coordonnées complètes (forme juridique, capital, siège social, SIREN, TVA) figurent dans les <a href="{url entity='cms' id=2}">Mentions légales</a>.</p>
 
 <h2>Article 3 — Produits : pièces d'occasion</h2>
@@ -46,7 +46,7 @@ $pages = [
 
 <h2>Article 4 — Compatibilité avec le véhicule</h2>
 <p>Il appartient au Client de vérifier, avant toute commande, la compatibilité de la pièce avec son véhicule : marque, modèle, motorisation, année, référence constructeur (référence OEM) et référence du produit indiquée sur la fiche.</p>
-<p>En cas de doute, le Client est invité à contacter le Vendeur avant l'achat via contact@fullpowerexhaust.com, en communiquant la référence OEM de la pièce recherchée ou le numéro de châssis (VIN) de son véhicule.</p>
+<p>En cas de doute, le Client est invité à contacter le Vendeur avant l'achat via contact@power-exhaust.com, en communiquant la référence OEM de la pièce recherchée ou le numéro de châssis (VIN) de son véhicule.</p>
 <p>Une erreur de compatibilité non signalée avant l'achat ne constitue pas un défaut du produit et ne donne pas droit à remboursement au titre de la garantie légale de conformité.</p>
 
 <h2>Article 5 — Prix</h2>
@@ -66,7 +66,7 @@ $pages = [
 
 <h2>Article 9 — Droit de rétractation</h2>
 <p>Conformément aux articles L.221-18 et suivants du Code de la consommation, le Client dispose d'un délai de <strong>14 jours calendaires</strong> à compter de la réception du produit pour exercer son droit de rétractation, sans avoir à motiver sa décision.</p>
-<p>Pour l'exercer, le Client doit notifier sa décision par écrit (e-mail à retours@fullpowerexhaust.com) avant l'expiration du délai. La pièce doit être retournée <strong>non montée, non modifiée et dans son état d'origine</strong>, dans son emballage. Les frais de retour sont à la charge du Client, sauf disposition contraire des conditions de retour.</p>
+<p>Pour l'exercer, le Client doit notifier sa décision par écrit (e-mail à contact@power-exhaust.com) avant l'expiration du délai. La pièce doit être retournée <strong>non montée, non modifiée et dans son état d'origine</strong>, dans son emballage. Les frais de retour sont à la charge du Client, sauf disposition contraire des conditions de retour.</p>
 <p>Le remboursement intervient dans un délai de 14 jours à compter de la récupération de la pièce ou de la preuve d'expédition, sur le moyen de paiement initial.</p>
 
 <h2>Article 10 — Garanties légales</h2>
@@ -79,7 +79,7 @@ $pages = [
 <p>La responsabilité du Vendeur est limitée au montant de la commande ; il ne saurait être tenu des dommages indirects ou immatériels.</p>
 
 <h2>Article 12 — Réclamations et service après-vente</h2>
-<p>Toute réclamation doit être adressée par e-mail à contact@fullpowerexhaust.com en précisant le numéro de commande et en joignant des photographies. Le Vendeur s'engage à répondre dans un délai raisonnable.</p>
+<p>Toute réclamation doit être adressée par e-mail à contact@power-exhaust.com en précisant le numéro de commande et en joignant des photographies. Le Vendeur s'engage à répondre dans un délai raisonnable.</p>
 
 <h2>Article 13 — Médiation et litiges</h2>
 <p>En cas de litige, le Client est invité à contacter préalablement le service client afin de rechercher une solution amiable. Conformément à l'article L.612-1 du Code de la consommation, le Client peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable du litige.</p>
@@ -108,7 +108,7 @@ HTML,
 <p>L'accès au Site est libre et gratuit. Le Vendeur se réserve le droit de suspendre, restreindre ou interrompre l'accès au Site, notamment pour des opérations de maintenance, de mise à jour ou en cas de force majeure, sans que sa responsabilité ne puisse être engagée.</p>
 
 <h2>Article 4 — Compte client</h2>
-<p>La création d'un compte client est nécessaire pour passer commande et suivre ses achats. L'Utilisateur s'engage à fournir des informations exactes, complètes et à jour, et à les maintenir à jour. Il est seul responsable de la confidentialité de ses identifiants et de toute activité effectuée depuis son compte. Tout accès ou usage frauduleux devra être immédiatement signalé à contact@fullpowerexhaust.com.</p>
+<p>La création d'un compte client est nécessaire pour passer commande et suivre ses achats. L'Utilisateur s'engage à fournir des informations exactes, complètes et à jour, et à les maintenir à jour. Il est seul responsable de la confidentialité de ses identifiants et de toute activité effectuée depuis son compte. Tout accès ou usage frauduleux devra être immédiatement signalé à contact@power-exhaust.com.</p>
 
 <h2>Article 5 — Propriété intellectuelle</h2>
 <p>L'ensemble des éléments du Site (textes, photographies, illustrations, logos, marques, graphismes, structure, base de données, logiciels) est la propriété exclusive de FULLPOWEREXHAUST ou de ses partenaires, et est protégé par le droit de la propriété intellectuelle.</p>
@@ -156,7 +156,7 @@ HTML,
 <p>La présente politique de confidentialité décrit la manière dont FULLPOWEREXHAUST collecte, utilise et protège vos données personnelles, conformément au Règlement (UE) 2016/679 dit « RGPD » et à la loi n° 78-17 du 6 janvier 1978 modifiée (« Informatique et Libertés »).</p>
 
 <h2>1. Responsable du traitement</h2>
-<p>Le responsable du traitement des données est la société FULLPOWEREXHAUST, joignable à l'adresse : contact@fullpowerexhaust.com.</p>
+<p>Le responsable du traitement des données est la société FULLPOWEREXHAUST, joignable à l'adresse : contact@power-exhaust.com.</p>
 
 <h2>2. Données collectées</h2>
 <p>Dans le cadre de votre navigation et de vos commandes, nous sommes susceptibles de collecter :</p>
@@ -199,7 +199,7 @@ HTML,
 
 <h2>7. Vos droits</h2>
 <p>Conformément au RGPD, vous disposez des droits suivants sur vos données : droit d'accès, de rectification, d'effacement (« droit à l'oubli »), de limitation du traitement, d'opposition, et de portabilité.</p>
-<p>Pour exercer ces droits, contactez-nous à contact@fullpowerexhaust.com en justifiant de votre identité. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+<p>Pour exercer ces droits, contactez-nous à contact@power-exhaust.com en justifiant de votre identité. Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
 
 <h2>8. Sécurité des données</h2>
 <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées (chiffrement des échanges, accès restreints, hébergement sécurisé) afin de protéger vos données contre toute perte, altération, divulgation ou accès non autorisé.</p>
@@ -208,7 +208,7 @@ HTML,
 <p>Dans la mesure où certains prestataires seraient situés hors de l'Union européenne, des garanties appropriées (clauses contractuelles types) sont mises en place conformément au RGPD.</p>
 
 <h2>10. Contact et réclamations</h2>
-<p>Pour toute question relative à la protection de vos données, vous pouvez nous écrire à contact@fullpowerexhaust.com.</p>
+<p>Pour toute question relative à la protection de vos données, vous pouvez nous écrire à contact@power-exhaust.com.</p>
 
 <h2>11. Modification de la politique</h2>
 <p>La présente politique peut être mise à jour à tout moment afin de refléter l'évolution de nos pratiques ou de la réglementation. La version applicable est celle publiée sur le Site.</p>
@@ -235,7 +235,7 @@ HTML,
 <li><strong>Immatriculation :</strong> SIREN 104 257 449 · SIRET 104 257 449 00017</li>
 <li><strong>N° TVA intracommunautaire :</strong> FR 30 104 257 449</li>
 <li><strong>Code APE :</strong> 4532Z — Commerce de détail d'équipements automobiles</li>
-<li><strong>E-mail :</strong> contact@fullpowerexhaust.com</li>
+<li><strong>E-mail :</strong> contact@power-exhaust.com</li>
 </ul>
 
 <h2>2. Directeur de la publication</h2>
@@ -252,7 +252,7 @@ HTML,
 <p>Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite et constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
 
 <h2>6. Données personnelles</h2>
-<p>La collecte et le traitement des données personnelles des utilisateurs sont régis par notre <a href="{url entity='cms' id=7}">Politique de confidentialité</a>. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur les données vous concernant, exerçable à l'adresse contact@fullpowerexhaust.com.</p>
+<p>La collecte et le traitement des données personnelles des utilisateurs sont régis par notre <a href="{url entity='cms' id=7}">Politique de confidentialité</a>. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur les données vous concernant, exerçable à l'adresse contact@power-exhaust.com.</p>
 
 <h2>7. Cookies</h2>
 <p>Le site utilise des cookies dont les modalités sont décrites dans la <a href="{url entity='cms' id=8}">Politique de cookies</a>.</p>
@@ -302,7 +302,7 @@ HTML,
             . '<li>La pièce n\'a pas été montée ni essayée sur le véhicule.</li>'
             . '<li>La pièce est retournée dans son emballage d\'origine, en parfait état.</li>'
             . '<li>Aucune modification ou découpe n\'a été effectuée sur la pièce.</li>'
-            . '<li>La demande est formulée par écrit dans les 14 jours (retours@fullpowerexhaust.com).</li>'
+            . '<li>La demande est formulée par écrit dans les 14 jours (contact@power-exhaust.com).</li>'
             . '</ul>'
             . '<h2>2. Remboursement pour défaut caché</h2>'
             . '<p>Si la pièce présente un défaut caché non visible lors de la réception et non mentionné dans la description (ex : fissure interne, corrosion masquée), un remboursement intégral est accordé sous conditions :</p>'
@@ -324,7 +324,7 @@ HTML,
             . '<h2>4. Modalités de remboursement</h2>'
             . '<p>Le remboursement est effectué sous 14 jours ouvrés après réception et validation de la pièce retournée, sur le moyen de paiement d\'origine. Les frais de livraison initiaux ne sont pas remboursés, sauf en cas de défaut caché avéré.</p>'
             . '<h2>5. Contact</h2>'
-            . '<p>Pour toute demande : retours@fullpowerexhaust.com — Objet : REMBOURSEMENT + numéro de commande.</p>',
+            . '<p>Pour toute demande : contact@power-exhaust.com — Objet : REMBOURSEMENT + numéro de commande.</p>',
     ],
 
     // ════════════════════════════════════════════════════════════════════
@@ -337,7 +337,7 @@ HTML,
         'html'  => '<h2>1. Procédure obligatoire</h2>'
             . '<p>Tout retour doit être préalablement autorisé par notre service client. Aucun colis non sollicité ne sera accepté. Pour initier un retour :</p>'
             . '<ul>'
-            . '<li><strong>01</strong> — Envoyez un e-mail à retours@fullpowerexhaust.com avec votre numéro de commande et le motif du retour.</li>'
+            . '<li><strong>01</strong> — Envoyez un e-mail à contact@power-exhaust.com avec votre numéro de commande et le motif du retour.</li>'
             . '<li><strong>02</strong> — Attendez notre confirmation et le numéro de retour (RMA) sous 48h ouvrées.</li>'
             . '<li><strong>03</strong> — Emballez soigneusement la pièce et apposez l\'étiquette de retour fournie.</li>'
             . '<li><strong>04</strong> — Déposez le colis chez le transporteur indiqué dans les 5 jours suivant l\'obtention du RMA.</li>'

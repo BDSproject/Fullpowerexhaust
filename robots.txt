@@ -142,4 +142,4 @@ Disallow: /guest-tracking
 Disallow: /en/order-confirmation
 Disallow: /order-confirmation
 
-Sitemap: http://localhost:8000/sitemap.xml
+Sitemap: https://fullpowerexhaust.com/sitemap.xml

@@ -29,7 +29,7 @@ $pages = [
 <p>Any order placed on the website implies full and unreserved acceptance of these GTCS. The Customer acknowledges having read them before confirming the order. The applicable GTCS are those in force on the date of the order.</p>
 
 <h2>Article 2 — Seller identification</h2>
-<p>POWEREXHAUST — online sale of used exhaust parts.<br>Email: contact@fullpowerexhaust.com<br>Website: fullpowerexhaust.com</p>
+<p>POWEREXHAUST — online sale of used exhaust parts.<br>Email: contact@power-exhaust.com<br>Website: fullpowerexhaust.com</p>
 <p>Full company details (legal form, capital, registered office, SIREN, VAT) are provided in the <a href="{url entity='cms' id=2}">Legal notice</a>.</p>
 
 <h2>Article 3 — Products: used parts</h2>
@@ -40,7 +40,7 @@ $pages = [
 
 <h2>Article 4 — Vehicle compatibility</h2>
 <p>It is the Customer's responsibility to check, before ordering, the compatibility of the part with their vehicle: make, model, engine, year, manufacturer reference (OEM reference) and the product reference shown on the listing.</p>
-<p>In case of doubt, the Customer is invited to contact the Seller before purchase via contact@fullpowerexhaust.com, providing the OEM reference of the part sought or the chassis number (VIN) of their vehicle.</p>
+<p>In case of doubt, the Customer is invited to contact the Seller before purchase via contact@power-exhaust.com, providing the OEM reference of the part sought or the chassis number (VIN) of their vehicle.</p>
 <p>A compatibility error not reported before purchase does not constitute a product defect and does not entitle the Customer to a refund under the legal conformity warranty.</p>
 
 <h2>Article 5 — Price</h2>
@@ -60,7 +60,7 @@ $pages = [
 
 <h2>Article 9 — Right of withdrawal</h2>
 <p>In accordance with Articles L.221-18 et seq. of the French Consumer Code, the Customer has a period of <strong>14 calendar days</strong> from receipt of the product to exercise their right of withdrawal, without having to give any reason.</p>
-<p>To exercise it, the Customer must notify their decision in writing (email to retours@fullpowerexhaust.com) before the expiry of the period. The part must be returned <strong>unfitted, unmodified and in its original condition</strong>, in its packaging. Return costs are borne by the Customer, unless otherwise provided in the return conditions.</p>
+<p>To exercise it, the Customer must notify their decision in writing (email to contact@power-exhaust.com) before the expiry of the period. The part must be returned <strong>unfitted, unmodified and in its original condition</strong>, in its packaging. Return costs are borne by the Customer, unless otherwise provided in the return conditions.</p>
 <p>The refund is made within 14 days from recovery of the part or proof of shipment, via the original payment method.</p>
 
 <h2>Article 10 — Legal warranties</h2>
@@ -73,7 +73,7 @@ $pages = [
 <p>The Seller's liability is limited to the amount of the order; it cannot be held liable for indirect or immaterial damage.</p>
 
 <h2>Article 12 — Complaints and after-sales service</h2>
-<p>Any complaint must be sent by email to contact@fullpowerexhaust.com, stating the order number and attaching photographs. The Seller undertakes to respond within a reasonable time.</p>
+<p>Any complaint must be sent by email to contact@power-exhaust.com, stating the order number and attaching photographs. The Seller undertakes to respond within a reasonable time.</p>
 
 <h2>Article 13 — Mediation and disputes</h2>
 <p>In the event of a dispute, the Customer is invited to contact customer service first in order to seek an amicable solution. In accordance with Article L.612-1 of the French Consumer Code, the Customer may have free recourse to a consumer mediator with a view to the amicable resolution of the dispute.</p>
@@ -88,7 +88,7 @@ HTML,
 <p>Todo pedido realizado en el sitio implica la aceptación plena, entera y sin reservas de las presentes CGV. El Cliente reconoce haberlas leído antes de validar su pedido. Las CGV aplicables son las vigentes en la fecha del pedido.</p>
 
 <h2>Artículo 2 — Identificación del Vendedor</h2>
-<p>POWEREXHAUST — venta en línea de piezas de escape de ocasión.<br>Correo electrónico: contact@fullpowerexhaust.com<br>Sitio web: fullpowerexhaust.com</p>
+<p>POWEREXHAUST — venta en línea de piezas de escape de ocasión.<br>Correo electrónico: contact@power-exhaust.com<br>Sitio web: fullpowerexhaust.com</p>
 <p>Los datos completos de la empresa (forma jurídica, capital, domicilio social, SIREN, IVA) figuran en el <a href="{url entity='cms' id=2}">Aviso legal</a>.</p>
 
 <h2>Artículo 3 — Productos: piezas de ocasión</h2>
@@ -99,7 +99,7 @@ HTML,
 
 <h2>Artículo 4 — Compatibilidad con el vehículo</h2>
 <p>Corresponde al Cliente verificar, antes de cualquier pedido, la compatibilidad de la pieza con su vehículo: marca, modelo, motorización, año, referencia del fabricante (referencia OEM) y referencia del producto indicada en la ficha.</p>
-<p>En caso de duda, se invita al Cliente a contactar con el Vendedor antes de la compra a través de contact@fullpowerexhaust.com, comunicando la referencia OEM de la pieza buscada o el número de bastidor (VIN) de su vehículo.</p>
+<p>En caso de duda, se invita al Cliente a contactar con el Vendedor antes de la compra a través de contact@power-exhaust.com, comunicando la referencia OEM de la pieza buscada o el número de bastidor (VIN) de su vehículo.</p>
 <p>Un error de compatibilidad no señalado antes de la compra no constituye un defecto del producto y no da derecho a reembolso en virtud de la garantía legal de conformidad.</p>
 
 <h2>Artículo 5 — Precio</h2>
@@ -119,7 +119,7 @@ HTML,
 
 <h2>Artículo 9 — Derecho de desistimiento</h2>
 <p>De conformidad con los artículos L.221-18 y siguientes del Código de Consumo francés, el Cliente dispone de un plazo de <strong>14 días naturales</strong> desde la recepción del producto para ejercer su derecho de desistimiento, sin necesidad de justificar su decisión.</p>
-<p>Para ejercerlo, el Cliente debe notificar su decisión por escrito (correo electrónico a retours@fullpowerexhaust.com) antes de que expire el plazo. La pieza debe devolverse <strong>sin montar, sin modificar y en su estado original</strong>, en su embalaje. Los gastos de devolución corren a cargo del Cliente, salvo disposición contraria de las condiciones de devolución.</p>
+<p>Para ejercerlo, el Cliente debe notificar su decisión por escrito (correo electrónico a contact@power-exhaust.com) antes de que expire el plazo. La pieza debe devolverse <strong>sin montar, sin modificar y en su estado original</strong>, en su embalaje. Los gastos de devolución corren a cargo del Cliente, salvo disposición contraria de las condiciones de devolución.</p>
 <p>El reembolso se realiza en un plazo de 14 días desde la recuperación de la pieza o la prueba de envío, mediante el medio de pago original.</p>
 
 <h2>Artículo 10 — Garantías legales</h2>
@@ -132,7 +132,7 @@ HTML,
 <p>La responsabilidad del Vendedor se limita al importe del pedido; no responderá de los daños indirectos o inmateriales.</p>
 
 <h2>Artículo 12 — Reclamaciones y servicio posventa</h2>
-<p>Toda reclamación debe dirigirse por correo electrónico a contact@fullpowerexhaust.com, indicando el número de pedido y adjuntando fotografías. El Vendedor se compromete a responder en un plazo razonable.</p>
+<p>Toda reclamación debe dirigirse por correo electrónico a contact@power-exhaust.com, indicando el número de pedido y adjuntando fotografías. El Vendedor se compromete a responder en un plazo razonable.</p>
 
 <h2>Artículo 13 — Mediación y litigios</h2>
 <p>En caso de litigio, se invita al Cliente a contactar previamente con el servicio de atención al cliente para buscar una solución amistosa. De conformidad con el artículo L.612-1 del Código de Consumo francés, el Cliente puede recurrir gratuitamente a un mediador de consumo para la resolución amistosa del litigio.</p>
@@ -147,7 +147,7 @@ HTML,
 <p>Qualsiasi ordine effettuato sul sito implica l'accettazione piena, intera e senza riserve delle presenti CGV. Il Cliente riconosce di averne preso visione prima della convalida dell'ordine. Le CGV applicabili sono quelle in vigore alla data dell'ordine.</p>
 
 <h2>Articolo 2 — Identificazione del Venditore</h2>
-<p>POWEREXHAUST — vendita online di parti di scarico usate.<br>Email: contact@fullpowerexhaust.com<br>Sito: fullpowerexhaust.com</p>
+<p>POWEREXHAUST — vendita online di parti di scarico usate.<br>Email: contact@power-exhaust.com<br>Sito: fullpowerexhaust.com</p>
 <p>I dati completi della società (forma giuridica, capitale, sede legale, SIREN, IVA) sono riportati nelle <a href="{url entity='cms' id=2}">Note legali</a>.</p>
 
 <h2>Articolo 3 — Prodotti: parti usate</h2>
@@ -158,7 +158,7 @@ HTML,
 
 <h2>Articolo 4 — Compatibilità con il veicolo</h2>
 <p>Spetta al Cliente verificare, prima di qualsiasi ordine, la compatibilità della parte con il proprio veicolo: marca, modello, motorizzazione, anno, riferimento del costruttore (riferimento OEM) e riferimento del prodotto indicato sulla scheda.</p>
-<p>In caso di dubbio, il Cliente è invitato a contattare il Venditore prima dell'acquisto tramite contact@fullpowerexhaust.com, comunicando il riferimento OEM della parte cercata o il numero di telaio (VIN) del proprio veicolo.</p>
+<p>In caso di dubbio, il Cliente è invitato a contattare il Venditore prima dell'acquisto tramite contact@power-exhaust.com, comunicando il riferimento OEM della parte cercata o il numero di telaio (VIN) del proprio veicolo.</p>
 <p>Un errore di compatibilità non segnalato prima dell'acquisto non costituisce un difetto del prodotto e non dà diritto al rimborso ai sensi della garanzia legale di conformità.</p>
 
 <h2>Articolo 5 — Prezzo</h2>
@@ -178,7 +178,7 @@ HTML,
 
 <h2>Articolo 9 — Diritto di recesso</h2>
 <p>Conformemente agli articoli L.221-18 e seguenti del Codice del Consumo francese, il Cliente dispone di un termine di <strong>14 giorni di calendario</strong> dalla ricezione del prodotto per esercitare il diritto di recesso, senza dover motivare la propria decisione.</p>
-<p>Per esercitarlo, il Cliente deve notificare la propria decisione per iscritto (email a retours@fullpowerexhaust.com) prima della scadenza del termine. La parte deve essere restituita <strong>non montata, non modificata e nel suo stato originale</strong>, nell'imballaggio. Le spese di reso sono a carico del Cliente, salvo diversa disposizione delle condizioni di reso.</p>
+<p>Per esercitarlo, il Cliente deve notificare la propria decisione per iscritto (email a contact@power-exhaust.com) prima della scadenza del termine. La parte deve essere restituita <strong>non montata, non modificata e nel suo stato originale</strong>, nell'imballaggio. Le spese di reso sono a carico del Cliente, salvo diversa disposizione delle condizioni di reso.</p>
 <p>Il rimborso avviene entro 14 giorni dal recupero della parte o dalla prova di spedizione, tramite il mezzo di pagamento originale.</p>
 
 <h2>Articolo 10 — Garanzie legali</h2>
@@ -191,7 +191,7 @@ HTML,
 <p>La responsabilità del Venditore è limitata all'importo dell'ordine; non potrà essere ritenuto responsabile dei danni indiretti o immateriali.</p>
 
 <h2>Articolo 12 — Reclami e assistenza post-vendita</h2>
-<p>Qualsiasi reclamo deve essere inviato via email a contact@fullpowerexhaust.com, indicando il numero d'ordine e allegando fotografie. Il Venditore si impegna a rispondere entro un termine ragionevole.</p>
+<p>Qualsiasi reclamo deve essere inviato via email a contact@power-exhaust.com, indicando il numero d'ordine e allegando fotografie. Il Venditore si impegna a rispondere entro un termine ragionevole.</p>
 
 <h2>Articolo 13 — Mediazione e controversie</h2>
 <p>In caso di controversia, il Cliente è invitato a contattare preventivamente il servizio clienti per cercare una soluzione amichevole. Conformemente all'articolo L.612-1 del Codice del Consumo francese, il Cliente può ricorrere gratuitamente a un mediatore del consumo ai fini della risoluzione amichevole della controversia.</p>
@@ -213,7 +213,7 @@ HTML,
 <p>Access to the Site is free of charge. The Seller reserves the right to suspend, restrict or interrupt access to the Site, in particular for maintenance, updates or in the event of force majeure, without its liability being engaged.</p>
 
 <h2>Article 4 — Customer account</h2>
-<p>Creating a customer account is required to place an order and track purchases. The User undertakes to provide accurate, complete and up-to-date information, and to keep it updated. They are solely responsible for the confidentiality of their credentials and for any activity carried out from their account. Any fraudulent access or use must be reported immediately to contact@fullpowerexhaust.com.</p>
+<p>Creating a customer account is required to place an order and track purchases. The User undertakes to provide accurate, complete and up-to-date information, and to keep it updated. They are solely responsible for the confidentiality of their credentials and for any activity carried out from their account. Any fraudulent access or use must be reported immediately to contact@power-exhaust.com.</p>
 
 <h2>Article 5 — Intellectual property</h2>
 <p>All elements of the Site (texts, photographs, illustrations, logos, trademarks, graphics, structure, database, software) are the exclusive property of POWEREXHAUST or its partners, and are protected by intellectual property law.</p>
@@ -261,7 +261,7 @@ HTML,
 <p>El acceso al Sitio es libre y gratuito. El Vendedor se reserva el derecho de suspender, restringir o interrumpir el acceso al Sitio, en particular por mantenimiento, actualizaciones o fuerza mayor, sin que pueda comprometerse su responsabilidad.</p>
 
 <h2>Artículo 4 — Cuenta de cliente</h2>
-<p>La creación de una cuenta de cliente es necesaria para realizar pedidos y hacer su seguimiento. El Usuario se compromete a proporcionar información exacta, completa y actualizada, y a mantenerla actualizada. Es el único responsable de la confidencialidad de sus credenciales y de toda actividad realizada desde su cuenta. Cualquier acceso o uso fraudulento deberá comunicarse de inmediato a contact@fullpowerexhaust.com.</p>
+<p>La creación de una cuenta de cliente es necesaria para realizar pedidos y hacer su seguimiento. El Usuario se compromete a proporcionar información exacta, completa y actualizada, y a mantenerla actualizada. Es el único responsable de la confidencialidad de sus credenciales y de toda actividad realizada desde su cuenta. Cualquier acceso o uso fraudulento deberá comunicarse de inmediato a contact@power-exhaust.com.</p>
 
 <h2>Artículo 5 — Propiedad intelectual</h2>
 <p>El conjunto de los elementos del Sitio (textos, fotografías, ilustraciones, logotipos, marcas, gráficos, estructura, base de datos, software) es propiedad exclusiva de POWEREXHAUST o de sus socios, y está protegido por el derecho de propiedad intelectual.</p>
@@ -309,7 +309,7 @@ HTML,
 <p>L'accesso al Sito è libero e gratuito. Il Venditore si riserva il diritto di sospendere, limitare o interrompere l'accesso al Sito, in particolare per manutenzione, aggiornamenti o in caso di forza maggiore, senza che la propria responsabilità possa essere chiamata in causa.</p>
 
 <h2>Articolo 4 — Account cliente</h2>
-<p>La creazione di un account cliente è necessaria per effettuare ordini e seguirne lo stato. L'Utente si impegna a fornire informazioni accurate, complete e aggiornate e a mantenerle aggiornate. È l'unico responsabile della riservatezza delle proprie credenziali e di qualsiasi attività svolta dal proprio account. Qualsiasi accesso o uso fraudolento deve essere immediatamente segnalato a contact@fullpowerexhaust.com.</p>
+<p>La creazione di un account cliente è necessaria per effettuare ordini e seguirne lo stato. L'Utente si impegna a fornire informazioni accurate, complete e aggiornate e a mantenerle aggiornate. È l'unico responsabile della riservatezza delle proprie credenziali e di qualsiasi attività svolta dal proprio account. Qualsiasi accesso o uso fraudolento deve essere immediatamente segnalato a contact@power-exhaust.com.</p>
 
 <h2>Articolo 5 — Proprietà intellettuale</h2>
 <p>Tutti gli elementi del Sito (testi, fotografie, illustrazioni, loghi, marchi, grafica, struttura, database, software) sono di proprietà esclusiva di POWEREXHAUST o dei suoi partner e sono protetti dal diritto della proprietà intellettuale.</p>
@@ -350,7 +350,7 @@ HTML,
 <p>This privacy policy describes how POWEREXHAUST collects, uses and protects your personal data, in accordance with Regulation (EU) 2016/679 ("GDPR") and French Law No. 78-17 of 6 January 1978 as amended ("Informatique et Libertés").</p>
 
 <h2>1. Data controller</h2>
-<p>The data controller is POWEREXHAUST, which can be contacted at: contact@fullpowerexhaust.com.</p>
+<p>The data controller is POWEREXHAUST, which can be contacted at: contact@power-exhaust.com.</p>
 
 <h2>2. Data collected</h2>
 <p>In the course of your browsing and orders, we may collect:</p>
@@ -393,7 +393,7 @@ HTML,
 
 <h2>7. Your rights</h2>
 <p>In accordance with the GDPR, you have the following rights over your data: right of access, rectification, erasure ("right to be forgotten"), restriction of processing, objection, and portability.</p>
-<p>To exercise these rights, contact us at contact@fullpowerexhaust.com, proving your identity. You also have the right to lodge a complaint with the CNIL (www.cnil.fr).</p>
+<p>To exercise these rights, contact us at contact@power-exhaust.com, proving your identity. You also have the right to lodge a complaint with the CNIL (www.cnil.fr).</p>
 
 <h2>8. Data security</h2>
 <p>We implement appropriate technical and organisational measures (encryption of exchanges, restricted access, secure hosting) to protect your data against loss, alteration, disclosure or unauthorised access.</p>
@@ -402,7 +402,7 @@ HTML,
 <p>Insofar as certain providers may be located outside the European Union, appropriate safeguards (standard contractual clauses) are put in place in accordance with the GDPR.</p>
 
 <h2>10. Contact and complaints</h2>
-<p>For any question relating to the protection of your data, you may write to us at contact@fullpowerexhaust.com.</p>
+<p>For any question relating to the protection of your data, you may write to us at contact@power-exhaust.com.</p>
 
 <h2>11. Policy modification</h2>
 <p>This policy may be updated at any time to reflect changes in our practices or the regulations. The applicable version is the one published on the Site.</p>
@@ -412,7 +412,7 @@ HTML,
 <p>La presente política de privacidad describe cómo POWEREXHAUST recopila, utiliza y protege sus datos personales, de conformidad con el Reglamento (UE) 2016/679 («RGPD») y la Ley francesa n.º 78-17 de 6 de enero de 1978 modificada («Informatique et Libertés»).</p>
 
 <h2>1. Responsable del tratamiento</h2>
-<p>El responsable del tratamiento de los datos es POWEREXHAUST, con el que puede contactarse en: contact@fullpowerexhaust.com.</p>
+<p>El responsable del tratamiento de los datos es POWEREXHAUST, con el que puede contactarse en: contact@power-exhaust.com.</p>
 
 <h2>2. Datos recopilados</h2>
 <p>En el marco de su navegación y de sus pedidos, podemos recopilar:</p>
@@ -455,7 +455,7 @@ HTML,
 
 <h2>7. Sus derechos</h2>
 <p>De conformidad con el RGPD, usted dispone de los siguientes derechos sobre sus datos: derecho de acceso, rectificación, supresión («derecho al olvido»), limitación del tratamiento, oposición y portabilidad.</p>
-<p>Para ejercer estos derechos, contáctenos en contact@fullpowerexhaust.com, justificando su identidad. También tiene derecho a presentar una reclamación ante la CNIL (www.cnil.fr).</p>
+<p>Para ejercer estos derechos, contáctenos en contact@power-exhaust.com, justificando su identidad. También tiene derecho a presentar una reclamación ante la CNIL (www.cnil.fr).</p>
 
 <h2>8. Seguridad de los datos</h2>
 <p>Implementamos medidas técnicas y organizativas apropiadas (cifrado de los intercambios, accesos restringidos, alojamiento seguro) para proteger sus datos contra toda pérdida, alteración, divulgación o acceso no autorizado.</p>
@@ -464,7 +464,7 @@ HTML,
 <p>En la medida en que algunos proveedores puedan estar situados fuera de la Unión Europea, se establecen garantías apropiadas (cláusulas contractuales tipo) de conformidad con el RGPD.</p>
 
 <h2>10. Contacto y reclamaciones</h2>
-<p>Para cualquier cuestión relativa a la protección de sus datos, puede escribirnos a contact@fullpowerexhaust.com.</p>
+<p>Para cualquier cuestión relativa a la protección de sus datos, puede escribirnos a contact@power-exhaust.com.</p>
 
 <h2>11. Modificación de la política</h2>
 <p>La presente política puede actualizarse en cualquier momento para reflejar la evolución de nuestras prácticas o de la normativa. La versión aplicable es la publicada en el Sitio.</p>
@@ -474,7 +474,7 @@ HTML,
 <p>La presente informativa sulla privacy descrive le modalità con cui POWEREXHAUST raccoglie, utilizza e protegge i tuoi dati personali, conformemente al Regolamento (UE) 2016/679 («GDPR») e alla Legge francese n. 78-17 del 6 gennaio 1978 come modificata («Informatique et Libertés»).</p>
 
 <h2>1. Titolare del trattamento</h2>
-<p>Il titolare del trattamento dei dati è POWEREXHAUST, contattabile all'indirizzo: contact@fullpowerexhaust.com.</p>
+<p>Il titolare del trattamento dei dati è POWEREXHAUST, contattabile all'indirizzo: contact@power-exhaust.com.</p>
 
 <h2>2. Dati raccolti</h2>
 <p>Nell'ambito della tua navigazione e dei tuoi ordini, possiamo raccogliere:</p>
@@ -517,7 +517,7 @@ HTML,
 
 <h2>7. I tuoi diritti</h2>
 <p>Conformemente al GDPR, disponi dei seguenti diritti sui tuoi dati: diritto di accesso, rettifica, cancellazione («diritto all'oblio»), limitazione del trattamento, opposizione e portabilità.</p>
-<p>Per esercitare tali diritti, contattaci all'indirizzo contact@fullpowerexhaust.com, comprovando la tua identità. Hai inoltre il diritto di proporre reclamo alla CNIL (www.cnil.fr).</p>
+<p>Per esercitare tali diritti, contattaci all'indirizzo contact@power-exhaust.com, comprovando la tua identità. Hai inoltre il diritto di proporre reclamo alla CNIL (www.cnil.fr).</p>
 
 <h2>8. Sicurezza dei dati</h2>
 <p>Adottiamo misure tecniche e organizzative appropriate (crittografia degli scambi, accessi limitati, hosting sicuro) per proteggere i tuoi dati da perdita, alterazione, divulgazione o accesso non autorizzato.</p>
@@ -526,7 +526,7 @@ HTML,
 <p>Nella misura in cui alcuni fornitori possano essere situati al di fuori dell'Unione europea, vengono predisposte adeguate garanzie (clausole contrattuali tipo) conformemente al GDPR.</p>
 
 <h2>10. Contatto e reclami</h2>
-<p>Per qualsiasi domanda relativa alla protezione dei tuoi dati, puoi scriverci all'indirizzo contact@fullpowerexhaust.com.</p>
+<p>Per qualsiasi domanda relativa alla protezione dei tuoi dati, puoi scriverci all'indirizzo contact@power-exhaust.com.</p>
 
 <h2>11. Modifica dell'informativa</h2>
 <p>La presente informativa può essere aggiornata in qualsiasi momento per riflettere l'evoluzione delle nostre pratiche o della normativa. La versione applicabile è quella pubblicata sul Sito.</p>
@@ -546,7 +546,7 @@ HTML,
 <li><strong>Registration:</strong> SIREN 104 257 449 · SIRET 104 257 449 00017</li>
 <li><strong>Intra-community VAT number:</strong> FR 30 104 257 449</li>
 <li><strong>APE code:</strong> 4532Z — Retail trade of motor vehicle equipment</li>
-<li><strong>Email:</strong> contact@fullpowerexhaust.com</li>
+<li><strong>Email:</strong> contact@power-exhaust.com</li>
 </ul>
 
 <h2>2. Publication director</h2>
@@ -563,7 +563,7 @@ HTML,
 <p>Any reproduction, representation, modification or exploitation, in whole or in part, without prior written authorisation, is prohibited and constitutes an infringement sanctioned by Articles L.335-2 et seq. of the French Intellectual Property Code.</p>
 
 <h2>6. Personal data</h2>
-<p>The collection and processing of users' personal data are governed by our <a href="{url entity='cms' id=7}">Privacy policy</a>. In accordance with the GDPR, you have the right of access, rectification, erasure and objection regarding the data concerning you, exercisable at contact@fullpowerexhaust.com.</p>
+<p>The collection and processing of users' personal data are governed by our <a href="{url entity='cms' id=7}">Privacy policy</a>. In accordance with the GDPR, you have the right of access, rectification, erasure and objection regarding the data concerning you, exercisable at contact@power-exhaust.com.</p>
 
 <h2>7. Cookies</h2>
 <p>The website uses cookies, the terms of which are described in the <a href="{url entity='cms' id=8}">Cookie policy</a>.</p>
@@ -587,7 +587,7 @@ HTML,
 <li><strong>Registro:</strong> SIREN 104 257 449 · SIRET 104 257 449 00017</li>
 <li><strong>N.º de IVA intracomunitario:</strong> FR 30 104 257 449</li>
 <li><strong>Código APE:</strong> 4532Z — Comercio al por menor de equipos de vehículos de motor</li>
-<li><strong>Correo electrónico:</strong> contact@fullpowerexhaust.com</li>
+<li><strong>Correo electrónico:</strong> contact@power-exhaust.com</li>
 </ul>
 
 <h2>2. Director de la publicación</h2>
@@ -604,7 +604,7 @@ HTML,
 <p>Toda reproducción, representación, modificación o explotación, total o parcial, sin autorización escrita previa, está prohibida y constituye una infracción sancionada por los artículos L.335-2 y siguientes del Código de Propiedad Intelectual francés.</p>
 
 <h2>6. Datos personales</h2>
-<p>La recogida y el tratamiento de los datos personales de los usuarios se rigen por nuestra <a href="{url entity='cms' id=7}">Política de privacidad</a>. De conformidad con el RGPD, usted dispone de un derecho de acceso, rectificación, supresión y oposición sobre los datos que le conciernen, ejercitable en contact@fullpowerexhaust.com.</p>
+<p>La recogida y el tratamiento de los datos personales de los usuarios se rigen por nuestra <a href="{url entity='cms' id=7}">Política de privacidad</a>. De conformidad con el RGPD, usted dispone de un derecho de acceso, rectificación, supresión y oposición sobre los datos que le conciernen, ejercitable en contact@power-exhaust.com.</p>
 
 <h2>7. Cookies</h2>
 <p>El sitio utiliza cookies cuyas modalidades se describen en la <a href="{url entity='cms' id=8}">Política de cookies</a>.</p>
@@ -628,7 +628,7 @@ HTML,
 <li><strong>Registrazione:</strong> SIREN 104 257 449 · SIRET 104 257 449 00017</li>
 <li><strong>Partita IVA intracomunitaria:</strong> FR 30 104 257 449</li>
 <li><strong>Codice APE:</strong> 4532Z — Commercio al dettaglio di attrezzature per autoveicoli</li>
-<li><strong>Email:</strong> contact@fullpowerexhaust.com</li>
+<li><strong>Email:</strong> contact@power-exhaust.com</li>
 </ul>
 
 <h2>2. Direttore della pubblicazione</h2>
@@ -645,7 +645,7 @@ HTML,
 <p>Qualsiasi riproduzione, rappresentazione, modifica o sfruttamento, totale o parziale, senza previa autorizzazione scritta, è vietata e costituisce contraffazione sanzionata dagli articoli L.335-2 e seguenti del Codice della Proprietà Intellettuale francese.</p>
 
 <h2>6. Dati personali</h2>
-<p>La raccolta e il trattamento dei dati personali degli utenti sono disciplinati dalla nostra <a href="{url entity='cms' id=7}">Informativa sulla privacy</a>. Conformemente al GDPR, disponi del diritto di accesso, rettifica, cancellazione e opposizione sui dati che ti riguardano, esercitabile all'indirizzo contact@fullpowerexhaust.com.</p>
+<p>La raccolta e il trattamento dei dati personali degli utenti sono disciplinati dalla nostra <a href="{url entity='cms' id=7}">Informativa sulla privacy</a>. Conformemente al GDPR, disponi del diritto di accesso, rettifica, cancellazione e opposizione sui dati che ti riguardano, esercitabile all'indirizzo contact@power-exhaust.com.</p>
 
 <h2>7. Cookie</h2>
 <p>Il sito utilizza cookie le cui modalità sono descritte nella <a href="{url entity='cms' id=8}">Politica dei cookie</a>.</p>

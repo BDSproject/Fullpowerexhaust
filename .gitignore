@@ -30,3 +30,9 @@ Thumbs.db
 
 # ── Sitemaps générés (reconstruits en production avec le bon domaine) ──
 /1_*_sitemap.xml
+
+# ── Fichiers de déploiement / dumps (ne jamais committer) ──
+/parameters.php
+/parameters-production.php
+*.sql
+/dump.sql
