@@ -26,6 +26,15 @@ h1, h2, h3, h4, h5, h6,
   color: var(--fpe-fg);
 }
 
+// Page produit : on rend la main à Hummingbird pour le nom du produit
+// (plus lisible en casse normale qu'en capitales forcées).
+.page-product .product__name {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+}
+
 h1 { font-size: 2.5rem; line-height: 1.1; }
 h2 { font-size: 2rem;   line-height: 1.15; }
 h3 { font-size: 1.5rem; line-height: 1.2; }

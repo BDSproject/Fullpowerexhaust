@@ -2,10 +2,11 @@
 // Boutons
 // ============================================================================
 
+// On NE force PAS la taille de police : on laisse celle du thème Hummingbird
+// (1rem) pour éviter des boutons trop petits (produit, panier, checkout).
 .btn {
-  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   border-radius: var(--fpe-radius);
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;

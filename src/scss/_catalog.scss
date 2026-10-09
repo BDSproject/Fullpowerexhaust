@@ -235,3 +235,16 @@
 
   &:hover { color: var(--fpe-primary); }
 }
+
+// Fil d'Ariane : éviter le débordement sur mobile (noms de produits longs)
+.breadcrumb {
+  flex-wrap: wrap;
+  row-gap: 0.25rem;
+}
+
+.breadcrumb-item {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
