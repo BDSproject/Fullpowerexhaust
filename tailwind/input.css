@@ -14,6 +14,21 @@
 
 @source "../themes/hummingbird/templates";
 
+/* ----------------------------------------------------------------------------
+   CORRECTIF — collision de classes avec Bootstrap
+   ----------------------------------------------------------------------------
+   Tailwind génère un utilitaire `.collapse { visibility: collapse }` (destiné
+   aux lignes de tableau). Or Bootstrap utilise AUSSI `.collapse` pour ses
+   accordéons (description produit, blocs footer…). Résultat : le contenu des
+   accordéons restait INVISIBLE même ouvert.
+
+   Règle non "layered" → priorité supérieure aux utilitaires Tailwind.
+   `display` reste géré par Bootstrap (`.collapse:not(.show) { display:none }`).
+   -------------------------------------------------------------------------- */
+.collapse {
+  visibility: visible;
+}
+
 @theme {
   /* ── Couleurs du design system ── */
   --color-background: #0d0d0d;
