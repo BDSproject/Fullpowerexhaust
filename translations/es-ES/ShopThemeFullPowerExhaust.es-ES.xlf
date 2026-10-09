@@ -170,6 +170,14 @@
         <source>Marque</source>
         <target state="final">Marca</target>
       </trans-unit>
+      <trans-unit id="48e2adcc46293be09dba64437b181f07" approved="yes">
+        <source>Rechercher un produit…</source>
+        <target state="final">Buscar un producto…</target>
+      </trans-unit>
+      <trans-unit id="e7733389c419c59c3243e719055f83da" approved="yes">
+        <source>Langue</source>
+        <target state="final">Idioma</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

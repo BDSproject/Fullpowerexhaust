@@ -2,6 +2,24 @@
  * FULLPOWEREXHAUST — barre de filtres du catalogue.
  * Généré par tools/generate_filter_bar.php — ne pas éditer à la main.
  *}
+{* Recherche : le champ est placé ici (pages catalogue et recherche), et non
+   dans l’en-tête, conformément au design. *}
+<form class="catalog-searchbar" method="get" action="{$urls.pages.search}" role="search">
+  <input type="hidden" name="controller" value="search">
+  <label class="visually-hidden" for="catalog-search-input">{l s='Search' d='Shop.Theme.Catalog'}</label>
+  <input
+    id="catalog-search-input"
+    type="search"
+    name="s"
+    value="{$search_string|default:''|escape:'html':'UTF-8'}"
+    placeholder="{l s='Rechercher un produit…' d='Shop.Theme.FullPowerExhaust'}"
+    autocomplete="off"
+  >
+  <button type="submit" aria-label="{l s='Search' d='Shop.Theme.Catalog'}">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+  </button>
+</form>
+
 <div class="catalog-filterbar">
   <div class="filter-control filter-control--brand">
     <label class="filter-control__label" for="filter-brand">{l s='Marque de votre moto' d='Shop.Theme.FullPowerExhaust'}</label>

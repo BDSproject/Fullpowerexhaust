@@ -27,7 +27,7 @@
             {block name='product_name'}
               {block name='product_brand'}
                 {if !empty($product.manufacturer_name)}
-                  <span class="{$componentName}__brand text-xs tracking-widest uppercase text-primary font-medium">{$product.manufacturer_name}</span>
+                  <span class="{$componentName}__brand text-xs tracking-widest uppercase font-medium">{$product.manufacturer_name}</span>
                 {/if}
               {/block}
               <a class="{$componentName}__title font-display text-xl font-bold text-foreground mt-0.5 leading-tight" href="{$product.url}" aria-label="{l s='View product %product_name%' sprintf=['%product_name%' => $product.name] d='Shop.Theme.Catalog'}">{$product.name}</a>

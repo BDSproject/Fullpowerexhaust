@@ -186,3 +186,55 @@
 .fpe-hero-actions a:hover {
   color: #fff !important;
 }
+
+// ----------------------------------------------------------------------------
+// Tunnel de commande — fil des étapes
+// ----------------------------------------------------------------------------
+// Hummingbird colore l'étape courante avec --bs-dark (quasi noir sur fond noir).
+// On reprend le code couleur de la marque : rouge pour l'étape en cours, vert
+// pour les étapes validées, gris neutre pour les autres.
+.checkout-steps {
+  background: var(--fpe-card);
+  border-bottom: 1px solid var(--fpe-border);
+}
+
+.checkout-steps__number {
+  background: var(--fpe-muted);
+  color: var(--fpe-fg);
+  font-weight: 600;
+}
+
+.checkout-steps__btn {
+  color: var(--fpe-muted-fg);
+  text-transform: none;
+  letter-spacing: 0;
+
+  &:hover { color: var(--fpe-fg); }
+}
+
+.checkout-steps__step--current {
+  .checkout-steps__number {
+    background: var(--fpe-primary);
+    color: #fff;
+  }
+
+  .checkout-steps__btn {
+    color: var(--fpe-fg);
+    font-weight: 700;
+  }
+}
+
+.checkout-steps__step--success {
+  .checkout-steps__number {
+    background: var(--fpe-success);
+    color: #fff;
+  }
+
+  .checkout-steps__btn { color: var(--fpe-success); }
+}
+
+// Plan du site : liens de listes = cibles tactiles d'au moins 24 px
+.sitemap__link {
+  display: inline-block;
+  padding-block: 0.2rem;
+}

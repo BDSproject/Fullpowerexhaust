@@ -49,27 +49,36 @@ if (preg_match('#^/admin123(/|$)#', $uri)) {
 // ── Réécriture d'images (rewrite Apache "image rewriting") ──────────────────
 // PrestaShop réécrit les URLs d'images en /{id}{-type}/{rewrite}.{ext} quand
 // les URLs simplifiées sont actives. On les remappe vers le fichier physique.
-//   produit      : /6-default_md/nom.jpg        → img/p/6/6-default_md.jpg
-//   catégorie    : /c/2-category_default/nom.jpg → img/c/2-category_default.jpg
-//   fabricant    : /m/1-small_default/nom.jpg    → img/m/1-small_default.jpg
-//   fournisseur  : /s/1-small_default/nom.jpg    → img/su/1-small_default.jpg
-//   magasin      : /st/1-stores_default/nom.jpg  → img/st/1-stores_default.jpg
+//   produit      : /7-default_md/nom.jpg        → img/p/7/7-default_md.jpg
+//   catégorie    : /c/7-category_cover/nom.jpg  → img/c/7-category_cover.jpg
+//   fabricant    : /m/1-small_default/nom.jpg   → img/m/1-small_default.jpg
+//   fournisseur  : /s/1-small_default/nom.jpg   → img/su/1-small_default.jpg
+//   magasin      : /st/1-stores_default/nom.jpg → img/st/1-stores_default.jpg
+//
+// ⚠️ Seules les images PRODUIT sont rangées dans des sous-dossiers
+//    (img/p/3/3/1/331-product_main.jpg) ; toutes les autres sont à plat
+//    (img/c/7-category_cover.jpg). Confondre les deux faisait répondre 404
+//    à toutes les images de catégorie.
+// Motifs calqués sur ceux que PrestaShop génère lui-même dans .htaccess
+// (cf. Tools::generateHtaccess) : identifiant, suffixe « _thumb » éventuel
+// puis type d’image.
+$ext = '(?:jpe?g|webp|png|avif|gif)';
 $imageRules = [
-    '#^/c/([0-9]+)(-[\.*_a-zA-Z0-9-]*)?(?:(-[0-9]+x[0-9]+))?/[^/]+\.(jpe?g|png|webp|avif|gif)$#i'  => 'img/c/',
-    '#^/m/([0-9]+)(-[\.*_a-zA-Z0-9-]*)?(?:(-[0-9]+x[0-9]+))?/[^/]+\.(jpe?g|png|webp|avif|gif)$#i'  => 'img/m/',
-    '#^/s/([0-9]+)(-[\.*_a-zA-Z0-9-]*)?(?:(-[0-9]+x[0-9]+))?/[^/]+\.(jpe?g|png|webp|avif|gif)$#i'  => 'img/su/',
-    '#^/st/([0-9]+)(-[\.*_a-zA-Z0-9-]*)?(?:(-[0-9]+x[0-9]+))?/[^/]+\.(jpe?g|png|webp|avif|gif)$#i' => 'img/st/',
-    '#^/([0-9]+)(-[\.*_a-zA-Z0-9-]*)?(?:(-[0-9]+x[0-9]+))?/[^/]+\.(jpe?g|png|webp|avif|gif)$#i'     => 'img/p/',
+    // [motif, dossier cible, sous-dossiers ?]
+    ["#^/c/([0-9]+)(|_thumb)((?:-[.*\w-]*)?)/[^/]+\.($ext)$#i", 'img/c/', false],
+    ["#^/m/([0-9]+)(|_thumb)((?:-[.*\w-]*)?)/[^/]+\.($ext)$#i", 'img/m/', false],
+    ["#^/su?/([0-9]+)(|_thumb)((?:-[.*\w-]*)?)/[^/]+\.($ext)$#i", 'img/su/', false],
+    ["#^/st/([0-9]+)(|_thumb)((?:-[.*\w-]*)?)/[^/]+\.($ext)$#i", 'img/st/', false],
+    ["#^/([0-9]+)((?:-[.*\w-]*)?)/[^/]+\.($ext)$#i", 'img/p/', true],
 ];
 
-foreach ($imageRules as $pattern => $dir) {
+foreach ($imageRules as [$pattern, $dir, $withSubfolders]) {
     if (preg_match($pattern, $uri, $m)) {
         $id = $m[1];
-        $type = $m[2] ?? '';
-        $size = $m[3] ?? '';
-        $ext = strtolower($m[4]);
-        $folders = implode('/', str_split($id));
-        $file = __DIR__ . '/' . $dir . $folders . '/' . $id . $type . $size . '.' . $ext;
+        $name = $withSubfolders ? $m[1] . $m[2] : $m[1] . ($m[2] ?? '') . ($m[3] ?? '');
+        $ext = strtolower($m[count($m) - 1]);
+        $prefix = $withSubfolders ? implode('/', str_split($id)) . '/' : '';
+        $file = __DIR__ . '/' . $dir . $prefix . $name . '.' . $ext;
         if (is_file($file)) {
             $mime = [
                 'jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png',

@@ -33,13 +33,13 @@
 }
 
 .btn-outline-primary {
-  --bs-btn-color: var(--fpe-primary);
+  --bs-btn-color: var(--fpe-primary-accessible);
   --bs-btn-border-color: var(--fpe-primary);
   --bs-btn-hover-bg: var(--fpe-primary);
   --bs-btn-hover-border-color: var(--fpe-primary);
   --bs-btn-active-bg: var(--fpe-primary);
   --bs-btn-active-border-color: var(--fpe-primary);
-  color: var(--fpe-primary);
+  color: var(--fpe-primary-accessible);
   border-color: var(--fpe-primary);
   background: transparent;
 

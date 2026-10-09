@@ -192,6 +192,14 @@
         <target state="final">Code postal</target>
         <note>File: modules/ps_onepagecheckout/src/Form/AddressFieldsFormatTrait.php [Line: 237]</note>
       </trans-unit>
+      <trans-unit id="e4d334912a865fca8ba6a4b76ca0fecc" approved="yes">
+        <source>-- choose a product --</source>
+        <target state="final">-- choisir un produit --</target>
+      </trans-unit>
+      <trans-unit id="1c536a0e7f5216f230b92bf92c37d895" approved="yes">
+        <source>Return notes</source>
+        <target state="final">Notes de retour</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

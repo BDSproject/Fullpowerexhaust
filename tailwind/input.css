@@ -29,6 +29,23 @@
   visibility: visible;
 }
 
+/* ----------------------------------------------------------------------------
+   CORRECTIF — collision `.grid`
+   ----------------------------------------------------------------------------
+   Bootstrap 5.3 fournit un système de grille CSS via `.grid`
+   (`grid-template-columns: repeat(var(--bs-columns, 12), 1fr)`).
+   Comme Bootstrap n'est pas dans un @layer et que les utilitaires Tailwind si,
+   `.grid` écrasait SYSTÉMATIQUEMENT `grid-cols-*` : la bande réassurance de
+   l'accueil (4 items) se retrouvait répartie sur 12 colonnes.
+
+   Solution : ne jamais utiliser la classe `grid` de Tailwind sur ce thème.
+   On utilise `.fpe-grid` (display:grid) — le reste (`grid-cols-*`, `gap-*`)
+   reste géré par Tailwind.
+   -------------------------------------------------------------------------- */
+.fpe-grid {
+  display: grid;
+}
+
 @theme {
   /* ── Couleurs du design system ── */
   --color-background: #0d0d0d;

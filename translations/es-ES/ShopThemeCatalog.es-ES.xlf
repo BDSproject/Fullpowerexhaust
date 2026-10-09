@@ -837,6 +837,15 @@
         <target state="final">404</target>
         <note>File: themes/hummingbird/templates/errors/404.tpl [Line: 12]</note>
       </trans-unit>
-        <trans-unit id="8bca321148bd6fd519468df4f25bfd9b" approved="yes"><source>Filtrer par marque</source><target state="final">Filtrar por marca</target><note>File: fullpowerexhaust/custom</note></trans-unit></body>
+        <trans-unit id="8bca321148bd6fd519468df4f25bfd9b" approved="yes"><source>Filtrer par marque</source><target state="final">Filtrar por marca</target><note>File: fullpowerexhaust/custom</note></trans-unit>
+      <trans-unit id="a3e2b2eac8c6e13595eec203542f4def" approved="yes">
+        <source>Marque</source>
+        <target state="final">Marca</target>
+      </trans-unit>
+      <trans-unit id="c236bde85f3b102d10ae778f4e1f8e5f" approved="yes">
+        <source>Toutes les marques</source>
+        <target state="final">Todas las marcas</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>

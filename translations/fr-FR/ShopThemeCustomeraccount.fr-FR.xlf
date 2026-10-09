@@ -464,6 +464,55 @@
         <target state="final">Vos bons de réduction</target>
         <note>File: themes/hummingbird/templates/customer/discount.tpl [Line: 15]</note>
       </trans-unit>
-        <trans-unit id="dc8350c8bd88911cabd243b705284f04" approved="yes"><source>My account (%firstname% %lastname%)</source><target state="final">Mon compte (%firstname% %lastname%)</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="a2b9439af1d404835095e78a68c88216" approved="yes"><source>My account navigation sidebar</source><target state="final">Navigation du compte</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="e35e6f21eccaf6e78f77b8579cbee50d" approved="yes"><source>View order reference</source><target state="final">Voir la référence de commande</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8d25755e08bc60b27b424de56a8dd019" approved="yes"><source>Returns details</source><target state="final">Détails des retours</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="dd80be811f20c0faef538dcb052cf8b5" approved="yes"><source>View return number</source><target state="final">Voir le numéro de retour</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="f0b7e04bbe27232f7339ee79ee5214e0" approved="yes"><source>View returns details</source><target state="final">Voir le détail des retours</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8cc3bd8a948f5cb9ed4fa6b914c295f4" approved="yes"><source>Customer service messages</source><target state="final">Messages du service client</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="951bc2657a8e76327ad3b9a21851fd97" approved="yes"><source>Shipment tracking details</source><target state="final">Détails du suivi d'expédition</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8c130e851b1bfb044143390145d93be4" approved="yes"><source>Order Reference: %reference% - placed on %date%</source><target state="final">Référence commande : %reference% - passée le %date%</target><note>File: fullpowerexhaust/custom</note></trans-unit></body>
+        <trans-unit id="dc8350c8bd88911cabd243b705284f04" approved="yes"><source>My account (%firstname% %lastname%)</source><target state="final">Mon compte (%firstname% %lastname%)</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="a2b9439af1d404835095e78a68c88216" approved="yes"><source>My account navigation sidebar</source><target state="final">Navigation du compte</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="e35e6f21eccaf6e78f77b8579cbee50d" approved="yes"><source>View order reference</source><target state="final">Voir la référence de commande</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8d25755e08bc60b27b424de56a8dd019" approved="yes"><source>Returns details</source><target state="final">Détails des retours</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="dd80be811f20c0faef538dcb052cf8b5" approved="yes"><source>View return number</source><target state="final">Voir le numéro de retour</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="f0b7e04bbe27232f7339ee79ee5214e0" approved="yes"><source>View returns details</source><target state="final">Voir le détail des retours</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8cc3bd8a948f5cb9ed4fa6b914c295f4" approved="yes"><source>Customer service messages</source><target state="final">Messages du service client</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="951bc2657a8e76327ad3b9a21851fd97" approved="yes"><source>Shipment tracking details</source><target state="final">Détails du suivi d'expédition</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8c130e851b1bfb044143390145d93be4" approved="yes"><source>Order Reference: %reference% - placed on %date%</source><target state="final">Référence commande : %reference% - passée le %date%</target><note>File: fullpowerexhaust/custom</note></trans-unit>
+      <trans-unit id="f4fb90a18f0390d83b0c4bbebeb14599" approved="yes">
+        <source>Mon compte</source>
+        <target state="final">Mon compte</target>
+      </trans-unit>
+      <trans-unit id="2ae49cd1041030cbd47f0167e9cdc58b" approved="yes">
+        <source>Your password is too weak</source>
+        <target state="final">Votre mot de passe est trop faible</target>
+      </trans-unit>
+      <trans-unit id="adabee37688f9eff4b4f6c255dbbbffc" approved="yes">
+        <source>Your password is valid</source>
+        <target state="final">Votre mot de passe est valide</target>
+      </trans-unit>
+      <trans-unit id="aea83cdff1f4d31e83a909f8960ad293" approved="yes">
+        <source>Your password length is invalid</source>
+        <target state="final">La longueur de votre mot de passe est invalide</target>
+      </trans-unit>
+      <trans-unit id="db8fa8de3bed0c242b01a7697b86cf6e" approved="yes">
+        <source>View and manage your available vouchers and discount codes for use on your next purchase.</source>
+        <target state="final">Consultez et gérez vos bons de réduction disponibles pour votre prochain achat.</target>
+      </trans-unit>
+      <trans-unit id="2b995a6285a60b1b8c9cbbb81220c91c" approved="yes">
+        <source>Here is a list of pending merchandise returns.</source>
+        <target state="final">Voici la liste des retours de marchandise en cours.</target>
+      </trans-unit>
+      <trans-unit id="13c26452d76c3098204adbc07ff6ef6d" approved="yes">
+        <source>Add a new address to your account.</source>
+        <target state="final">Ajoutez une nouvelle adresse à votre compte.</target>
+      </trans-unit>
+      <trans-unit id="e91e64282a4f412a9d813c097cbf9fb4" approved="yes">
+        <source>Products details</source>
+        <target state="final">Détails des produits</target>
+      </trans-unit>
+      <trans-unit id="99f0c07c3b8b3bc78f5f9733019ec3d5" approved="yes">
+        <source>Order totals</source>
+        <target state="final">Totaux de la commande</target>
+      </trans-unit>
+      <trans-unit id="2c4217257ec4411640350720f0aeb486" approved="yes">
+        <source>Update your personal information to keep your account details up to date.</source>
+        <target state="final">Mettez à jour vos informations personnelles pour garder votre compte à jour.</target>
+      </trans-unit>
+      <trans-unit id="816d1b901619de30eca5de49b26092b6" approved="yes">
+        <source>Manage your addresses for billing and delivery to streamline your future orders.</source>
+        <target state="final">Gérez vos adresses de facturation et de livraison pour simplifier vos prochaines commandes.</target>
+      </trans-unit>
+      <trans-unit id="31d01d88284078b770b76117e306bbdf" approved="yes">
+        <source>Toggle your account links</source>
+        <target state="final">Afficher/masquer les liens de votre compte</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>

@@ -12,19 +12,29 @@
 }
 
 @media (max-width: 767.98px) {
-  body { padding-top: 3.75rem; }
-  .site-header__logo { font-size: 1.2rem; letter-spacing: 0.1em; }
+  // La compensation du header est gérée par --fpe-header-h (cf. _header.scss) :
+  // plus de décalage entre la hauteur réelle du header et le padding du body.
+
+  // Logo fluide : il ne doit jamais pousser les icônes hors de l'écran,
+  // même sur les petits téléphones (320 px).
+  .site-header__logo { font-size: clamp(1rem, 4.4vw, 1.2rem); letter-spacing: 0.08em; }
+
+  // Actions : uniquement burger + langue + panier. Le compte et la recherche
+  // passent dans le menu, où ils disposent de vraies cibles tactiles — sans
+  // cela, les icônes débordaient de 52 px hors de l'écran en 390 px.
+  .site-header__actions { gap: 0.125rem; }
+  .site-header__icon { display: none; }                    // loupe → menu
+  #_mobile_ps_customersignin { display: none !important; } // compte → menu
+
+  // Le <select> de langue du thème ne sait afficher que « 🇫🇷 Français », trop
+  // large pour un header de 390 px : sur mobile il est remplacé par un bouton
+  // drapeau (.site-header__lang-btn) qui ouvre le menu, où les 4 langues sont
+  // listées en grand.
+  #_desktop_ps_languageselector { display: none; }
+
   .product-miniature__price { font-size: 1.5rem; }
 
-  // Sélecteur de langue visible et compact sur mobile (drapeaux)
-  #_desktop_ps_languageselector .form-select {
-    padding: 0.4rem 1.75rem 0.4rem 0.5rem;
-    font-size: 0.75rem;
-    background-size: 12px;
-    background-position: right 0.4rem center;
-  }
-
-  // Compte + panier en icône seule sur mobile (pas de libellé « Connexion » / « Panier »)
+  // Compte + panier en icône seule sur mobile (pas de libellé)
   .header-block__title { display: none !important; }
 }
 

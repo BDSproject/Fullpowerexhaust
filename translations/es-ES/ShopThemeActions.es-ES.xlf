@@ -469,6 +469,11 @@
         <target state="final">mostrar detalles</target>
         <note>File: themes/classic/templates/checkout/_partials/cart-summary-products.tpl [Line: 31]</note>
       </trans-unit>
-        <trans-unit id="d9d697694800fc1320e90fd0d6a7d92d" approved="yes"><source>View product %product_name%</source><target state="final">Ver producto %product_name%</target><note>File: fullpowerexhaust/custom</note></trans-unit></body>
+        <trans-unit id="d9d697694800fc1320e90fd0d6a7d92d" approved="yes"><source>View product %product_name%</source><target state="final">Ver producto %product_name%</target><note>File: fullpowerexhaust/custom</note></trans-unit>
+      <trans-unit id="0afbbf2f70d39364971ef07f8fa0790e" approved="yes">
+        <source>Connexion</source>
+        <target state="final">Iniciar sesión</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>

@@ -14,7 +14,11 @@
 
       <i class="material-icons header-block__icon" aria-hidden="true">&#xE8CC;</i>
       <span class="header-block__title">{l s='Cart' d='Shop.Theme.Checkout'}</span>
-      <span class="header-block__badge">{$cart.products_count}</span>
+      {* Le badge n’a de sens que s’il y a au moins un article : un « 0 » rouge
+         en permanence attire l’œil pour rien. *}
+      {if $cart.products_count > 0}
+        <span class="header-block__badge">{$cart.products_count}</span>
+      {/if}
 
       {if $cart.products_count> 0}
         </a>

@@ -15,6 +15,13 @@
   --fpe-primary:       #c8152a;
   --fpe-primary-hover: #a0101f;
   --fpe-primary-soft:  rgba(200, 21, 42, 0.12);
+  // Variante « texte » du rouge de marque.
+  // Le rouge Figma (#c8152a) appliqué en couleur de TEXTE sur nos fonds sombres
+  // ne donne que 3,3:1 de contraste (WCAG AA exige 4,5:1). Cette variante
+  // éclaircie conserve la teinte de marque tout en passant AA
+  // (5,4:1 sur #0d0d0d · 5,1:1 sur #141414 · 4,6:1 sur #1f1f1f).
+  // Les aplats, bordures et boutons continuent d'utiliser --fpe-primary.
+  --fpe-primary-accessible: #ef4a60;
   --fpe-success:       #198754;
   --fpe-danger:        #dc3545;
 
@@ -47,10 +54,10 @@
   --bs-primary-bg-subtle:    #2a080c;
   --bs-primary-border-subtle:#57101c;
   --bs-primary-text-emphasis:#f08a96;
-  --bs-link-color:           var(--fpe-primary);
-  --bs-link-color-rgb:       200, 21, 42;
-  --bs-link-hover-color:     var(--fpe-primary-hover);
-  --bs-link-hover-color-rgb: 160, 16, 31;
+  --bs-link-color:           var(--fpe-primary-accessible);
+  --bs-link-color-rgb:       239, 74, 96;
+  --bs-link-hover-color:     #f87386;
+  --bs-link-hover-color-rgb: 248, 115, 134;
 
   --bs-secondary:            #1a1a1a;
   --bs-secondary-rgb:        26, 26, 26;
@@ -95,13 +102,12 @@
   --bs-input-focus-border-color: var(--fpe-primary);
   --bs-input-focus-box-shadow:   0 0 0 0.2rem rgba(200, 21, 42, 0.18);
 
-  --bs-btn-bg:                  var(--fpe-primary);
-  --bs-btn-border-color:        var(--fpe-primary);
-  --bs-btn-color:               #ffffff;
-  --bs-btn-hover-bg:            var(--fpe-primary-hover);
-  --bs-btn-hover-border-color:  var(--fpe-primary-hover);
-  --bs-btn-active-bg:           var(--fpe-primary-hover);
-  --bs-btn-active-border-color: var(--fpe-primary-hover);
+  // ⚠️ Ne JAMAIS déclarer ici --bs-btn-bg / --bs-btn-color / --bs-btn-hover-* :
+  // ces variables sont propres à CHAQUE variante (.btn-link, .btn-outline-*…).
+  // Déclarées sur :root, elles écrasaient les valeurs des variantes (à
+  // spécificité égale, custom.css étant chargé en dernier) : les onglets du
+  // tunnel de commande héritaient ainsi d'un fond rouge et d'un texte illisible.
+  // Les couleurs du bouton principal sont définies dans _buttons.scss (.btn-primary).
   --bs-btn-border-radius:       var(--fpe-radius);
   --bs-btn-font-size:           0.875rem;
 

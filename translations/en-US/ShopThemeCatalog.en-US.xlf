@@ -683,6 +683,63 @@
         <target state="final">404</target>
         <note>File: themes/hummingbird/templates/errors/404.tpl [Line: 14]</note>
       </trans-unit>
-        <trans-unit id="f286999e8dee46f02dbd9f8f523220f5" approved="yes"><source>quick view</source><target state="final">quick view</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="b162661813f69374aa211cc29c4f2b5b" approved="yes"><source>Slide to product image %number%</source><target state="final">Slide to product image %number%</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8bca321148bd6fd519468df4f25bfd9b" approved="yes"><source>Filtrer par marque</source><target state="final">Filter by brand</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="6235304701da57331e00bba0867eead2" approved="yes"><source>No products available at the moment</source><target state="final">No products available at the moment</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="e91e64282a4f412a9d813c097cbf9fb4" approved="yes"><source>Products details</source><target state="final">Products details</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="1b43324e279c08e5972631cebeb792b7" approved="yes"><source>Select product to return</source><target state="final">Select product to return</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="d96b4c25c8c6ebd7f078684a28b3cb2d" approved="yes"><source>Select all products</source><target state="final">Select all products</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="99f0c07c3b8b3bc78f5f9733019ec3d5" approved="yes"><source>Order totals</source><target state="final">Order totals</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8d11ea42eb87c7c24779e8d020ceff31" approved="yes"><source>%label%</source><target state="final">%label%</target><note>File: fullpowerexhaust/custom</note></trans-unit><trans-unit id="e794ab6636c57d7c1fb7b8cd3a37a891" approved="yes"><source>All featured products</source><target state="final">All featured products</target><note>File: fullpowerexhaust/custom</note></trans-unit></body>
+        <trans-unit id="f286999e8dee46f02dbd9f8f523220f5" approved="yes"><source>quick view</source><target state="final">quick view</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="b162661813f69374aa211cc29c4f2b5b" approved="yes"><source>Slide to product image %number%</source><target state="final">Slide to product image %number%</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8bca321148bd6fd519468df4f25bfd9b" approved="yes"><source>Filtrer par marque</source><target state="final">Filter by brand</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="6235304701da57331e00bba0867eead2" approved="yes"><source>No products available at the moment</source><target state="final">No products available at the moment</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="e91e64282a4f412a9d813c097cbf9fb4" approved="yes"><source>Products details</source><target state="final">Products details</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="1b43324e279c08e5972631cebeb792b7" approved="yes"><source>Select product to return</source><target state="final">Select product to return</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="d96b4c25c8c6ebd7f078684a28b3cb2d" approved="yes"><source>Select all products</source><target state="final">Select all products</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="99f0c07c3b8b3bc78f5f9733019ec3d5" approved="yes"><source>Order totals</source><target state="final">Order totals</target><note>File: fullpowerexhaust/custom</note></trans-unit>    <trans-unit id="8d11ea42eb87c7c24779e8d020ceff31" approved="yes"><source>%label%</source><target state="final">%label%</target><note>File: fullpowerexhaust/custom</note></trans-unit><trans-unit id="e794ab6636c57d7c1fb7b8cd3a37a891" approved="yes"><source>All featured products</source><target state="final">All featured products</target><note>File: fullpowerexhaust/custom</note></trans-unit>
+      <trans-unit id="9bbd21b823a4dcab93bfec753e48b418" approved="yes">
+        <source>Regular price: </source>
+        <target state="final">Regular price: </target>
+      </trans-unit>
+      <trans-unit id="75edf643d9f66f0f905722da73da0a94" approved="yes">
+        <source>Price: </source>
+        <target state="final">Price: </target>
+      </trans-unit>
+      <trans-unit id="a3e2b2eac8c6e13595eec203542f4def" approved="yes">
+        <source>Marque</source>
+        <target state="final">Brand</target>
+      </trans-unit>
+      <trans-unit id="c236bde85f3b102d10ae778f4e1f8e5f" approved="yes">
+        <source>Toutes les marques</source>
+        <target state="final">All brands</target>
+      </trans-unit>
+      <trans-unit id="489ef62b62d7146babc052a5fc3ec9b5" approved="yes">
+        <source>If this is a recurring problem, please [1]contact us[/1].</source>
+        <target state="final">If this is a recurring problem, please [1]contact us[/1].</target>
+      </trans-unit>
+      <trans-unit id="9ae7041cc2d967d00a6c820b4b7ef239" approved="yes">
+        <source>Available quantity to return:</source>
+        <target state="final">Available quantity to return:</target>
+      </trans-unit>
+      <trans-unit id="a1ab8a6719008b1b5b146dc898c8e9f0" approved="yes">
+        <source>Select quantity to return</source>
+        <target state="final">Select quantity to return</target>
+      </trans-unit>
+      <trans-unit id="19d441fd29238fbbfdb91ac275216db2" approved="yes">
+        <source>Latest arrivals</source>
+        <target state="final">Latest arrivals</target>
+      </trans-unit>
+      <trans-unit id="662cf2be14207e2b0bcbbef6d2f24fb7" approved="yes">
+        <source>Remove %1$s filter: %2$s</source>
+        <target state="final">Remove %1$s filter: %2$s</target>
+      </trans-unit>
+      <trans-unit id="5efad24ea067fd81e800d89ba7b7203c" approved="yes">
+        <source>Search products...</source>
+        <target state="final">Search products...</target>
+      </trans-unit>
+      <trans-unit id="9983381c21069a3d6e4432e0aaea0079" approved="yes">
+        <source>Clear search</source>
+        <target state="final">Clear search</target>
+      </trans-unit>
+      <trans-unit id="5919aef8e646ef4512137c70e3a264f3" approved="yes">
+        <source>Special deals</source>
+        <target state="final">Special deals</target>
+      </trans-unit>
+      <trans-unit id="1b84cd781f047b541864cd305be660c2" approved="yes">
+        <source>All discounts</source>
+        <target state="final">All discounts</target>
+      </trans-unit>
+      <trans-unit id="7e6d74813b683ce791f301a3c0ed2073" approved="yes">
+        <source>Clients also bought</source>
+        <target state="final">Clients also bought</target>
+      </trans-unit>
+    </body>
   </file>
 </xliff>

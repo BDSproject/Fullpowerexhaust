@@ -71,6 +71,14 @@
         <target state="final">votre@email.com</target>
         <note>File: modules/ps_emailalerts/views/templates/hook/product.tpl [Line: 24]</note>
       </trans-unit>
+      <trans-unit id="e38be0301f0fbc8ae72a1c26be626d62" approved="yes">
+        <source>Manage your mail alerts to stay informed about product availability and updates.</source>
+        <target state="final">Gérez vos alertes e-mail pour rester informé de la disponibilité des produits et des nouveautés.</target>
+      </trans-unit>
+      <trans-unit id="475a62948b5dcb0a96149fd6ad1b814f" approved="yes">
+        <source>You do not have any mail alerts.</source>
+        <target state="final">Vous n&apos;avez aucune alerte e-mail.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

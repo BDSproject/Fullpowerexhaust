@@ -561,6 +561,10 @@
         <target state="final">I tuoi voucher</target>
         <note>File: themes/hummingbird/templates/customer/discount.tpl [Line: 15]</note>
       </trans-unit>
+      <trans-unit id="f4fb90a18f0390d83b0c4bbebeb14599" approved="yes">
+        <source>Mon compte</source>
+        <target state="final">Il mio account</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -77,6 +77,10 @@
         <target state="final">Your email address</target>
         <note>File: themes/hummingbird/modules/ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl [Line: 21]</note>
       </trans-unit>
+      <trans-unit id="9b3911a6705bcd3a70c80e00fe1bde68" approved="yes">
+        <source>Subscribe to our newsletter</source>
+        <target state="final">Subscribe to our newsletter</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

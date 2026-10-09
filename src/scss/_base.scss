@@ -42,12 +42,14 @@ h4 { font-size: 1.25rem; line-height: 1.25; }
 h5 { font-size: 1.05rem; line-height: 1.3; }
 h6 { font-size: 0.95rem; line-height: 1.4; }
 
+// Liens de contenu : la variante éclaircie du rouge garantit 4,5:1 sur les
+// fonds sombres (cf. --fpe-primary-accessible dans _variables.scss).
 a {
-  color: var(--fpe-primary);
+  color: var(--fpe-primary-accessible);
   text-decoration: none;
   transition: color 0.18s ease;
 
-  &:hover { color: var(--fpe-primary-hover); }
+  &:hover { color: #f87386; }
 }
 
 ::selection { background: var(--fpe-primary); color: #fff; }
@@ -66,3 +68,35 @@ body .wrapper { background-color: var(--fpe-bg); }
 #center-column.page { background-color: transparent; }
 
 .page-header { margin-bottom: 2rem; }
+
+// ----------------------------------------------------------------------------
+// Texte en rouge de marque
+// ----------------------------------------------------------------------------
+// Le rouge du Figma (#c8152a) ne donne que 3,3:1 sur nos fonds sombres : il est
+// réservé aux APLATS, BORDURES et BOUTONS. Dès qu'il sert de couleur de TEXTE
+// (libellés, liens, badges), on utilise la variante éclaircie qui atteint le
+// niveau AA (4,5:1). Le logo conserve la teinte exacte de la marque.
+// La double écriture (`body .text-primary`) est volontaire : elle porte la
+// spécificité à (0,1,1) et garantit la victoire sur le `.text-primary`
+// `!important` de Bootstrap, quel que soit l’ordre de chargement des feuilles
+// (le bundle CCC de PrestaShop réordonne les fichiers du thème).
+.text-primary,
+.text-accent,
+.text-danger,
+body .text-primary,
+body .text-accent,
+body .text-danger {
+  color: var(--fpe-primary-accessible) !important;
+}
+
+// Exceptions : la marque garde son rouge d'origine (exemptée par WCAG 1.4.3).
+.site-header__logo-accent,
+.site-footer__brand-accent,
+.site-footer__credit-heart,
+.footer-block__title .text-primary {
+  color: var(--fpe-primary) !important;
+}
+
+// Mot accentué du titre principal (grande typographie) : le contraste minimal
+// pour un texte de cette taille est de 3:1, le rouge de marque passe (3,3:1).
+.fpe-hero-accent { color: var(--fpe-primary); }

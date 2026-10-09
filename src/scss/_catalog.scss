@@ -229,6 +229,9 @@
 }
 
 .filter-control__reset {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;   // cible tactile alignée sur les champs du filtre
   font-size: 0.75rem;
   color: var(--fpe-muted-fg);
   white-space: nowrap;
@@ -247,4 +250,53 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+// ----------------------------------------------------------------------------
+// Recherche du catalogue
+// ----------------------------------------------------------------------------
+// Le champ de recherche est volontairement placé dans la page catalogue (et non
+// dans l’en-tête) : il surmonte la barre de filtres et en reprend le style.
+.catalog-searchbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0 0.75rem 0 1rem;
+  min-height: 3rem;
+  background: #1a1a1a;
+  border: 1px solid var(--fpe-border);
+  border-radius: var(--fpe-radius);
+  transition: border-color 0.2s ease;
+
+  &:focus-within { border-color: var(--fpe-primary); }
+
+  input[type='search'] {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--fpe-fg);
+    font-size: 0.9375rem;
+
+    &::placeholder { color: rgba(136, 136, 136, 0.6); }
+    &::-webkit-search-cancel-button { filter: invert(1); opacity: 0.5; }
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: var(--fpe-muted-fg);
+    cursor: pointer;
+
+    &:hover { color: var(--fpe-fg); }
+  }
 }
