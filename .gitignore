@@ -35,4 +35,5 @@ Thumbs.db
 /parameters.php
 /parameters-production.php
 *.sql
+!deploy/*.sql
 /dump.sql
