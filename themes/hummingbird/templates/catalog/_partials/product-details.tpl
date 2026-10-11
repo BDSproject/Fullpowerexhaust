@@ -84,17 +84,10 @@
 
           {* if product have specific references, a table will be added to product details section *}
           {block name='product_condition'}
-            {if $product.condition}
-              <li class="details__item details__item--condition">
-                <div class="details__left">
-                  <span class="details__title">{l s='Condition' d='Shop.Theme.Catalog'}</span>
-                </div>
-
-                <div class="details__right">
-                  <span>{$product.condition.label}</span>
-                </div>
-              </li>
-            {/if}
+            {* L'état du produit est déjà affiché en badge sur la photo (voir
+               product-flags.tpl). On ne le répète pas ici : la ligne portait le
+               même libellé « État » que la caractéristique « État » ci-dessous
+               (Très bon état, Bon état…), ce qui prêtait à confusion. *}
           {/block}
 
           {block name='product_specific_references'}

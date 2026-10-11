@@ -135,3 +135,46 @@ UNION ALL
 SELECT 'caractéristiques ES/IT en français', COUNT(*)
   FROM ps_feature_lang f JOIN ps_feature_lang s ON s.id_feature=f.id_feature AND s.id_lang IN (3,4)
   WHERE f.id_lang=2 AND s.name=f.name;
+
+-- ----------------------------------------------------------------------------
+-- 8. Badge produit : « Neuf » → « Occasion »
+-- ----------------------------------------------------------------------------
+-- Le badge « Neuf » affiché sur les fiches produit est le flag `new` de
+-- PrestaShop (« produit ajouté récemment »), sans rapport avec l'état réel.
+-- Le thème affiche maintenant l'ÉTAT du produit (`condition`) : on passe donc
+-- tous les produits en « Occasion » et on active l'affichage de l'état.
+--
+-- ⚠️ Relancez ces deux UPDATE après chaque import eBay si le module remet
+--    l'état des annonces à « Neuf » — ou utilisez :
+--        php tools/set_products_used.php
+UPDATE ps_product      SET `condition` = 'used', show_condition = 1;
+UPDATE ps_product_shop SET `condition` = 'used', show_condition = 1;
+
+-- Les nouveaux produits créés sans état explicite seront désormais « Occasion »
+ALTER TABLE ps_product      MODIFY `condition` ENUM('new','used','refurbished') NOT NULL DEFAULT 'used';
+ALTER TABLE ps_product_shop MODIFY `condition` ENUM('new','used','refurbished') NOT NULL DEFAULT 'used';
+ALTER TABLE ps_product      MODIFY `show_condition` TINYINT(1) NOT NULL DEFAULT 1;
+ALTER TABLE ps_product_shop MODIFY `show_condition` TINYINT(1) NOT NULL DEFAULT 1;
+
+-- ----------------------------------------------------------------------------
+-- 9. Libellés restés en anglais
+-- ----------------------------------------------------------------------------
+-- Badge « rupture de stock » affiché « Out-of-Stock » sur les pages françaises
+UPDATE ps_configuration_lang SET value = 'Rupture de stock'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'PS_LABEL_OOS_PRODUCTS_BOD') AND id_lang = 2;
+UPDATE ps_configuration_lang SET value = 'Out of stock'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'PS_LABEL_OOS_PRODUCTS_BOD') AND id_lang = 1;
+
+-- Bouton du module liste d'envies
+UPDATE ps_configuration_lang SET value = 'Create new list'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'blockwishlist_CreateButtonLabel') AND id_lang = 1;
+UPDATE ps_configuration_lang SET value = 'Créer une nouvelle liste'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'blockwishlist_CreateButtonLabel') AND id_lang = 2;
+UPDATE ps_configuration_lang SET value = 'Crear una nueva lista'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'blockwishlist_CreateButtonLabel') AND id_lang = 3;
+UPDATE ps_configuration_lang SET value = 'Crea una nuova lista'
+  WHERE id_configuration = (SELECT id_configuration FROM ps_configuration WHERE name = 'blockwishlist_CreateButtonLabel') AND id_lang = 4;
+
+-- Vérification : doit renvoyer 0
+SELECT 'produits sans état « Occasion »' AS controle, COUNT(*) AS restant
+  FROM ps_product WHERE `condition` <> 'used' OR show_condition = 0;

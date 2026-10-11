@@ -22,6 +22,8 @@ sur **O2switch**.
 | `themes/hummingbird/templates/catalog/_partials/catalog-filterbar.tpl` | Barre de recherche catalogue |
 | `themes/hummingbird/templates/catalog/_partials/miniatures/product.tpl` | Libellé de marque |
 | `themes/hummingbird/templates/cms/page.tpl` | Sur-titre des pages légales |
+| `themes/hummingbird/templates/catalog/_partials/product-flags.tpl` | Badge « Occasion » au lieu de « Neuf » |
+| `themes/hummingbird/templates/catalog/_partials/product-details.tpl` | Suppression de la ligne « État » en double |
 | `themes/hummingbird/modules/ps_shoppingcart/ps_shoppingcart.tpl` | Badge panier masqué à 0 |
 
 ### Indispensable — traductions
@@ -51,7 +53,11 @@ Dans **phpMyAdmin → base de la boutique → onglet SQL** : exécuter
 `deploy/production-fixes.sql` (sauvegarder la base avant).
 
 Il corrige :
-- 5 chaînes de configuration restées en anglais (newsletter, RGPD, page de maintenance) ;
+- le badge produit : tous les produits passés en **« Occasion »** (et non plus le
+  flag « nouveau produit » de PrestaShop), avec « Occasion » par défaut pour les
+  futurs imports ;
+- 7 chaînes de configuration restées en anglais (newsletter, RGPD, page de
+  maintenance, rupture de stock, liste d'envies) ;
 - les icônes des blocs de réassurance (URL `//modules/...` → `/modules/...`) ;
 - le doublon du bloc « Informations » sur la page contact ;
 - le sujet du formulaire de contact ;
@@ -81,3 +87,6 @@ Sans cette étape, PrestaShop continue de servir l'ancien CSS combiné.
   `fullpowerexhaust.com` : ne pas le modifier à la main.
 - `router.php` ne sert qu'au serveur de développement local ; il est inoffensif
   en production mais peut être supprimé du serveur.
+- **Après chaque import eBay**, vérifiez le badge des nouvelles annonces : si le
+  module les crée en « Neuf », relancez `php tools/set_products_used.php`
+  (ou les deux `UPDATE` de la section 8 du script SQL).

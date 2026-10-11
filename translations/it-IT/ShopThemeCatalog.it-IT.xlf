@@ -759,7 +759,7 @@
       </trans-unit>
       <trans-unit id="019d1ca7d50cc54b995f60d456435e87" approved="yes">
         <source>Used</source>
-        <target state="final">Usati</target>
+        <target state="final">Usato</target>
         <note>File: src/Adapter/Presenter/Product/ProductLazyArray.php [Line: 295]</note>
       </trans-unit>
       <trans-unit id="d9d697694800fc1320e90fd0d6a7d92d" approved="yes">

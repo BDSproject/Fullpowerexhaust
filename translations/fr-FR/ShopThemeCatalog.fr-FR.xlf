@@ -609,7 +609,7 @@
       </trans-unit>
       <trans-unit id="019d1ca7d50cc54b995f60d456435e87" approved="yes">
         <source>Used</source>
-        <target state="final">Utilisé</target>
+        <target state="final">Occasion</target>
         <note>File: src/Adapter/Presenter/Product/ProductLazyArray.php [Line: 295]</note>
       </trans-unit>
       <trans-unit id="43560641f91e63dc83682bc598892fa1" approved="yes">
