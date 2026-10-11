@@ -24,6 +24,7 @@ sur **O2switch**.
 | `themes/hummingbird/templates/cms/page.tpl` | Sur-titre des pages légales |
 | `themes/hummingbird/templates/catalog/_partials/product-flags.tpl` | Badge « Occasion » au lieu de « Neuf » |
 | `themes/hummingbird/templates/catalog/_partials/product-details.tpl` | Suppression de la ligne « État » en double |
+| `themes/hummingbird/templates/_partials/footer.tpl` | E-mail du pied de page issu de la configuration |
 | `themes/hummingbird/modules/ps_shoppingcart/ps_shoppingcart.tpl` | Badge panier masqué à 0 |
 
 ### Indispensable — traductions
@@ -53,6 +54,9 @@ Dans **phpMyAdmin → base de la boutique → onglet SQL** : exécuter
 `deploy/production-fixes.sql` (sauvegarder la base avant).
 
 Il corrige :
+- **les adresses e-mail** : le formulaire de contact envoyait ses messages à
+  `admin@linkbay.test` (adresse créée par le module d'import) — un domaine
+  inexistant, donc aucune demande client ne vous parvenait ;
 - le badge produit : tous les produits passés en **« Occasion »** (et non plus le
   flag « nouveau produit » de PrestaShop), avec « Occasion » par défaut pour les
   futurs imports ;

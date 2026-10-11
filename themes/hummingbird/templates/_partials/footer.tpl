@@ -21,8 +21,11 @@
           <p class="site-footer__tagline">{l s='L\'échappement performance occasion.' d='Shop.Theme.FullPowerExhaust'}</p>
         </div>
         <div class="site-footer__contact">
-          <a href="mailto:contact@power-exhaust.com">contact@power-exhaust.com</a>
-          <span>fullpowerexhaust.com</span>
+          {* Adresse issue de la configuration de la boutique (Paramètres de la
+             boutique → Coordonnées) : une seule source de vérité, le footer
+             suit automatiquement tout changement. *}
+          <a href="mailto:{$shop.email|escape:'html':'UTF-8'}">{$shop.email|escape:'html':'UTF-8'}</a>
+          <span>{$urls.base_url|replace:'https://':''|replace:'http://':''|replace:'/':''}</span>
         </div>
       </div>
 

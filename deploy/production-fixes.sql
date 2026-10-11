@@ -178,3 +178,32 @@ UPDATE ps_configuration_lang SET value = 'Crea una nuova lista'
 -- Vérification : doit renvoyer 0
 SELECT 'produits sans état « Occasion »' AS controle, COUNT(*) AS restant
   FROM ps_product WHERE `condition` <> 'used' OR show_condition = 0;
+
+-- ----------------------------------------------------------------------------
+-- 10. Adresses e-mail du site
+-- ----------------------------------------------------------------------------
+-- ⚠️ BUG CORRIGÉ ICI : le module d'import eBay (linkbay) a créé les contacts de
+--    la boutique avec l'adresse « admin@linkbay.test ». Or le formulaire de
+--    contact envoie le message à l'adresse du contact sélectionné
+--    (modules/contactform/contactform.php → $contact->email) : toutes les
+--    demandes clients partaient donc vers un domaine inexistant.
+UPDATE ps_contact SET email = 'contact@power-exhaust.com';
+
+-- Adresse d'expédition et de réponse de la boutique
+UPDATE ps_configuration SET value = 'contact@power-exhaust.com'
+  WHERE name IN ('PS_SHOP_EMAIL', 'PS_LOGS_EMAIL_RECEIVERS', 'MA_MERCHANT_MAILS',
+                 'BLOCKCONTACT_EMAIL', 'BLOCKCONTACTINFOS_EMAIL')
+    AND value <> 'contact@power-exhaust.com';
+
+-- Le compte administrateur garde son identifiant dédié : ce n'est pas une
+-- adresse publique. Décommentez les deux lignes ci-dessous pour le changer
+-- également (vous vous connecterez alors avec contact@power-exhaust.com).
+-- UPDATE ps_employee SET email = 'contact@power-exhaust.com' WHERE id_employee = 1;
+
+-- Contrôle : ne doit renvoyer que le compte administrateur
+SELECT 'contact' AS table_, email FROM ps_contact
+UNION ALL
+SELECT 'employee', email FROM ps_employee
+UNION ALL
+SELECT 'configuration', value FROM ps_configuration
+  WHERE name = 'PS_SHOP_EMAIL';
