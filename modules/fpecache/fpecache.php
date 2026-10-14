@@ -58,12 +58,19 @@ class FpeCache extends Module
      */
     public function hookActionFrontControllerSetMedia()
     {
-        if (!(int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', null, null, null, 1)) {
+        $controller = $this->context->controller;
+        if (!$controller instanceof FrontController) {
             return;
         }
 
-        $controller = $this->context->controller;
-        if (!$controller instanceof FrontController) {
+        // custom.css est chargé en direct par le thème (head.tpl) pour rester
+        // toujours à jour : on retire son enregistrement core du bundle CCC
+        // afin d'éviter le double téléchargement. Ce hook s'exécute APRÈS
+        // FrontController::init(), qui enregistre « theme-custom ».
+        $controller->unregisterStylesheet('theme-custom');
+        $controller->unregisterJavascript('theme-custom');
+
+        if (!(int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', null, null, null, 1)) {
             return;
         }
 

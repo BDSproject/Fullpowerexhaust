@@ -104,14 +104,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap">
+
+  {* Tunnel de commande : le SDK PayPal est le script le plus lourd de la page
+     (~690 Ko, 170 Ko compressés). On ouvre la connexion au CDN par avance pour
+     supprimer le temps de résolution DNS + poignée de main TLS (100 à 300 ms).
+     Uniquement sur la page commande : inutile ailleurs.
+     NB : on teste la classe du <body> (« page-order ») car `$page.page_name`
+     vaut « order » sur l'ancien tunnel mais pas sur le nouveau. *}
+  {if isset($page.body_classes['page-order']) || isset($page.body_classes['page-orderopc'])}
+    <link rel="preconnect" href="https://assets.prestashop3.com" crossorigin>
+    <link rel="dns-prefetch" href="https://assets.prestashop3.com">
+    <link rel="preconnect" href="https://api-live.checkout.prestashop.com" crossorigin>
+  {/if}
 {/block}
 
 {block name='stylesheets'}
   {include file='_partials/stylesheets.tpl' stylesheets=$stylesheets}
-  {* FULLPOWEREXHAUST — custom.css est déjà enregistré par PrestaShop
-     (FrontController, id « theme-custom », priorité 1000) et combiné dans le
-     bundle CCC : le re-déclarer ici le téléchargeait DEUX FOIS. On ne garde
-     que Tailwind, qui n'est pas enregistré par le cœur. *}
+  {* FULLPOWEREXHAUST — custom.css est chargé ici, en direct, et NON via le
+     bundle CCC : le nom du bundle ne change pas quand le contenu d'un fichier
+     change (le hash dépend de la LISTE des fichiers), ce qui obligeait à vider
+     le cache après chaque modification. En direct, le navigateur récupère
+     toujours la dernière version.
+     Pour éviter le double téléchargement, le module « fpecache » retire
+     l'enregistrement core « theme-custom » du bundle (hook
+     actionFrontControllerSetMedia, exécuté après FrontController::init()).
+     Tailwind n'est pas enregistré par le cœur : ce lien est son seul chargement. *}
+  <link rel="stylesheet" href="{$urls.theme_assets}css/custom.css" type="text/css" media="all">
   <link rel="stylesheet" href="{$urls.theme_assets}css/tailwind.css" type="text/css" media="all">
 {/block}
 
