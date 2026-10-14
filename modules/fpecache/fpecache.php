@@ -58,7 +58,7 @@ class FpeCache extends Module
      */
     public function hookActionFrontControllerSetMedia()
     {
-        if (!(int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', 1)) {
+        if (!(int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', null, null, null, 1)) {
             return;
         }
 
@@ -108,6 +108,20 @@ class FpeCache extends Module
             Configuration::updateValue('FPECACHE_LIMIT_PSCHECKOUT_SDK', (int) Tools::getValue('fpe_limit_sdk', 1));
             Media::clearCache();
             $output .= $this->displayConfirmation('Réglage du SDK PayPal enregistré.');
+        }
+
+        if (Tools::isSubmit('submitFpeMemcached')) {
+            $ip = (string) Tools::getValue('fpe_memcached_ip', '127.0.0.1');
+            $port = (int) Tools::getValue('fpe_memcached_port', 11211);
+            $result = $this->setupMemcached($ip, $port);
+            foreach ($result['messages'] as $message) {
+                $output .= $result['ok']
+                    ? $this->displayConfirmation($message)
+                    : $this->displayError($message);
+            }
+            if (!$result['ok'] && !$result['messages']) {
+                $output .= $this->displayError('Impossible de configurer Memcached.');
+            }
         }
 
         $this->context->smarty->assign([
@@ -177,11 +191,123 @@ class FpeCache extends Module
             'checkout' => $checkout,
             'volumes' => $volumes,
             'backends' => $availableBackends,
-            'limit_sdk' => (int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', 1),
+            'memcached' => $this->getMemcachedInfo(),
+            'limit_sdk' => (int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', null, null, null, 1),
             'php_version' => PHP_VERSION,
             'memory_limit' => ini_get('memory_limit'),
             'opcache' => extension_loaded('Zend OPcache'),
         ];
+    }
+
+    /**
+     * État de Memcached : extension PHP, serveurs configurés, test de connexion.
+     */
+    private function getMemcachedInfo(): array
+    {
+        $extension = extension_loaded('memcached')
+            ? 'memcached'
+            : (extension_loaded('memcache') ? 'memcache' : null);
+
+        $servers = Db::getInstance()->executeS('SELECT * FROM ' . _DB_PREFIX_ . 'memcached_servers') ?: [];
+
+        $test = null;
+        if ($extension && $servers) {
+            $server = $servers[0];
+            try {
+                if ($extension === 'memcached') {
+                    $m = new Memcached();
+                    $m->addServer((string) $server['ip'], (int) $server['port']);
+                    $version = $m->getVersion();
+                    $test = is_array($version) && false === in_array('255.255.255', $version, true);
+                } else {
+                    $m = new Memcache();
+                    $test = (bool) $m->connect((string) $server['ip'], (int) $server['port']);
+                }
+            } catch (Throwable $e) {
+                $test = false;
+            }
+        }
+
+        return [
+            'extension' => $extension,
+            'servers' => $servers,
+            'test' => $test,
+        ];
+    }
+
+    /**
+     * Configure et active Memcached de bout en bout :
+     *   1. choisit le backend selon l'extension PHP (memcached / memcache) ;
+     *   2. ajoute le serveur dans ps_memcached_servers ;
+     *   3. teste la connexion ;
+     *   4. active le cache système (parameters.php) ;
+     *   5. purge les caches.
+     */
+    private function setupMemcached(string $ip, int $port): array
+    {
+        $messages = [];
+
+        if (extension_loaded('memcached') && class_exists('Memcached')) {
+            $backend = 'CacheMemcached';
+        } elseif (extension_loaded('memcache') && class_exists('Memcache')) {
+            $backend = 'CacheMemcache';
+        } else {
+            return [
+                'ok' => false,
+                'messages' => ['Aucune extension PHP memcached/memcache détectée. Demandez à O2switch de l\'activer pour votre version de PHP.'],
+            ];
+        }
+
+        $exists = (int) Db::getInstance()->getValue(
+            'SELECT COUNT(*) FROM ' . _DB_PREFIX_ . 'memcached_servers WHERE ip = "' . pSQL($ip) . '" AND port = ' . (int) $port
+        );
+        if (!$exists) {
+            Db::getInstance()->insert('memcached_servers', [
+                'ip' => pSQL($ip),
+                'port' => (int) $port,
+                'weight' => 1,
+            ]);
+            $messages[] = 'Serveur Memcached ajouté : ' . $ip . ':' . $port;
+        } else {
+            $messages[] = 'Serveur Memcached déjà enregistré : ' . $ip . ':' . $port;
+        }
+
+        // Test de connexion
+        $ok = false;
+        try {
+            if ($backend === 'CacheMemcached') {
+                $m = new Memcached();
+                $m->addServer($ip, $port);
+                $version = $m->getVersion();
+                $ok = is_array($version) && false === in_array('255.255.255', $version, true);
+            } else {
+                $m = new Memcache();
+                $ok = (bool) $m->connect($ip, $port);
+            }
+        } catch (Throwable $e) {
+            $ok = false;
+        }
+
+        if (!$ok) {
+            return [
+                'ok' => false,
+                'messages' => array_merge($messages, ['Échec de connexion à ' . $ip . ':' . $port . '. Vérifiez l\'adresse/le port fournis par O2switch.']),
+            ];
+        }
+        $messages[] = 'Connexion Memcached réussie (' . $ip . ':' . $port . ').';
+
+        if (!$this->setSystemCache(true, $backend)) {
+            return [
+                'ok' => false,
+                'messages' => array_merge($messages, ['Impossible d\'écrire app/config/parameters.php. Corrigez ses permissions.']),
+            ];
+        }
+        $messages[] = 'Cache système activé (backend ' . $backend . ').';
+
+        $this->purgeAll();
+        $messages[] = 'Caches purgés.';
+
+        return ['ok' => true, 'messages' => $messages];
     }
 
     /**

@@ -150,7 +150,63 @@
     <div class="col-lg-4">
       {* ── Cache système ── *}
       <div class="panel">
-        <div class="panel-heading"><i class="icon-cogs"></i> Cache système</div>
+        <div class="panel-heading"><i class="icon-cogs"></i> Cache système (Memcached)</div>
+        <div class="panel-body">
+          {* État Memcached *}
+          {if $fpe.memcached.extension}
+            <div class="alert alert-success" style="padding:8px 12px;">
+              Extension PHP <strong>{$fpe.memcached.extension}</strong> détectée.
+              {if $fpe.memcached.test === true}
+                · Connexion Memcached : <strong>OK</strong>
+              {elseif $fpe.memcached.test === false}
+                · Connexion Memcached : <strong>échec</strong>
+              {else}
+                · Aucun serveur enregistré.
+              {/if}
+            </div>
+          {else}
+            <div class="alert alert-warning" style="padding:8px 12px;">
+              Extension PHP memcached/memcache non détectée sur ce serveur.
+            </div>
+          {/if}
+
+          {if $fpe.memcached.servers|@count}
+            <table class="table">
+              <thead><tr><th>IP</th><th>Port</th><th>Poids</th></tr></thead>
+              <tbody>
+                {foreach from=$fpe.memcached.servers item=srv}
+                  <tr><td>{$srv.ip|escape}</td><td>{$srv.port}</td><td>{$srv.weight}</td></tr>
+                {/foreach}
+              </tbody>
+            </table>
+          {/if}
+
+          <form method="post">
+            <div class="row">
+              <div class="col-xs-6">
+                <label>Adresse IP du serveur</label>
+                <input type="text" name="fpe_memcached_ip" value="127.0.0.1" class="form-control">
+              </div>
+              <div class="col-xs-4">
+                <label>Port</label>
+                <input type="number" name="fpe_memcached_port" value="11211" class="form-control">
+              </div>
+            </div>
+            <button type="submit" name="submitFpeMemcached" class="btn btn-success" style="margin-top:10px;">
+              <i class="icon-rocket"></i> Configurer et activer Memcached
+            </button>
+          </form>
+          <p class="text-muted" style="margin-top:8px;">
+            Cette action : enregistre le serveur, teste la connexion, active le cache
+            système dans <code>app/config/parameters.php</code> et purge les caches.
+            Adresse O2switch par défaut : <code>127.0.0.1:11211</code>.
+          </p>
+        </div>
+      </div>
+
+      {* ── Cache système (réglage manuel) ── *}
+      <div class="panel">
+        <div class="panel-heading"><i class="icon-wrench"></i> Cache système (manuel)</div>
         <div class="panel-body">
           {if !$fpe.settings.system.file_exists}
             <div class="alert alert-danger">app/config/parameters.php introuvable.</div>
@@ -161,7 +217,7 @@
               <div class="form-group">
                 <label>Activer le cache système</label>
                 <select name="fpe_cache_enable" class="form-control">
-                  <option value="0">Non (recommandé sans Memcached/Redis)</option>
+                  <option value="0">Non</option>
                   <option value="1" {if $fpe.settings.system.enable}selected{/if}>Oui</option>
                 </select>
               </div>
