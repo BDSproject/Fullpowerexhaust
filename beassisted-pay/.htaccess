@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Route toutes les requêtes vers index.php (endpoints /onboarding/…, /create-session, …)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

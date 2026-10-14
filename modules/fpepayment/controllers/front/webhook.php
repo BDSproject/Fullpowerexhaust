@@ -1,9 +1,10 @@
 <?php
 /**
- * FPE Paiement — webhook Stripe
+ * FPE Paiement — webhook (notification du backend Beassisted)
  * ---------------------------------------------------------------------------
- * Reçoit les événements Stripe (checkout.session.completed) et confirme la
- * commande. Vérifie la signature HMAC avant tout traitement.
+ * Le backend reçoit les événements Stripe (clé plateforme) et transmet ici une
+ * notification signée avec la clé API du marchand. Ce contrôleur vérifie la
+ * signature et confirme la commande.
  */
 
 if (!defined('_PS_VERSION_')) {
@@ -22,30 +23,24 @@ class FpePaymentWebhookModuleFrontController extends ModuleFrontController
 
     public function postProcess()
     {
-        $payload = @file_get_contents('php://input');
-        $signature = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? '';
+        $payload = (string) file_get_contents('php://input');
+        $signature = $_SERVER['HTTP_X_BEASSISTED_SIGNATURE'] ?? '';
 
-        if ($payload === false || $payload === '' || !$this->module->verifyWebhookSignature($payload, $signature)) {
+        if ($payload === '' || !$this->module->verifyBackendSignature($payload, $signature)) {
             http_response_code(400);
             exit('Signature invalide');
         }
 
         $event = json_decode($payload, true);
-        if (!is_array($event) || empty($event['type'])) {
-            http_response_code(400);
-            exit('Événement invalide');
+        if (!is_array($event) || ($event['payment_status'] ?? '') !== 'paid') {
+            http_response_code(200);
+            exit('Non payé');
         }
 
-        if ($event['type'] !== 'checkout.session.completed') {
+        $reference = (string) ($event['client_reference_id'] ?? '');
+        if ($reference === '') {
             http_response_code(200);
-            exit('Ignoré : ' . $event['type']);
-        }
-
-        $session = $event['data']['object'] ?? [];
-        $reference = $session['client_reference_id'] ?? '';
-        if ($reference === '' || ($session['payment_status'] ?? '') !== 'paid') {
-            http_response_code(200);
-            exit('Session non payée');
+            exit('Référence absente');
         }
 
         $order = $this->module->getOrderByReference($reference);

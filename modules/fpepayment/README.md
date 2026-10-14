@@ -1,77 +1,87 @@
-# FPE Paiement (Stripe) — module de paiement allégé
+# FPE Paiement (Stripe Connect) — plateforme Beassisted
 
-Paiement par carte via la **page hébergée Stripe** : le numéro de carte est saisi
-sur Stripe, jamais sur votre boutique. Aucun SDK JavaScript, aucune dépendance
-Composer, ~400 lignes de code. Conforme PCI-DSS « par conception » (SAQ-A).
+Module de paiement **distribué** pour PrestaShop, branché sur la plateforme
+Stripe Connect de **Beassisted**. Connexion en un clic, aucune clé à saisir,
+back-office minimal.
 
-## Fonctionnement
+## Architecture (2 composants)
 
 ```
-Étape paiement           → « Payer par carte bancaire (Stripe) »
-Passer la commande       → validation.php : commande créée en « attente »,
-                           puis redirection vers la page de paiement Stripe
-Stripe                   → le client paie (carte, Apple Pay, Google Pay…)
-Retour                   → payment_return.php : confirme et redirige vers
-                           la confirmation de commande
-Webhook                  → webhook.php : confirme la commande même si le
-                           client ferme l'onglet (checkout.session.completed)
+┌─ beassisted-pay/  (backend, hébergé par Beassisted) ──────────────┐
+│  détient la clé secrète de la plateforme                         │
+│  prélève la commission, reverse le solde au compte connecté       │
+└───────────────────────────────────────────────────────────────────┘
+        ▲  API (clé marchand)          │  onboarding OAuth
+        │                              ▼
+┌─ modules/fpepayment/ (chez chaque marchand) ──────────────────────┐
+│  bouton « Se connecter à Stripe », aucune clé secrète stockée     │
+└───────────────────────────────────────────────────────────────────┘
 ```
 
-## Mise en service (10–15 minutes)
-
-1. **Installer** le dossier `modules/fpepayment/` puis installer le module dans
-   le Module Manager.
-2. **Stripe** → *Développeurs → Clés API* : copier la **clé secrète de test**
-   (`sk_test_…`) dans le module (mode *Test*).
-3. **Stripe** → *Développeurs → Webhooks → Ajouter un endpoint* :
-   - URL : celle affichée dans la config du module (se termine par `/webhook`)
-   - Événement : **`checkout.session.completed`**
-   - Copier la « signing secret » (`whsec_…`) dans le module.
-4. **Tester** une commande en mode *Test* avec la carte de test `4242 4242 4242 4242`
-   (toute date future, tout CVC).
-5. Passer en mode *Production* : saisir la clé `sk_live_…`, recréer un webhook
-   (clé `whsec_…` de production), enregistrer.
-
-## Limites volontaires
-
-- Devise **EUR** uniquement (boutique mono-devise).
-- Un seul article de ligne (le total TTC de la commande) sur la page Stripe.
-- Livraison incluse dans le montant (pas de ligne séparée).
-
-## Sécurité
-
-- Signature des webhooks vérifiée (HMAC-SHA256, comparaison à temps constant).
-- Aucune donnée carte ne transite par le serveur.
-- Confirmation idempotente (le webhook et la page de retour peuvent se croiser).
-
-## Stripe Connect — répartition plateforme / vendeur (marketplace)
-
-Le module peut, en plus de traiter le paiement, **répartir les fonds** entre
-deux comptes Stripe :
+Flux d'un paiement :
 
 ```
 Client paie 100 €
-      │
-      ▼
-Compte plateforme (Beassisted)
-      ├──► commission (ex. 3 €)  →  reste sur Beassisted
-      └──► solde (ex. 97 €)      →  transfert vers le compte connecté (FullPowerExhaust)
+    │
+    ▼
+Backend Beassisted → crée la session Stripe
+    │  application_fee (commission Beassisted)
+    │  transfer → compte connecté du marchand (solde)
+    ▼
+Stripe héberge le paiement → webhook → backend → notification signée → module
+    → commande confirmée
 ```
 
-C'est un « destination charge » avec « application fee » :
+## Sécurité
 
-1. Dans Stripe, activer **Stripe Connect** sur le compte plateforme (Beassisted).
-2. Créer le **compte connecté** FullPowerExhaust via l'onboarding Connect
-   (Stripe → Connect → Comptes → Créer), et noter son identifiant `acct_…`.
-3. Dans le module : cocher **« Activer la répartition »**, coller le `acct_…`,
-   et renseigner la **commission** (en % ou montant fixe).
+- La clé secrète de plateforme **ne quitte jamais** le backend Beassisted.
+- Chaque marchand a une **clé API dédiée** (`merchant_key`), générée à l'onboarding.
+- Les notifications backend → module sont signées en HMAC-SHA256.
+- Le webhook Stripe est vérifié sur le backend (signature `whsec_`).
 
-À chaque paiement, Stripe prélève automatiquement la commission pour Beassisted
-et reverse le solde à FullPowerExhaust — aucune comptabilité manuelle.
-La commission est plafonnée pour toujours laisser au moins 1 centime au compte
-connecté (contrainte Stripe).
+## Installation côté Beassisted (une seule fois)
 
-### Note fiscale
-Dans ce schéma, le compte plateforme est « merchant of record » : c'est
-Beassisted qui encaisse et reverse. Validez le schéma de facturation
-(refacturation ou commission) avec votre comptable.
+1. Créer un compte Stripe **plateforme** et activer **Stripe Connect** (Standard).
+2. Copier `beassisted-pay/config.example.php` → `config.local.php` et renseigner :
+   - `stripe_secret_key` (clé secrète de la plateforme)
+   - `connect_client_id` (`ca_…`, Dashboard → Paramètres → Connect)
+   - `backend_url` (URL publique de `beassisted-pay/`)
+   - `webhook_secret` (`whsec_…`)
+   - `commission_type` / `commission_value` (la marge de Beassisted)
+3. Héberger `beassisted-pay/` sur un serveur PHP (7.4+) accessible en HTTPS,
+   dossier `data/` en écriture.
+4. Dans Stripe → Webhooks : créer un endpoint vers `{backend_url}/webhook`
+   (événement `checkout.session.completed`), et copier la `whsec_…`.
+
+## Installation côté marchand (très simple)
+
+1. Installer `modules/fpepayment/`.
+2. Configurer → renseigner l'**URL du backend** Beassisted → Enregistrer.
+3. Cliquer **« Se connecter à Stripe »** → l'onboarding Stripe s'ouvre →
+   le marchand renseigne son compte/RIB → retour automatique.
+4. C'est prêt : l'option « Payer par carte bancaire » apparaît à l'étape paiement.
+
+## Endpoints du backend
+
+| Endpoint | Rôle |
+|---|---|
+| `GET /onboarding/start?return_url=…` | Lance l'onboarding Stripe |
+| `GET /onboarding/callback` | Échange le code → `acct_` → clé marchand |
+| `POST /create-session` | Crée la session (commission + transfert) |
+| `GET /retrieve-session` | Statut d'une session |
+| `POST /register-webhook` | Le module déclare son URL de notification |
+| `POST /webhook` | Reçoit les événements Stripe |
+
+## Limites
+
+- Devise **EUR** uniquement.
+- Un seul article de ligne (le total TTC) sur la page Stripe.
+- Le backend stocke les marchands dans `data/merchants.json` (suffisant pour
+  un démarrage ; passer à une vraie base SQL avant la mise en production à
+  grande échelle).
+
+## Note fiscale
+
+Dans ce schéma (« destination charge »), la plateforme est *merchant of record* :
+c'est Beassisted qui encaisse puis reverse. Valider le schéma de facturation
+avec un comptable.
