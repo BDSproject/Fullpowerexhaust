@@ -33,11 +33,51 @@
   color: var(--fpe-muted-fg);
 }
 
+// ----------------------------------------------------------------------------
+// Cases à cocher et boutons radio
+// ----------------------------------------------------------------------------
+// Bootstrap dessine un .form-check-input NON coché avec :
+//   background-color: var(--bs-form-check-bg) → --bs-body-bg, soit #0d0d0d
+//   border: 1px solid var(--bs-border-color) → rgba(255, 255, 255, 0.09)
+// Sur notre thème sombre, la case se confondait donc avec le fond et restait
+// invisible (consentement RGPD, conditions de vente, options de livraison,
+// moyens de paiement…). On force un fond BLANC bien lisible ; une fois cochée,
+// la case passe au rouge de marque avec la coche blanche.
 .form-check-input {
+  --bs-form-check-bg: #ffffff;
+  background-color: #ffffff;
+  border: 1px solid #b8b8b8;
+  cursor: pointer;
   accent-color: var(--fpe-primary);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: var(--fpe-primary);
+  }
+
+  &:focus,
+  &:focus-visible {
+    border-color: var(--fpe-primary);
+    box-shadow: 0 0 0 0.2rem rgba(200, 21, 42, 0.28);
+  }
 
   &:checked {
     background-color: var(--fpe-primary);
     border-color: var(--fpe-primary);
+  }
+
+  // ⚠️ `:indeterminate` ne concerne QUE les cases à cocher. Appliqué aux boutons
+  // radio, il correspond à « aucune radio sélectionnée dans le groupe » : la
+  // règle peignait donc TOUS les radios décochés en rouge (Mr./Mrs., livraison,
+  // moyens de paiement…). On le restreint explicitement au type checkbox.
+  &[type='checkbox']:indeterminate {
+    background-color: var(--fpe-primary);
+    border-color: var(--fpe-primary);
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
   }
 }

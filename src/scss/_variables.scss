@@ -96,8 +96,11 @@
   --bs-form-select-bg:         #1a1a1a;
   --bs-form-select-color:      var(--fpe-fg);
   --bs-form-select-border-color: var(--fpe-border);
-  --bs-form-check-input-bg:    #1a1a1a;
-  --bs-form-check-input-border: var(--fpe-border);
+  // Cases à cocher / boutons radio : Bootstrap 5.3 lit --bs-form-check-bg
+  // (les anciens noms --bs-form-check-input-bg / -border n'existent pas et
+  // n'avaient donc aucun effet). Fond blanc pour rester visibles sur le thème
+  // sombre — cf. _forms.scss.
+  --bs-form-check-bg:          #ffffff;
   --bs-input-placeholder-color: rgba(136, 136, 136, 0.55);
   --bs-input-focus-border-color: var(--fpe-primary);
   --bs-input-focus-box-shadow:   0 0 0 0.2rem rgba(200, 21, 42, 0.18);
