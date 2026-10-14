@@ -51,7 +51,11 @@ class FpePayment extends PaymentModule
             && Configuration::updateValue('FPE_STRIPE_TEST_SECRET', '')
             && Configuration::updateValue('FPE_STRIPE_LIVE_SECRET', '')
             && Configuration::updateValue('FPE_STRIPE_WEBHOOK_SECRET', '')
-            && Configuration::updateValue('FPE_STRIPE_AWAITING_STATE', (int) Configuration::get('PS_OS_CHEQUE'));
+            && Configuration::updateValue('FPE_STRIPE_AWAITING_STATE', (int) Configuration::get('PS_OS_CHEQUE'))
+            && Configuration::updateValue('FPE_STRIPE_CONNECT_ENABLED', 0)
+            && Configuration::updateValue('FPE_STRIPE_CONNECTED_ACCOUNT', '')
+            && Configuration::updateValue('FPE_STRIPE_COMMISSION_TYPE', 'percent')
+            && Configuration::updateValue('FPE_STRIPE_COMMISSION_VALUE', '0');
     }
 
     public function uninstall()
@@ -61,7 +65,11 @@ class FpePayment extends PaymentModule
             && Configuration::deleteByName('FPE_STRIPE_TEST_SECRET')
             && Configuration::deleteByName('FPE_STRIPE_LIVE_SECRET')
             && Configuration::deleteByName('FPE_STRIPE_WEBHOOK_SECRET')
-            && Configuration::deleteByName('FPE_STRIPE_AWAITING_STATE');
+            && Configuration::deleteByName('FPE_STRIPE_AWAITING_STATE')
+            && Configuration::deleteByName('FPE_STRIPE_CONNECT_ENABLED')
+            && Configuration::deleteByName('FPE_STRIPE_CONNECTED_ACCOUNT')
+            && Configuration::deleteByName('FPE_STRIPE_COMMISSION_TYPE')
+            && Configuration::deleteByName('FPE_STRIPE_COMMISSION_VALUE');
     }
 
     /* --------------------------------------------------------------------- */
@@ -102,6 +110,10 @@ class FpePayment extends PaymentModule
             Configuration::updateValue('FPE_STRIPE_LIVE_SECRET', (string) Tools::getValue('FPE_STRIPE_LIVE_SECRET'));
             Configuration::updateValue('FPE_STRIPE_WEBHOOK_SECRET', (string) Tools::getValue('FPE_STRIPE_WEBHOOK_SECRET'));
             Configuration::updateValue('FPE_STRIPE_AWAITING_STATE', (int) Tools::getValue('FPE_STRIPE_AWAITING_STATE'));
+            Configuration::updateValue('FPE_STRIPE_CONNECT_ENABLED', (int) Tools::getValue('FPE_STRIPE_CONNECT_ENABLED', 0));
+            Configuration::updateValue('FPE_STRIPE_CONNECTED_ACCOUNT', (string) Tools::getValue('FPE_STRIPE_CONNECTED_ACCOUNT'));
+            Configuration::updateValue('FPE_STRIPE_COMMISSION_TYPE', (string) Tools::getValue('FPE_STRIPE_COMMISSION_TYPE', 'percent'));
+            Configuration::updateValue('FPE_STRIPE_COMMISSION_VALUE', (string) Tools::getValue('FPE_STRIPE_COMMISSION_VALUE', '0'));
             $output .= $this->displayConfirmation($this->l('Paramètres enregistrés.'));
         }
 
@@ -117,6 +129,10 @@ class FpePayment extends PaymentModule
                 'awaiting_state' => (int) Configuration::get('FPE_STRIPE_AWAITING_STATE'),
                 'webhook_url' => $webhookUrl,
                 'order_states' => OrderState::getOrderStates((int) $this->context->language->id),
+                'connect_enabled' => (int) Configuration::get('FPE_STRIPE_CONNECT_ENABLED'),
+                'connected_account' => Configuration::get('FPE_STRIPE_CONNECTED_ACCOUNT'),
+                'commission_type' => Configuration::get('FPE_STRIPE_COMMISSION_TYPE'),
+                'commission_value' => Configuration::get('FPE_STRIPE_COMMISSION_VALUE'),
             ],
         ]);
 
@@ -186,10 +202,12 @@ class FpePayment extends PaymentModule
 
     /**
      * Crée une Checkout Session (page hébergée) pour un montant total.
+     * En mode Stripe Connect, la commission (application_fee) est prélevée au
+     * profit du compte plateforme et le solde est reversé au compte connecté.
      */
     public function createCheckoutSession(string $successUrl, string $cancelUrl, string $orderReference, float $totalEur, string $customerEmail): array
     {
-        return $this->stripeRequest('POST', '/checkout/sessions', [
+        $params = [
             'mode' => 'payment',
             'line_items[0][price_data][currency]' => 'eur',
             'line_items[0][price_data][unit_amount]' => (int) round($totalEur * 100),
@@ -200,7 +218,59 @@ class FpePayment extends PaymentModule
             'success_url' => $successUrl,
             'cancel_url' => $cancelUrl,
             'payment_intent_data[metadata][order_reference]' => $orderReference,
-        ]);
+        ];
+
+        if ($this->isConnectEnabled()) {
+            $destination = $this->getConnectedAccountId();
+            if ($destination !== '') {
+                $params['payment_intent_data[application_fee_amount]'] = $this->getCommissionCents($totalEur);
+                $params['payment_intent_data[transfer_data][destination]'] = $destination;
+            }
+        }
+
+        return $this->stripeRequest('POST', '/checkout/sessions', $params);
+    }
+
+    /**
+     * Le mode marketplace (Stripe Connect) est-il activé ?
+     */
+    public function isConnectEnabled(): bool
+    {
+        return (bool) Configuration::get('FPE_STRIPE_CONNECT_ENABLED', null, null, null, 0);
+    }
+
+    /**
+     * Identifiant du compte connecté (acct_…) qui reçoit le solde.
+     */
+    public function getConnectedAccountId(): string
+    {
+        return (string) Configuration::get('FPE_STRIPE_CONNECTED_ACCOUNT');
+    }
+
+    /**
+     * Calcule la commission de la plateforme (Beassisted) en centimes.
+     * La commission est plafonnée pour rester strictement inférieure au total.
+     */
+    public function getCommissionCents(float $totalEur): int
+    {
+        $type = (string) Configuration::get('FPE_STRIPE_COMMISSION_TYPE', null, null, null, 'percent');
+        $value = (float) Configuration::get('FPE_STRIPE_COMMISSION_VALUE', null, null, null, 0);
+        $totalCents = (int) round($totalEur * 100);
+
+        $feeCents = $type === 'fixed'
+            ? (int) round($value * 100)
+            : (int) round($totalEur * $value);
+
+        if ($feeCents < 0) {
+            $feeCents = 0;
+        }
+        // Stripe exige que la commission soit inférieure au montant total :
+        // on laisse toujours au moins 1 centime au compte connecté.
+        if ($feeCents >= $totalCents) {
+            $feeCents = max(0, $totalCents - 1);
+        }
+
+        return $feeCents;
     }
 
     public function retrieveCheckoutSession(string $sessionId): array

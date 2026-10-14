@@ -43,3 +43,35 @@ Webhook                  → webhook.php : confirme la commande même si le
 - Signature des webhooks vérifiée (HMAC-SHA256, comparaison à temps constant).
 - Aucune donnée carte ne transite par le serveur.
 - Confirmation idempotente (le webhook et la page de retour peuvent se croiser).
+
+## Stripe Connect — répartition plateforme / vendeur (marketplace)
+
+Le module peut, en plus de traiter le paiement, **répartir les fonds** entre
+deux comptes Stripe :
+
+```
+Client paie 100 €
+      │
+      ▼
+Compte plateforme (Beassisted)
+      ├──► commission (ex. 3 €)  →  reste sur Beassisted
+      └──► solde (ex. 97 €)      →  transfert vers le compte connecté (FullPowerExhaust)
+```
+
+C'est un « destination charge » avec « application fee » :
+
+1. Dans Stripe, activer **Stripe Connect** sur le compte plateforme (Beassisted).
+2. Créer le **compte connecté** FullPowerExhaust via l'onboarding Connect
+   (Stripe → Connect → Comptes → Créer), et noter son identifiant `acct_…`.
+3. Dans le module : cocher **« Activer la répartition »**, coller le `acct_…`,
+   et renseigner la **commission** (en % ou montant fixe).
+
+À chaque paiement, Stripe prélève automatiquement la commission pour Beassisted
+et reverse le solde à FullPowerExhaust — aucune comptabilité manuelle.
+La commission est plafonnée pour toujours laisser au moins 1 centime au compte
+connecté (contrainte Stripe).
+
+### Note fiscale
+Dans ce schéma, le compte plateforme est « merchant of record » : c'est
+Beassisted qui encaisse et reverse. Validez le schéma de facturation
+(refacturation ou commission) avec votre comptable.
