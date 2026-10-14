@@ -37,3 +37,7 @@ Thumbs.db
 *.sql
 !deploy/*.sql
 /dump.sql
+
+# ── Caches CCC générés (thème) — régénérés automatiquement, jamais versionnés ──
+themes/*/assets/cache/
+var/cache/
