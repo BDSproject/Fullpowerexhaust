@@ -29,6 +29,28 @@
         </div>
       </div>
 
+      {* ── Limitation du SDK PayPal ── *}
+      <div class="panel">
+        <div class="panel-heading"><i class="icon-credit-card"></i> SDK PayPal (ps_checkout)</div>
+        <div class="panel-body">
+          <form method="post" class="form-inline">
+            <label class="checkbox-inline">
+              <input type="checkbox" name="fpe_limit_sdk" value="1" {if $fpe.limit_sdk}checked{/if}>
+              Charger le SDK PayPal <strong>uniquement sur la page de commande</strong>
+            </label>
+            <button type="submit" name="submitFpeSdk" class="btn btn-primary" style="margin-left:10px;">
+              Enregistrer
+            </button>
+          </form>
+          <p class="text-muted" style="margin-top:8px;">
+            Le SDK JavaScript de PayPal (~250 Ko) et son CSS sont retirés des fiches
+            produit, du panier et de l'accueil tant que cette option est cochée —
+            ils restent actifs sur le tunnel de commande, où le paiement en a besoin.
+            Décochez si vous utilisez le bouton PayPal express sur les fiches produit.
+          </p>
+        </div>
+      </div>
+
       {* ── État du cache ── *}
       <div class="panel">
         <div class="panel-heading"><i class="icon-dashboard"></i> État du cache</div>

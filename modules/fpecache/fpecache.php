@@ -36,12 +36,45 @@ class FpeCache extends Module
 
     public function install()
     {
-        return parent::install();
+        return parent::install()
+            && $this->registerHook('actionFrontControllerSetMedia')
+            && Configuration::updateValue('FPECACHE_LIMIT_PSCHECKOUT_SDK', 1);
     }
 
     public function uninstall()
     {
-        return parent::uninstall();
+        return parent::uninstall()
+            && Configuration::deleteByName('FPECACHE_LIMIT_PSCHECKOUT_SDK');
+    }
+
+    /**
+     * Limite le SDK PayPal (ps_checkout) à la page de commande.
+     *
+     * ps_checkout charge son SDK JavaScript (~250 Ko) et son CSS sur la fiche
+     * produit, le panier, l'accueil… dès que le bouton express ou le message
+     * « Payer en 4X » est actif. Sur la page de commande le SDK est nécessaire ;
+     * partout ailleurs, il alourdit inutilement. Ce hook retire les assets
+     * enregistrés par ps_checkout quand on n'est pas sur le tunnel.
+     */
+    public function hookActionFrontControllerSetMedia()
+    {
+        if (!(int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', 1)) {
+            return;
+        }
+
+        $controller = $this->context->controller;
+        if (!$controller instanceof FrontController) {
+            return;
+        }
+
+        $phpSelf = (string) ($controller->php_self ?? '');
+        if (in_array($phpSelf, ['order', 'orderopc'], true)) {
+            return;
+        }
+
+        // Identifiants enregistrés par modules/ps_checkout/ps_checkout.php
+        $controller->unregisterJavascript('ps_checkoutFront');
+        $controller->unregisterStylesheet('ps-checkout-css-paymentOptions');
     }
 
     /**
@@ -69,6 +102,12 @@ class FpeCache extends Module
             $output .= $result
                 ? $this->displayConfirmation('Configuration du cache système mise à jour (app/config/parameters.php).')
                 : $this->displayError('Impossible d\'écrire app/config/parameters.php. Vérifiez ses permissions.');
+        }
+
+        if (Tools::isSubmit('submitFpeSdk')) {
+            Configuration::updateValue('FPECACHE_LIMIT_PSCHECKOUT_SDK', (int) Tools::getValue('fpe_limit_sdk', 1));
+            Media::clearCache();
+            $output .= $this->displayConfirmation('Réglage du SDK PayPal enregistré.');
         }
 
         $this->context->smarty->assign([
@@ -138,6 +177,7 @@ class FpeCache extends Module
             'checkout' => $checkout,
             'volumes' => $volumes,
             'backends' => $availableBackends,
+            'limit_sdk' => (int) Configuration::get('FPECACHE_LIMIT_PSCHECKOUT_SDK', 1),
             'php_version' => PHP_VERSION,
             'memory_limit' => ini_get('memory_limit'),
             'opcache' => extension_loaded('Zend OPcache'),

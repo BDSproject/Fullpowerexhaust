@@ -108,9 +108,10 @@
 
 {block name='stylesheets'}
   {include file='_partials/stylesheets.tpl' stylesheets=$stylesheets}
-  {* FULLPOWEREXHAUST — surcharge CSS chargée après theme.css *}
-  <link rel="stylesheet" href="{$urls.theme_assets}css/custom.css" type="text/css" media="all">
-  {* FULLPOWEREXHAUST — utilitaires Tailwind (classes du template Figma) *}
+  {* FULLPOWEREXHAUST — custom.css est déjà enregistré par PrestaShop
+     (FrontController, id « theme-custom », priorité 1000) et combiné dans le
+     bundle CCC : le re-déclarer ici le téléchargeait DEUX FOIS. On ne garde
+     que Tailwind, qui n'est pas enregistré par le cœur. *}
   <link rel="stylesheet" href="{$urls.theme_assets}css/tailwind.css" type="text/css" media="all">
 {/block}
 
